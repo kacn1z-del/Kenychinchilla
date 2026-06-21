@@ -736,5 +736,117 @@
 
     renderDictTable();
 </script>
+
+    <!-- ===== FIREBASE ANALYTICS ===== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtSnVv5N92ongrIAKpUA5lPDOur6Cqd0o",
+            authDomain: "keny-chinchilla.firebaseapp.com",
+            projectId: "keny-chinchilla",
+            storageBucket: "keny-chinchilla.firebasestorage.app",
+            messagingSenderId: "1092421427289",
+            appId: "1:1092421427289:web:b71eff5715ea793548d148",
+            measurementId: "G-C47V9RF1DT"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // ── Evento: página vista ──
+        logEvent(analytics, 'page_view', {
+            page_title: 'KCN - Keny Chinchilla Navarro',
+            page_location: window.location.href
+        });
+
+        // ── Evento: clic en WhatsApp ──
+        document.querySelectorAll('a[href*="wa.me"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                logEvent(analytics, 'whatsapp_click', {
+                    page: window.location.pathname
+                });
+            });
+        });
+
+        // ── Evento: clic en Email ──
+        document.querySelectorAll('a[href*="mailto"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                logEvent(analytics, 'email_click', {
+                    page: window.location.pathname
+                });
+            });
+        });
+
+        // ── Evento: envío formulario de contacto ──
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', () => {
+                logEvent(analytics, 'contact_form_submit', {
+                    page: window.location.pathname
+                });
+            });
+        }
+
+        // ── Evento: aporte al diccionario ──
+        const dictForm = document.getElementById('dictionaryForm');
+        if (dictForm) {
+            dictForm.addEventListener('submit', () => {
+                logEvent(analytics, 'dictionary_contribution', {
+                    page: window.location.pathname
+                });
+            });
+        }
+
+        // ── Evento: clic en portafolio ──
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                logEvent(analytics, 'portfolio_click', {
+                    page: window.location.pathname
+                });
+            });
+        });
+
+        // ── Evento: tiempo en página (30 seg) ──
+        setTimeout(() => {
+            logEvent(analytics, 'engaged_30s', {
+                page: window.location.pathname
+            });
+        }, 30000);
+
+        // ── Evento: scroll al 50% ──
+        let scrollFired = false;
+        window.addEventListener('scroll', () => {
+            if (!scrollFired) {
+                const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                if (scrollPct >= 50) {
+                    scrollFired = true;
+                    logEvent(analytics, 'scroll_50_percent', {
+                        page: window.location.pathname
+                    });
+                }
+            }
+        });
+
+        // ── Evento: sección "Hacemos Apps" vista ──
+        const appsSection = document.getElementById('hacemos-apps');
+        if (appsSection) {
+            const appsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        logEvent(analytics, 'apps_section_view');
+                        appsObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+            appsObserver.observe(appsSection);
+        }
+
+        console.log('🔥 Firebase Analytics activo - KCN');
+    </script>
+    <!-- ===== FIN FIREBASE ANALYTICS ===== -->
+
 </body>
 </html>
