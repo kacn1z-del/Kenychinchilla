@@ -536,8 +536,321 @@
 <meta name="google-site-verification" content="PEGA_AQUI_TU_CODIGO_DE_GOOGLE_SEARCH_CONSOLE">
 <!-- Para obtenerlo: search.google.com/search-console → Agregar propiedad → URL prefix → Verificar con meta tag -->
 
+
+<style>
+/* ===== PREMIUM UPGRADES ===== */
+
+/* Tipografía mejorada */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+/* Cursor personalizado */
+* { cursor: none !important; }
+.custom-cursor {
+    width: 12px; height: 12px;
+    background: #00FF88;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+.custom-cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(0,255,136,0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    transition: all 0.15s ease;
+}
+
+/* Glassmorphism mejorado */
+.glass {
+    background: rgba(5, 26, 42, 0.55) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* Hover cards con glow */
+.glass-hover:hover {
+    background: rgba(5, 26, 42, 0.9) !important;
+    border: 1px solid rgba(0,255,136,0.4) !important;
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 25px 50px -12px rgba(0,255,136,0.2), 0 0 0 1px rgba(0,255,136,0.1) !important;
+}
+
+/* Gradiente de texto mejorado */
+.text-gradient {
+    background: linear-gradient(135deg, #00FF88 0%, #ffffff 50%, #00A3FF 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.text-gradient-brand {
+    background: linear-gradient(135deg, #00A3FF 0%, #66D9FF 50%, #00FF88 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: gradientShift 4s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Botón premium */
+.btn-primary {
+    background: linear-gradient(135deg, #00FF88 0%, #00A3FF 100%) !important;
+    color: #020B14 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 20px 40px -10px rgba(0,255,136,0.5), 0 0 0 1px rgba(0,255,136,0.3) !important;
+}
+
+/* Orbs animados mejorados */
+.orb {
+    animation: floatPremium 15s infinite ease-in-out !important;
+    filter: blur(60px) !important;
+    opacity: 0.25 !important;
+}
+
+@keyframes floatPremium {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    25% { transform: translate(40px, -60px) scale(1.15) rotate(5deg); }
+    50% { transform: translate(-20px, 30px) scale(0.9) rotate(-3deg); }
+    75% { transform: translate(30px, 20px) scale(1.05) rotate(2deg); }
+}
+
+/* Grid background mejorado */
+.grid-bg {
+    background-image: 
+        linear-gradient(rgba(0,163,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,163,255,0.03) 1px, transparent 1px),
+        radial-gradient(ellipse at 50% 50%, rgba(0,163,255,0.05) 0%, transparent 70%) !important;
+    background-size: 40px 40px, 40px 40px, 100% 100% !important;
+}
+
+/* Reveal animations mejoradas */
+.reveal {
+    opacity: 0 !important;
+    transform: translateY(40px) !important;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Nav mejorado */
+nav {
+    background: rgba(2, 11, 20, 0.8) !important;
+    backdrop-filter: blur(24px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(0,163,255,0.1) !important;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #020B14; }
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(#00A3FF, #00FF88);
+    border-radius: 2px;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(0,255,136,0.3);
+    color: #fff;
+}
+
+/* Input focus mejorado */
+input:focus, textarea:focus, select:focus {
+    border-color: #00FF88 !important;
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.15) !important;
+    outline: none !important;
+}
+
+/* Cards con shimmer effect */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.glass-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.glass-hover:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Floating labels en forms */
+.form-group { position: relative; }
+
+/* Badge premium */
+.badge {
+    background: linear-gradient(135deg, #00FF88, #00A3FF) !important;
+    color: #020B14 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    box-shadow: 0 4px 15px rgba(0,255,136,0.4) !important;
+}
+
+/* Línea decorativa animada */
+.animated-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00A3FF, #00FF88, transparent);
+    background-size: 200% 100%;
+    animation: lineFlow 3s linear infinite;
+}
+
+@keyframes lineFlow {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Número contador premium */
+[data-counter] {
+    font-variant-numeric: tabular-nums !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Efecto neon en hover de links */
+.nav-link:hover {
+    color: #00FF88 !important;
+    text-shadow: 0 0 20px rgba(0,255,136,0.5) !important;
+}
+
+/* WhatsApp button pulse */
+@keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8), 0 0 60px rgba(37,211,102,0.3); }
+}
+a[href*="wa.me"].fixed {
+    animation: waPulse 2s ease-in-out infinite !important;
+}
+
+/* Sección hero texto premium */
+h1 {
+    letter-spacing: -0.03em !important;
+    line-height: 1.05 !important;
+}
+
+/* Efecto typing cursor */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #00FF88;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ===== FIN PREMIUM CSS ===== */
+</style>
+
+
+<style>
+#lightbox {
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(2,11,20,0.95);
+    backdrop-filter: blur(20px);
+    display: none; align-items: center; justify-content: center;
+    flex-direction: column;
+}
+#lightbox.active { display: flex; animation: fadeIn 0.3s ease; }
+#lightbox img { max-width: 90vw; max-height: 80vh; border-radius: 16px; object-fit: contain; }
+#lightbox .lb-title { color: white; margin-top: 16px; font-weight: 600; }
+#lightbox .lb-close {
+    position: absolute; top: 20px; right: 20px;
+    color: white; font-size: 24px; cursor: pointer;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+}
+.project-card img { cursor: zoom-in !important; }
+</style>
+
 </head>
 <body class="antialiased">
+
+<!-- DARK/LIGHT MODE -->
+<button id="themeToggle" onclick="toggleTheme()"
+    class="fixed top-24 right-4 z-50 w-10 h-10 glass rounded-full flex items-center justify-center border border-[#00A3FF]/30 hover:border-[#00FF88]/50 transition-all duration-300 hover:scale-110"
+    title="Cambiar tema">
+    <i class="fa-solid fa-sun text-yellow-400 text-sm" id="themeIcon"></i>
+</button>
+
+<style>
+body.light-mode {
+    --bg: #f0f4f8;
+    --card: #ffffff;
+    --text: #1a2332;
+    --text-muted: #64748b;
+    background: #f0f4f8 !important;
+    color: #1a2332 !important;
+}
+body.light-mode .glass {
+    background: rgba(255,255,255,0.8) !important;
+    border-color: rgba(0,163,255,0.2) !important;
+}
+body.light-mode nav {
+    background: rgba(240,244,248,0.9) !important;
+}
+body.light-mode .text-gray-400 { color: #64748b !important; }
+body.light-mode .text-gray-300 { color: #475569 !important; }
+body.light-mode .text-gray-500 { color: #94a3b8 !important; }
+body.light-mode .text-white { color: #1a2332 !important; }
+body.light-mode section { background: transparent !important; }
+</style>
+<script>
+function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+    body.classList.toggle('light-mode');
+    const isLight = body.classList.contains('light-mode');
+    icon.className = isLight ? 'fa-solid fa-moon text-blue-400 text-sm' : 'fa-solid fa-sun text-yellow-400 text-sm';
+    localStorage.setItem('kcn_theme', isLight ? 'light' : 'dark');
+}
+// Aplicar tema guardado
+if (localStorage.getItem('kcn_theme') === 'light') {
+    document.body.classList.add('light-mode');
+    document.getElementById('themeIcon').className = 'fa-solid fa-moon text-blue-400 text-sm';
+}
+</script>
+
 
 <!-- ===== COOKIE BANNER ===== -->
 <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-[9998] glass border-t border-[#00A3FF]/20 p-4 md:p-6"
@@ -661,7 +974,8 @@ window.addEventListener('scroll', () => {
                 <a href="#portafolio" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Portafolio</a>
                 <a href="#blog" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Blog</a>
                 <a href="#resenas" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Reseñas</a>
-                <a href="#faq" class="nav-link text-sm font-medium text-gray-300 hover:text-white">FAQ</a>
+                <a href="#calculadora" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Calculadora</a>
+                <a href="#cotizar" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Cotizar</a>
                 <a href="#diccionario" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Diccionario</a>
                 <a href="#proceso" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Proceso</a>
                 <a href="#contacto" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">Hablemos</a>
@@ -730,6 +1044,64 @@ window.addEventListener('scroll', () => {
         </div>
     </div>
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce"><i class="fa-solid fa-chevron-down text-[#00A3FF] text-xl"></i></div>
+</section>
+
+
+<!-- TECH STACK -->
+<section class="py-16 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <p class="text-center text-gray-500 text-sm font-medium tracking-widest uppercase mb-8">Tecnologías que usamos</p>
+        <div class="flex flex-wrap justify-center gap-4 reveal">
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00A3FF]/50 transition group">
+                <i class="fa-brands fa-react text-[#61DAFB] text-lg group-hover:rotate-180 transition-transform duration-500"></i>
+                <span class="text-sm text-gray-300">React</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00FF88]/50 transition group">
+                <i class="fa-brands fa-node-js text-[#339933] text-lg"></i>
+                <span class="text-sm text-gray-300">Node.js</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00A3FF]/50 transition group">
+                <i class="fa-brands fa-python text-[#3776AB] text-lg"></i>
+                <span class="text-sm text-gray-300">Python</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00A3FF]/50 transition group">
+                <i class="fa-brands fa-flutter text-[#54C5F8] text-lg"></i>
+                <span class="text-sm text-gray-300">Flutter</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#FF9900]/50 transition group">
+                <i class="fa-brands fa-aws text-[#FF9900] text-lg"></i>
+                <span class="text-sm text-gray-300">AWS</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#4285F4]/50 transition group">
+                <i class="fa-brands fa-google text-[#4285F4] text-lg"></i>
+                <span class="text-sm text-gray-300">Firebase</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00A3FF]/50 transition group">
+                <i class="fa-brands fa-android text-[#3DDC84] text-lg"></i>
+                <span class="text-sm text-gray-300">Android</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#999]/50 transition group">
+                <i class="fa-brands fa-apple text-white text-lg"></i>
+                <span class="text-sm text-gray-300">iOS</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#F05032]/50 transition group">
+                <i class="fa-brands fa-git-alt text-[#F05032] text-lg"></i>
+                <span class="text-sm text-gray-300">Git</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#2496ED]/50 transition group">
+                <i class="fa-brands fa-docker text-[#2496ED] text-lg"></i>
+                <span class="text-sm text-gray-300">Docker</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00A3FF]/50 transition group">
+                <i class="fa-brands fa-linux text-white text-lg"></i>
+                <span class="text-sm text-gray-300">Linux</span>
+            </div>
+            <div class="glass px-5 py-3 rounded-full flex items-center gap-2 hover:border-[#00A3FF]/50 transition group">
+                <i class="fa-brands fa-wordpress text-[#21759B] text-lg"></i>
+                <span class="text-sm text-gray-300">WordPress</span>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- SOBRE MÍ -->
@@ -1821,6 +2193,81 @@ document.getElementById('resenaForm').addEventListener('submit', function(e) {
 });
 </script>
 
+
+<!-- TIMELINE -->
+<section id="experiencia" class="py-24 md:py-32 relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">EXPERIENCIA</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gradient-brand">Mi trayectoria</h2>
+        </div>
+
+        <div class="relative">
+            <!-- Línea central -->
+            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px" style="background: linear-gradient(180deg, #00A3FF, #00FF88, #a855f7);"></div>
+
+            <div class="space-y-12">
+
+                <div class="reveal flex gap-6 md:gap-0 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center z-10 relative md:absolute md:left-1/2 md:-translate-x-1/2" style="background:linear-gradient(135deg,#00A3FF,#00FF88);">
+                        <i class="fa-solid fa-rocket text-[#020B14] text-lg"></i>
+                    </div>
+                    <div class="glass rounded-2xl p-6 ml-4 md:ml-0 md:w-5/12 md:mr-auto">
+                        <p class="text-[#00FF88] text-xs font-bold mb-1">2014</p>
+                        <h3 class="font-bold text-white mb-2">Inicio en desarrollo web</h3>
+                        <p class="text-gray-400 text-sm">Primeros proyectos de diseño web y programación. Aprendizaje autodidacta y primeros clientes en Costa Rica.</p>
+                    </div>
+                </div>
+
+                <div class="reveal flex gap-6 md:gap-0 items-start md:flex-row-reverse">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center z-10 relative md:absolute md:left-1/2 md:-translate-x-1/2" style="background:linear-gradient(135deg,#a855f7,#ec4899);">
+                        <i class="fa-solid fa-mobile-screen text-white text-lg"></i>
+                    </div>
+                    <div class="glass rounded-2xl p-6 ml-4 md:ml-0 md:w-5/12 md:ml-auto">
+                        <p class="text-[#a855f7] text-xs font-bold mb-1">2017</p>
+                        <h3 class="font-bold text-white mb-2">Expansión a apps móviles</h3>
+                        <p class="text-gray-400 text-sm">Desarrollo de aplicaciones Android e iOS. Primeros proyectos empresariales de mayor envergadura.</p>
+                    </div>
+                </div>
+
+                <div class="reveal flex gap-6 md:gap-0 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center z-10 relative md:absolute md:left-1/2 md:-translate-x-1/2" style="background:linear-gradient(135deg,#00FF88,#00A3FF);">
+                        <i class="fa-solid fa-building text-[#020B14] text-lg"></i>
+                    </div>
+                    <div class="glass rounded-2xl p-6 ml-4 md:ml-0 md:w-5/12 md:mr-auto">
+                        <p class="text-[#00A3FF] text-xs font-bold mb-1">2020</p>
+                        <h3 class="font-bold text-white mb-2">Fundación de KCN</h3>
+                        <p class="text-gray-400 text-sm">Creación oficial de KCN como empresa de desarrollo tecnológico. Primeros 50 clientes y expansión a Latinoamérica.</p>
+                    </div>
+                </div>
+
+                <div class="reveal flex gap-6 md:gap-0 items-start md:flex-row-reverse">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center z-10 relative md:absolute md:left-1/2 md:-translate-x-1/2" style="background:linear-gradient(135deg,#ec4899,#a855f7);">
+                        <i class="fa-solid fa-chart-line text-white text-lg"></i>
+                    </div>
+                    <div class="glass rounded-2xl p-6 ml-4 md:ml-0 md:w-5/12 md:ml-auto">
+                        <p class="text-[#ec4899] text-xs font-bold mb-1">2023</p>
+                        <h3 class="font-bold text-white mb-2">100+ proyectos entregados</h3>
+                        <p class="text-gray-400 text-sm">Hito de 100 proyectos completados. Especialización en e-commerce, sistemas POS y apps empresariales.</p>
+                    </div>
+                </div>
+
+                <div class="reveal flex gap-6 md:gap-0 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center z-10 relative md:absolute md:left-1/2 md:-translate-x-1/2 animate-pulse" style="background:linear-gradient(135deg,#00FF88,#00A3FF); box-shadow:0 0 30px rgba(0,255,136,0.5);">
+                        <i class="fa-solid fa-star text-[#020B14] text-lg"></i>
+                    </div>
+                    <div class="glass rounded-2xl p-6 ml-4 md:ml-0 md:w-5/12 md:mr-auto" style="border-color:rgba(0,255,136,0.4);">
+                        <p class="text-[#00FF88] text-xs font-bold mb-1">2026 · HOY</p>
+                        <h3 class="font-bold text-white mb-2">KCN en constante crecimiento 🚀</h3>
+                        <p class="text-gray-400 text-sm">Nuevos servicios de marketing digital, IA y sistemas inteligentes. Expandiendo presencia en toda Latinoamérica.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- PROCESO -->
 <section id="proceso" class="py-24 md:py-32 relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1922,6 +2369,355 @@ document.getElementById('newsletterForm').addEventListener('submit', function(e)
         this.reset();
     }, 3000);
 });
+</script>
+
+
+<!-- CALCULADORA DE PRECIOS -->
+<section id="calculadora" class="py-24 md:py-32 relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">CALCULADORA</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gradient-brand">¿Cuánto cuesta tu proyecto?</h2>
+            <p class="text-gray-400 text-lg">Calculá el precio estimado de tu proyecto en segundos</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-12 reveal" style="border: 1px solid rgba(0,163,255,0.2);">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Opciones -->
+                <div class="space-y-6">
+                    <!-- Tipo de proyecto -->
+                    <div>
+                        <label class="block text-sm font-semibold mb-3 text-[#00A3FF]">¿Qué tipo de proyecto?</label>
+                        <div class="space-y-2" id="tipoProyecto">
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="radio" name="tipo" value="web_basica" class="accent-[#00FF88]" checked onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">🌐 Página web básica</span>
+                                <span class="ml-auto text-xs text-[#00FF88]">desde $120</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="radio" name="tipo" value="web_pro" class="accent-[#00FF88]" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">💼 Sitio web profesional</span>
+                                <span class="ml-auto text-xs text-[#00FF88]">desde $299</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="radio" name="tipo" value="ecommerce" class="accent-[#00FF88]" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">🛒 Tienda online</span>
+                                <span class="ml-auto text-xs text-[#00FF88]">desde $499</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="radio" name="tipo" value="app" class="accent-[#00FF88]" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">📱 App móvil</span>
+                                <span class="ml-auto text-xs text-[#00FF88]">desde $699</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="radio" name="tipo" value="software" class="accent-[#00FF88]" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">💻 Software empresarial</span>
+                                <span class="ml-auto text-xs text-[#00FF88]">desde $999</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Extras -->
+                    <div>
+                        <label class="block text-sm font-semibold mb-3 text-[#00A3FF]">¿Qué extras necesitás?</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="checkbox" value="150" class="accent-[#00FF88] extra-check" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">🔍 SEO avanzado</span>
+                                <span class="ml-auto text-xs text-gray-400">+$150</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="checkbox" value="200" class="accent-[#00FF88] extra-check" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">📊 Panel de administración</span>
+                                <span class="ml-auto text-xs text-gray-400">+$200</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="checkbox" value="100" class="accent-[#00FF88] extra-check" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">🌐 Multi-idioma</span>
+                                <span class="ml-auto text-xs text-gray-400">+$100</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="checkbox" value="250" class="accent-[#00FF88] extra-check" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">💳 Pasarela de pagos</span>
+                                <span class="ml-auto text-xs text-gray-400">+$250</span>
+                            </label>
+                            <label class="flex items-center gap-3 glass rounded-xl p-3 cursor-pointer hover:border-[#00FF88]/40 transition">
+                                <input type="checkbox" value="150" class="accent-[#00FF88] extra-check" onchange="calcularPrecio()">
+                                <span class="text-sm text-gray-300">📱 App móvil complementaria</span>
+                                <span class="ml-auto text-xs text-gray-400">+$150</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resultado -->
+                <div class="flex flex-col justify-between">
+                    <div class="glass rounded-2xl p-8 text-center mb-6" style="background: rgba(0,163,255,0.05); border: 1px solid rgba(0,163,255,0.3);">
+                        <p class="text-gray-400 text-sm mb-2">Estimado de tu proyecto</p>
+                        <div class="text-6xl font-black text-gradient-brand mb-2" id="precioEstimado">$120</div>
+                        <p class="text-xs text-gray-500">USD · Precio de referencia</p>
+
+                        <!-- Barra de complejidad -->
+                        <div class="mt-6">
+                            <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                <span>Complejidad</span>
+                                <span id="complejidadLabel">Básica</span>
+                            </div>
+                            <div class="h-2 glass rounded-full overflow-hidden">
+                                <div id="complejidadBar" class="h-full rounded-full transition-all duration-700"
+                                     style="width:20%; background:linear-gradient(90deg,#00FF88,#00A3FF)"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tiempo estimado -->
+                        <div class="mt-4 glass rounded-xl p-3">
+                            <p class="text-xs text-gray-500">⏱️ Tiempo estimado: <span id="tiempoEstimado" class="text-white font-semibold">3-5 días</span></p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <a id="cotizarBtn"
+                           href="https://wa.me/50687359034?text=Hola%20Keny,%20usé%20la%20calculadora%20y%20me%20interesa%20cotizar%20mi%20proyecto"
+                           target="_blank"
+                           class="btn-primary w-full py-4 rounded-xl font-bold text-center block">
+                            <i class="fa-brands fa-whatsapp mr-2"></i> Cotizar este proyecto
+                        </a>
+                        <p class="text-xs text-gray-500 text-center">* Precio referencial. La cotización final puede variar según requerimientos específicos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const precios = {
+    web_basica: { base: 120, tiempo: '3-5 días', complejidad: 20, label: 'Básica' },
+    web_pro: { base: 299, tiempo: '1-2 semanas', complejidad: 40, label: 'Media' },
+    ecommerce: { base: 499, tiempo: '2-3 semanas', complejidad: 60, label: 'Media-Alta' },
+    app: { base: 699, tiempo: '3-6 semanas', complejidad: 75, label: 'Alta' },
+    software: { base: 999, tiempo: '4-8 semanas', complejidad: 90, label: 'Muy Alta' }
+};
+
+function calcularPrecio() {
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+    const extras = [...document.querySelectorAll('.extra-check:checked')].reduce((sum, el) => sum + parseInt(el.value), 0);
+    const data = precios[tipo];
+    const total = data.base + extras;
+
+    document.getElementById('precioEstimado').textContent = '$' + total.toLocaleString();
+    document.getElementById('tiempoEstimado').textContent = data.tiempo;
+    document.getElementById('complejidadLabel').textContent = data.label;
+    document.getElementById('complejidadBar').style.width = Math.min(data.complejidad + (extras/20), 100) + '%';
+
+    const msg = encodeURIComponent(`Hola Keny! Usé la calculadora de KCN:
+
+📋 Proyecto: ${tipo.replace(/_/g,' ')}
+💰 Estimado: $${total} USD
+⏱️ Tiempo: ${data.tiempo}
+
+¿Me podés dar una cotización formal?`);
+    document.getElementById('cotizarBtn').href = 'https://wa.me/50687359034?text=' + msg;
+}
+</script>
+
+
+<!-- QUIZ -->
+<section id="quiz" class="py-24 md:py-32 relative">
+    <div class="max-w-2xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">QUIZ</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-brand">¿Qué necesita tu negocio?</h2>
+            <p class="text-gray-400">Respondé 4 preguntas y te decimos exactamente qué solución digital es para vos</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 reveal">
+            <!-- Progress -->
+            <div class="flex gap-2 mb-8">
+                <div class="quiz-progress flex-1 h-2 rounded-full" id="qp1" style="background:linear-gradient(90deg,#00A3FF,#00FF88);"></div>
+                <div class="quiz-progress flex-1 h-2 rounded-full" id="qp2" style="background:rgba(255,255,255,0.1);"></div>
+                <div class="quiz-progress flex-1 h-2 rounded-full" id="qp3" style="background:rgba(255,255,255,0.1);"></div>
+                <div class="quiz-progress flex-1 h-2 rounded-full" id="qp4" style="background:rgba(255,255,255,0.1);"></div>
+            </div>
+
+            <div id="quizContainer">
+                <!-- Pregunta 1 -->
+                <div id="q1">
+                    <p class="text-xs text-[#00A3FF] font-semibold mb-2">PREGUNTA 1 DE 4</p>
+                    <h3 class="text-xl font-bold text-white mb-6">¿Cuál describe mejor tu negocio?</h3>
+                    <div class="space-y-3">
+                        <button onclick="quizAnswer(1,'comercio')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">🏪</span><span class="text-gray-300">Tengo una tienda o negocio físico</span>
+                        </button>
+                        <button onclick="quizAnswer(1,'servicio')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">💼</span><span class="text-gray-300">Ofrezco servicios profesionales</span>
+                        </button>
+                        <button onclick="quizAnswer(1,'startup')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">🚀</span><span class="text-gray-300">Tengo una idea o startup</span>
+                        </button>
+                        <button onclick="quizAnswer(1,'empresa')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">🏢</span><span class="text-gray-300">Soy una empresa o PYME</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div id="q2" class="hidden">
+                    <p class="text-xs text-[#00A3FF] font-semibold mb-2">PREGUNTA 2 DE 4</p>
+                    <h3 class="text-xl font-bold text-white mb-6">¿Cuál es tu objetivo principal?</h3>
+                    <div class="space-y-3">
+                        <button onclick="quizAnswer(2,'ventas')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">💰</span><span class="text-gray-300">Aumentar ventas y clientes</span>
+                        </button>
+                        <button onclick="quizAnswer(2,'presencia')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">🌐</span><span class="text-gray-300">Tener presencia digital</span>
+                        </button>
+                        <button onclick="quizAnswer(2,'automatizar')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">⚙️</span><span class="text-gray-300">Automatizar procesos internos</span>
+                        </button>
+                        <button onclick="quizAnswer(2,'app')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">📱</span><span class="text-gray-300">Lanzar una app o producto digital</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div id="q3" class="hidden">
+                    <p class="text-xs text-[#00A3FF] font-semibold mb-2">PREGUNTA 3 DE 4</p>
+                    <h3 class="text-xl font-bold text-white mb-6">¿Cuál es tu presupuesto aproximado?</h3>
+                    <div class="space-y-3">
+                        <button onclick="quizAnswer(3,'bajo')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">💵</span><span class="text-gray-300">Menos de $300 USD</span>
+                        </button>
+                        <button onclick="quizAnswer(3,'medio')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">💵💵</span><span class="text-gray-300">$300 - $700 USD</span>
+                        </button>
+                        <button onclick="quizAnswer(3,'alto')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">💵💵💵</span><span class="text-gray-300">$700 - $1,500 USD</span>
+                        </button>
+                        <button onclick="quizAnswer(3,'premium')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">💎</span><span class="text-gray-300">Más de $1,500 USD</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div id="q4" class="hidden">
+                    <p class="text-xs text-[#00A3FF] font-semibold mb-2">PREGUNTA 4 DE 4</p>
+                    <h3 class="text-xl font-bold text-white mb-6">¿Para cuándo lo necesitás?</h3>
+                    <div class="space-y-3">
+                        <button onclick="quizAnswer(4,'urgente')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">🔥</span><span class="text-gray-300">Lo antes posible</span>
+                        </button>
+                        <button onclick="quizAnswer(4,'mes')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">📅</span><span class="text-gray-300">En el próximo mes</span>
+                        </button>
+                        <button onclick="quizAnswer(4,'planificando')" class="quiz-opt w-full glass rounded-xl p-4 text-left flex items-center gap-3 hover:border-[#00FF88]/50 transition">
+                            <span class="text-2xl">📋</span><span class="text-gray-300">Estoy planificando (2-3 meses)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resultado -->
+                <div id="qresult" class="hidden text-center">
+                    <div class="text-6xl mb-4" id="qResultEmoji">🎯</div>
+                    <h3 class="text-2xl font-bold text-white mb-3" id="qResultTitle">Tu solución ideal</h3>
+                    <p class="text-gray-400 mb-6" id="qResultDesc">Descripción</p>
+                    <div class="glass rounded-2xl p-4 mb-6 text-left" id="qResultDetails"></div>
+                    <a id="qResultBtn" href="https://wa.me/50687359034" target="_blank" class="btn-primary px-8 py-4 rounded-full font-bold inline-block mb-4">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Hablar con Keny
+                    </a>
+                    <br>
+                    <button onclick="resetQuiz()" class="text-sm text-gray-400 hover:text-white transition">↺ Hacer el quiz de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+let quizAnswers = {};
+let currentQ = 1;
+
+function quizAnswer(q, answer) {
+    quizAnswers[q] = answer;
+    document.getElementById('q' + q).classList.add('hidden');
+    document.getElementById('qp' + q).style.background = 'linear-gradient(90deg,#00FF88,#00A3FF)';
+
+    if (q < 4) {
+        currentQ = q + 1;
+        document.getElementById('q' + currentQ).classList.remove('hidden');
+        document.getElementById('qp' + currentQ).style.background = 'linear-gradient(90deg,#00A3FF,#00FF88)';
+    } else {
+        showQuizResult();
+    }
+}
+
+function showQuizResult() {
+    document.getElementById('qp4').style.background = 'linear-gradient(90deg,#00FF88,#00A3FF)';
+    document.getElementById('qresult').classList.remove('hidden');
+
+    const {1: tipo, 2: objetivo, 3: budget, 4: tiempo} = quizAnswers;
+    let result = { emoji: '🌐', title: '', desc: '', details: '', plan: '', precio: '' };
+
+    if (objetivo === 'app' || tipo === 'startup') {
+        result = { emoji: '📱', title: '¡Necesitás una App Móvil!', desc: 'Tu negocio tiene el potencial perfecto para una aplicación móvil que llegue a miles de usuarios.', details: '✅ App Android & iOS
+✅ Backend incluido
+✅ Publicación en stores
+✅ Panel de administración', plan: 'Plan Enterprise', precio: 'desde $699 USD' };
+    } else if (objetivo === 'ventas' || tipo === 'comercio') {
+        result = { emoji: '🛒', title: '¡Necesitás una Tienda Online!', desc: 'Con una tienda online podés vender las 24 horas sin límites geográficos.', details: '✅ Catálogo de productos
+✅ Carrito de compras
+✅ Pasarela de pagos
+✅ Panel admin', plan: 'Plan Profesional', precio: 'desde $499 USD' };
+    } else if (objetivo === 'automatizar' || tipo === 'empresa') {
+        result = { emoji: '⚙️', title: '¡Necesitás Software Empresarial!', desc: 'Un sistema a medida que automatice tus procesos y mejore la eficiencia de tu empresa.', details: '✅ CRM o ERP personalizado
+✅ Sistema POS
+✅ Base de datos
+✅ Reportes automáticos', plan: 'Plan Enterprise', precio: 'desde $999 USD' };
+    } else if (budget === 'bajo') {
+        result = { emoji: '🌐', title: '¡El Plan PYME es para vos!', desc: 'Presencia digital profesional a un precio accesible. Perfecto para empezar.', details: '✅ Página web profesional
+✅ Diseño responsive
+✅ Botón WhatsApp
+✅ Hosting incluido', plan: 'Plan PYME', precio: '$120 USD' };
+    } else {
+        result = { emoji: '💼', title: '¡Necesitás un Sitio Web Profesional!', desc: 'Una presencia digital completa que refleje la calidad de tu negocio.', details: '✅ Hasta 15 páginas
+✅ SEO avanzado
+✅ Panel admin
+✅ Google Analytics', plan: 'Plan Profesional', precio: '$699 USD' };
+    }
+
+    document.getElementById('qResultEmoji').textContent = result.emoji;
+    document.getElementById('qResultTitle').textContent = result.title;
+    document.getElementById('qResultDesc').textContent = result.desc;
+    document.getElementById('qResultDetails').innerHTML = result.details.split('
+').map(l => `<p class="text-sm text-gray-300 py-1">${l}</p>`).join('');
+
+    const msg = encodeURIComponent(`Hola Keny! Hice el quiz de KCN y me recomendó: ${result.title}
+
+Mi perfil:
+• Negocio: ${quizAnswers[1]}
+• Objetivo: ${quizAnswers[2]}
+• Presupuesto: ${quizAnswers[3]}
+• Plazo: ${quizAnswers[4]}
+
+Quiero más información sobre el ${result.plan} (${result.precio})`);
+    document.getElementById('qResultBtn').href = 'https://wa.me/50687359034?text=' + msg;
+
+    if (typeof gtag !== 'undefined') gtag('event', 'quiz_completed', { result: result.title });
+}
+
+function resetQuiz() {
+    quizAnswers = {};
+    currentQ = 1;
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById('q' + i)?.classList.add('hidden');
+        document.getElementById('qp' + i).style.background = 'rgba(255,255,255,0.1)';
+    }
+    document.getElementById('qresult').classList.add('hidden');
+    document.getElementById('q1').classList.remove('hidden');
+    document.getElementById('qp1').style.background = 'linear-gradient(90deg,#00A3FF,#00FF88)';
+}
 </script>
 
 <!-- FAQ -->
@@ -2043,6 +2839,190 @@ function toggleFaq(btn) {
         answer.classList.remove('hidden');
         icon.style.transform = 'rotate(180deg)';
     }
+}
+</script>
+
+
+<!-- FORMULARIO COTIZACIÓN PASOS -->
+<section id="cotizar" class="py-24 md:py-32 relative">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">COTIZACIÓN</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gradient-brand">Cotizá tu proyecto</h2>
+            <p class="text-gray-400">Completá el formulario y recibís tu cotización en menos de 24 horas</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 reveal">
+            <!-- Progress bar -->
+            <div class="flex items-center gap-2 mb-8">
+                <div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold active-step" id="step1ind" style="background:linear-gradient(135deg,#00FF88,#00A3FF); color:#020B14;">1</div>
+                <div class="flex-1 h-1 rounded-full" id="line12" style="background:rgba(255,255,255,0.1);"></div>
+                <div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold glass" id="step2ind" style="color:#9CA3AF;">2</div>
+                <div class="flex-1 h-1 rounded-full" id="line23" style="background:rgba(255,255,255,0.1);"></div>
+                <div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold glass" id="step3ind" style="color:#9CA3AF;">3</div>
+            </div>
+
+            <!-- Paso 1 -->
+            <div id="cotizarStep1">
+                <h3 class="text-xl font-bold text-white mb-6">¿Qué tipo de proyecto tenés?</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="selectTipoCot('Página web básica')" class="cot-btn glass rounded-2xl p-4 text-left hover:border-[#00FF88]/50 transition">
+                        <div class="text-2xl mb-2">🌐</div>
+                        <p class="font-semibold text-white text-sm">Página web</p>
+                        <p class="text-xs text-gray-400">Desde $120 USD</p>
+                    </button>
+                    <button onclick="selectTipoCot('Tienda online')" class="cot-btn glass rounded-2xl p-4 text-left hover:border-[#00FF88]/50 transition">
+                        <div class="text-2xl mb-2">🛒</div>
+                        <p class="font-semibold text-white text-sm">Tienda online</p>
+                        <p class="text-xs text-gray-400">Desde $499 USD</p>
+                    </button>
+                    <button onclick="selectTipoCot('App móvil')" class="cot-btn glass rounded-2xl p-4 text-left hover:border-[#00FF88]/50 transition">
+                        <div class="text-2xl mb-2">📱</div>
+                        <p class="font-semibold text-white text-sm">App móvil</p>
+                        <p class="text-xs text-gray-400">Desde $699 USD</p>
+                    </button>
+                    <button onclick="selectTipoCot('Software empresarial')" class="cot-btn glass rounded-2xl p-4 text-left hover:border-[#00FF88]/50 transition">
+                        <div class="text-2xl mb-2">💻</div>
+                        <p class="font-semibold text-white text-sm">Software</p>
+                        <p class="text-xs text-gray-400">Desde $999 USD</p>
+                    </button>
+                    <button onclick="selectTipoCot('Marketing digital')" class="cot-btn glass rounded-2xl p-4 text-left hover:border-[#00FF88]/50 transition">
+                        <div class="text-2xl mb-2">📢</div>
+                        <p class="font-semibold text-white text-sm">Marketing</p>
+                        <p class="text-xs text-gray-400">Desde $200 USD</p>
+                    </button>
+                    <button onclick="selectTipoCot('Otro proyecto')" class="cot-btn glass rounded-2xl p-4 text-left hover:border-[#00FF88]/50 transition">
+                        <div class="text-2xl mb-2">✨</div>
+                        <p class="font-semibold text-white text-sm">Otro</p>
+                        <p class="text-xs text-gray-400">Consultame</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div id="cotizarStep2" class="hidden">
+                <h3 class="text-xl font-bold text-white mb-6">Contame más sobre tu proyecto</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-sm text-gray-400 mb-2 block">¿Cuál es tu presupuesto aproximado?</label>
+                        <select id="cotBudget" class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20">
+                            <option class="bg-gray-900">Menos de $500</option>
+                            <option class="bg-gray-900">$500 - $1,000</option>
+                            <option class="bg-gray-900">$1,000 - $3,000</option>
+                            <option class="bg-gray-900">Más de $3,000</option>
+                            <option class="bg-gray-900">No sé / Flexible</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-sm text-gray-400 mb-2 block">¿Para cuándo lo necesitás?</label>
+                        <select id="cotTime" class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20">
+                            <option class="bg-gray-900">Lo antes posible</option>
+                            <option class="bg-gray-900">En 1 mes</option>
+                            <option class="bg-gray-900">En 2-3 meses</option>
+                            <option class="bg-gray-900">Sin urgencia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-sm text-gray-400 mb-2 block">Descripción del proyecto</label>
+                        <textarea id="cotDesc" rows="4" class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20 resize-none" placeholder="Contame tu idea con el mayor detalle posible..."></textarea>
+                    </div>
+                </div>
+                <div class="flex gap-3 mt-6">
+                    <button onclick="cotizarPrev()" class="glass px-6 py-3 rounded-xl text-gray-300 hover:text-white transition">← Atrás</button>
+                    <button onclick="cotizarNext()" class="btn-primary flex-1 py-3 rounded-xl font-semibold">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div id="cotizarStep3" class="hidden">
+                <h3 class="text-xl font-bold text-white mb-6">Tus datos de contacto</h3>
+                <div class="space-y-4">
+                    <input type="text" id="cotNombre" placeholder="Tu nombre completo" class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20">
+                    <input type="tel" id="cotTel" placeholder="WhatsApp (con código de país)" class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20">
+                    <input type="email" id="cotEmail" placeholder="tu@email.com" class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20">
+                </div>
+                <div class="flex gap-3 mt-6">
+                    <button onclick="cotizarPrev()" class="glass px-6 py-3 rounded-xl text-gray-300 hover:text-white transition">← Atrás</button>
+                    <button onclick="enviarCotizacion()" class="btn-primary flex-1 py-3 rounded-xl font-bold"><i class="fa-brands fa-whatsapp mr-2"></i> Enviar cotización</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+let cotStep = 1;
+let cotTipo = '';
+
+function selectTipoCot(tipo) {
+    cotTipo = tipo;
+    document.querySelectorAll('.cot-btn').forEach(b => b.style.borderColor = '');
+    event.currentTarget.style.borderColor = 'rgba(0,255,136,0.6)';
+    setTimeout(() => cotizarNext(), 400);
+}
+
+function cotizarNext() {
+    if (cotStep === 1 && !cotTipo) return;
+    document.getElementById('cotizarStep' + cotStep).classList.add('hidden');
+    cotStep++;
+    document.getElementById('cotizarStep' + cotStep).classList.remove('hidden');
+    updateStepIndicators();
+}
+
+function cotizarPrev() {
+    document.getElementById('cotizarStep' + cotStep).classList.add('hidden');
+    cotStep--;
+    document.getElementById('cotizarStep' + cotStep).classList.remove('hidden');
+    updateStepIndicators();
+}
+
+function updateStepIndicators() {
+    for (let i = 1; i <= 3; i++) {
+        const ind = document.getElementById('step' + i + 'ind');
+        if (i < cotStep) {
+            ind.style.background = 'linear-gradient(135deg,#00FF88,#00A3FF)';
+            ind.style.color = '#020B14';
+            ind.innerHTML = '<i class="fa-solid fa-check text-xs"></i>';
+        } else if (i === cotStep) {
+            ind.style.background = 'linear-gradient(135deg,#00FF88,#00A3FF)';
+            ind.style.color = '#020B14';
+            ind.textContent = i;
+        } else {
+            ind.style.background = 'rgba(5,26,42,0.6)';
+            ind.style.color = '#9CA3AF';
+            ind.textContent = i;
+        }
+    }
+    if (cotStep > 1) document.getElementById('line12').style.background = 'linear-gradient(90deg,#00FF88,#00A3FF)';
+    if (cotStep > 2) document.getElementById('line23').style.background = 'linear-gradient(90deg,#00FF88,#00A3FF)';
+}
+
+function enviarCotizacion() {
+    const nombre = document.getElementById('cotNombre').value;
+    const tel = document.getElementById('cotTel').value;
+    const email = document.getElementById('cotEmail').value;
+    const budget = document.getElementById('cotBudget').value;
+    const time = document.getElementById('cotTime').value;
+    const desc = document.getElementById('cotDesc').value;
+
+    if (!nombre || !tel) { alert('Por favor ingresá tu nombre y teléfono'); return; }
+
+    const msg = encodeURIComponent(`🎯 *Nueva cotización KCN*
+
+👤 *Nombre:* ${nombre}
+📱 *Teléfono:* ${tel}
+📧 *Email:* ${email}
+
+💼 *Tipo:* ${cotTipo}
+💰 *Presupuesto:* ${budget}
+⏱️ *Plazo:* ${time}
+
+📝 *Descripción:*
+${desc}`);
+    window.open('https://wa.me/50687359034?text=' + msg, '_blank');
+
+    if (typeof gtag !== 'undefined') gtag('event', 'cotizacion_form_submit');
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Formulario Cotización'});
 }
 </script>
 
@@ -2689,6 +3669,584 @@ const allCounterObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 const firstCounter = document.querySelector('[data-counter]');
 if (firstCounter) allCounterObs.observe(firstCounter.closest('section') || firstCounter);
+</script>
+
+
+<!-- ===== PREMIUM JS ===== -->
+<div class="custom-cursor" id="cursor"></div>
+<div class="custom-cursor-ring" id="cursorRing"></div>
+
+<script>
+// Cursor personalizado
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX - 6 + 'px';
+    cursor.style.top = e.clientY - 6 + 'px';
+    setTimeout(() => {
+        ring.style.left = e.clientX - 18 + 'px';
+        ring.style.top = e.clientY - 18 + 'px';
+    }, 80);
+});
+
+// Cursor scale en hover
+document.querySelectorAll('a, button, .glass-hover').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(2)';
+        ring.style.transform = 'scale(1.5)';
+        ring.style.borderColor = 'rgba(0,255,136,0.8)';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        ring.style.transform = 'scale(1)';
+        ring.style.borderColor = 'rgba(0,255,136,0.5)';
+    });
+});
+
+// Ocultar cursor por defecto en móvil
+if ('ontouchstart' in window) {
+    cursor.style.display = 'none';
+    ring.style.display = 'none';
+    document.querySelectorAll('*').forEach(el => el.style.cursor = '');
+}
+
+// Efecto parallax en hero
+document.addEventListener('mousemove', (e) => {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+    const orbs = hero.querySelectorAll('.orb');
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    orbs.forEach((orb, i) => {
+        const factor = (i + 1) * 0.5;
+        orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+    });
+});
+
+// Typing effect en hero
+const heroTitle = document.querySelector('#hero h1');
+if (heroTitle) {
+    const subtitle = document.querySelector('#hero .text-[\#00A3FF]');
+    if (subtitle) subtitle.classList.add('typing-cursor');
+}
+
+// Animación de entrada escalonada para cards
+document.querySelectorAll('.grid > .glass').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.1) + 's';
+});
+
+// Efecto ripple en botones
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.cssText = `
+            position:absolute; width:${size}px; height:${size}px;
+            left:${e.clientX - rect.left - size/2}px;
+            top:${e.clientY - rect.top - size/2}px;
+            background:rgba(255,255,255,0.3); border-radius:50%;
+            transform:scale(0); animation:rippleEffect 0.6s ease-out;
+            pointer-events:none;
+        `;
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// CSS para ripple
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = '@keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }';
+document.head.appendChild(rippleStyle);
+
+// Smooth reveal con stagger
+const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('active');
+            }, i * 100);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => staggerObserver.observe(el));
+
+// Número de visitas al día en tiempo real simulado
+const visitData = {
+    today: Math.floor(Math.random() * 15) + 8,
+    week: Math.floor(Math.random() * 80) + 40
+};
+
+console.log('🚀 KCN Premium Mode Active');
+console.log(`📊 Visitas hoy: ${visitData.today}`);
+</script>
+
+<!-- Línea animada decorativa en nav -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    if (nav) {
+        const line = document.createElement('div');
+        line.className = 'animated-line';
+        line.style.cssText = 'position:absolute; bottom:0; left:0; right:0;';
+        nav.style.position = 'relative';
+        nav.appendChild(line);
+    }
+});
+</script>
+<!-- ===== FIN PREMIUM JS ===== -->
+
+
+<!-- PARTÍCULAS HERO -->
+<canvas id="particleCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.4;"></canvas>
+<script>
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+const particles = [];
+const colors = ['#00A3FF', '#00FF88', '#a855f7', '#ffffff'];
+
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 0.5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.6 + 0.1,
+        pulse: Math.random() * Math.PI * 2
+    });
+}
+
+function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach((p, i) => {
+        p.pulse += 0.02;
+        p.alpha = 0.1 + Math.sin(p.pulse) * 0.3;
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        
+        // Conectar partículas cercanas
+        particles.forEach((p2, j) => {
+            if (i === j) return;
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 120) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(0,163,255,${0.08 * (1 - dist/120)})`;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+            }
+        });
+        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + Math.floor(p.alpha * 255).toString(16).padStart(2,'0');
+        ctx.fill();
+    });
+    
+    requestAnimationFrame(drawParticles);
+}
+drawParticles();
+</script>
+
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+    <div class="lb-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></div>
+    <img id="lbImg" src="" alt="">
+    <p class="lb-title" id="lbTitle"></p>
+    <p style="color:#9CA3AF; font-size:12px; margin-top:4px;">Presioná ESC para cerrar</p>
+</div>
+<script>
+function openLightbox(src, title) {
+    document.getElementById('lbImg').src = src;
+    document.getElementById('lbTitle').textContent = title;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (typeof gtag !== 'undefined') gtag('event', 'portfolio_lightbox', { title });
+}
+function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.classList.contains('lb-close')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({ target: document.getElementById('lightbox') }); });
+
+// Agregar click a todas las imágenes del portafolio
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project-card img').forEach(img => {
+        img.addEventListener('click', () => {
+            const title = img.closest('.project-card').querySelector('h3')?.textContent || 'Proyecto KCN';
+            openLightbox(img.src, title);
+        });
+    });
+});
+</script>
+
+
+<!-- CHAT IA KCN -->
+<div id="chatIA" class="fixed bottom-28 left-6 z-50 hidden" style="width:320px;">
+    <div class="glass rounded-2xl overflow-hidden" style="border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+        <!-- Header -->
+        <div class="flex items-center gap-3 p-4" style="background:linear-gradient(135deg,rgba(0,163,255,0.2),rgba(0,255,136,0.1));">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0" style="background:linear-gradient(135deg,#00A3FF,#00FF88);">
+                <i class="fa-solid fa-robot text-[#020B14]"></i>
+            </div>
+            <div>
+                <p class="font-semibold text-white text-sm">Asistente KCN IA</p>
+                <p class="text-xs text-[#00FF88]">● Activo · Respuesta inmediata</p>
+            </div>
+            <button onclick="toggleChatIA()" class="ml-auto text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Mensajes -->
+        <div id="chatIAMessages" class="p-4 space-y-3 overflow-y-auto" style="height:300px; background:rgba(2,11,20,0.8);">
+            <div class="flex gap-2">
+                <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs" style="background:linear-gradient(135deg,#00A3FF,#00FF88);">
+                    <i class="fa-solid fa-robot text-[#020B14] text-xs"></i>
+                </div>
+                <div class="glass rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+                    <p class="text-sm text-gray-300">¡Hola! 👋 Soy el asistente de KCN. ¿En qué puedo ayudarte hoy?</p>
+                </div>
+            </div>
+            <!-- Sugerencias rápidas -->
+            <div class="flex flex-wrap gap-2 mt-2">
+                <button onclick="sendIAMessage('¿Cuánto cuesta una página web?')" class="text-xs glass px-3 py-1.5 rounded-full border border-[#00A3FF]/30 hover:border-[#00FF88]/50 transition text-gray-300">💰 Precios</button>
+                <button onclick="sendIAMessage('¿Cuánto tiempo tarda un proyecto?')" class="text-xs glass px-3 py-1.5 rounded-full border border-[#00A3FF]/30 hover:border-[#00FF88]/50 transition text-gray-300">⏱️ Tiempos</button>
+                <button onclick="sendIAMessage('¿Qué servicios ofrecen?')" class="text-xs glass px-3 py-1.5 rounded-full border border-[#00A3FF]/30 hover:border-[#00FF88]/50 transition text-gray-300">🛠️ Servicios</button>
+                <button onclick="sendIAMessage('Quiero hablar con Keny')" class="text-xs glass px-3 py-1.5 rounded-full border border-[#00FF88]/30 hover:border-[#00FF88]/50 transition text-gray-300">📲 Contacto</button>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="p-3 flex gap-2" style="background:rgba(2,11,20,0.9); border-top:1px solid rgba(0,163,255,0.1);">
+            <input type="text" id="chatIAInput" placeholder="Escribí tu pregunta..."
+                   class="flex-1 glass rounded-xl px-3 py-2 text-white text-sm focus:outline-none border border-[#00A3FF]/20"
+                   onkeydown="if(event.key==='Enter') sendIAMessage()">
+            <button onclick="sendIAMessage()" class="btn-primary px-3 py-2 rounded-xl text-sm font-semibold flex-shrink-0">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const kknKnowledge = {
+    precios: { keywords: ['precio','costo','cuánto','vale','cobran','tarifa','plan','pyme'], response: '💰 Nuestros precios son:
+
+• **Plan PYME**: $120 USD (pago único)
+• **Plan Básico**: $299 USD
+• **Plan Profesional**: $699 USD ⭐
+• **Plan Enterprise**: $1,499 USD
+
+Todos incluyen soporte y son pago único sin mensualidades. ¿Querés una cotización personalizada?' },
+    servicios: { keywords: ['servicio','qué hacen','qué ofrecen','hacen','desarrollan','crean'], response: '🛠️ En KCN ofrecemos:
+
+• 🌐 Diseño web profesional
+• 📱 Apps móviles (Android & iOS)
+• 🛒 Tiendas online
+• 💻 Software Windows/Linux
+• 🎨 Rediseño de imagen
+• 📢 Marketing digital
+• 🔧 Sistemas POS y ERP
+
+¿Te interesa alguno en particular?' },
+    tiempo: { keywords: ['tiempo','cuánto tarda','demora','plazo','días','semanas','rápido'], response: '⏱️ Los tiempos estimados son:
+
+• Página básica: 3-5 días
+• Sitio profesional: 1-2 semanas
+• Tienda online: 2-3 semanas
+• App móvil: 3-6 semanas
+• Software: 4-8 semanas
+
+Siempre damos un cronograma exacto antes de empezar.' },
+    contacto: { keywords: ['contacto','keny','hablar','whatsapp','llamar','escribir','comunicar'], response: '📲 Podés contactar a Keny directamente:
+
+• WhatsApp: +506 8735-9034
+• Email: kchinchilla.pos@gmail.com
+• Disponible todos los días
+
+¿Querés que te abra el WhatsApp ahora?' },
+    pago: { keywords: ['pago','pagar','sinpe','paypal','transferencia','cuotas','factura'], response: '💳 Formas de pago:
+
+• SINPE Móvil
+• Transferencia bancaria
+• PayPal
+• Efectivo
+
+Para proyectos grandes podemos hacer 50% al inicio y 50% al entregar.' },
+    soporte: { keywords: ['soporte','ayuda','mantenimiento','actualización','problema','error'], response: '🔧 El soporte incluye:
+
+• Corrección de errores
+• Actualizaciones menores
+• Consultas por WhatsApp
+• Asistencia en uso
+
+Tiempo de soporte según plan: 1 a 6 meses incluidos.' },
+    ubicacion: { keywords: ['dónde','ubicación','dirección','costa rica','san josé','presencial'], response: '📍 KCN opera en:
+
+• 🇨🇷 Costa Rica (sede principal)
+• 🌎 Clientes en toda Latinoamérica
+• 💻 Atención 100% remota
+
+Trabajamos con clientes de cualquier parte del mundo por WhatsApp y videollamada.' },
+    apps: { keywords: ['app','aplicación','móvil','android','ios','iphone','celular','smartphone'], response: '📱 Desarrollamos apps para:
+
+• Android (Google Play)
+• iOS (App Store)
+• Flutter (multiplataforma)
+• React Native
+
+Desde $699 USD. ¿Tenés una idea de app?' },
+    default: '🤔 Interesante pregunta. Para darte la mejor respuesta, te recomiendo hablar directamente con Keny por WhatsApp al **8735-9034**. ¡Responde en minutos! 😊'
+};
+
+function getIAResponse(msg) {
+    const lower = msg.toLowerCase();
+    for (const [key, data] of Object.entries(kknKnowledge)) {
+        if (key === 'default') continue;
+        if (data.keywords.some(kw => lower.includes(kw))) {
+            return data.response;
+        }
+    }
+    return kknKnowledge.default;
+}
+
+function sendIAMessage(text) {
+    const input = document.getElementById('chatIAInput');
+    const msg = text || input.value.trim();
+    if (!msg) return;
+    
+    const container = document.getElementById('chatIAMessages');
+    
+    // Usuario
+    container.innerHTML += `
+        <div class="flex gap-2 justify-end">
+            <div class="rounded-2xl rounded-tr-none p-3 max-w-[80%]" style="background:rgba(0,163,255,0.2); border:1px solid rgba(0,163,255,0.3);">
+                <p class="text-sm text-white">${msg}</p>
+            </div>
+        </div>`;
+    
+    input.value = '';
+    container.scrollTop = container.scrollHeight;
+    
+    // Respuesta IA con delay
+    setTimeout(() => {
+        const response = getIAResponse(msg);
+        const formattedResponse = response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/
+/g, '<br>');
+        
+        let extraBtn = '';
+        if (msg.toLowerCase().includes('whatsapp') || response.includes('WhatsApp')) {
+            extraBtn = `<a href="https://wa.me/50687359034" target="_blank" class="inline-block mt-2 btn-primary px-4 py-2 rounded-xl text-xs font-semibold"><i class="fa-brands fa-whatsapp mr-1"></i> Abrir WhatsApp</a>`;
+        }
+        
+        container.innerHTML += `
+            <div class="flex gap-2">
+                <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#00A3FF,#00FF88);">
+                    <i class="fa-solid fa-robot text-[#020B14] text-xs"></i>
+                </div>
+                <div class="glass rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+                    <p class="text-sm text-gray-300">${formattedResponse}</p>
+                    ${extraBtn}
+                </div>
+            </div>`;
+        container.scrollTop = container.scrollHeight;
+        
+        if (typeof gtag !== 'undefined') gtag('event', 'chat_ia_message', { message: msg });
+    }, 800);
+}
+
+function toggleChatIA() {
+    const chat = document.getElementById('chatIA');
+    const icon = document.getElementById('chatIcon');
+    if (chat.classList.contains('hidden')) {
+        chat.classList.remove('hidden');
+        if (icon) icon.className = 'fa-solid fa-xmark text-white text-xl';
+    } else {
+        chat.classList.add('hidden');
+        if (icon) icon.className = 'fa-solid fa-comment-dots text-white text-xl';
+    }
+}
+
+// Override del botón de chat existente
+const chatBtn = document.getElementById('chatToggleBtn');
+if (chatBtn) {
+    chatBtn.onclick = toggleChatIA;
+}
+</script>
+
+
+<!-- RULETA DE DESCUENTOS -->
+<div id="ruletaModal" class="fixed inset-0 z-[9999] hidden items-center justify-center" style="background:rgba(2,11,20,0.9); backdrop-filter:blur(10px);">
+    <div class="glass rounded-3xl p-8 max-w-sm mx-6 text-center relative" style="border:1px solid rgba(0,255,136,0.3);">
+        <button onclick="closeRuleta()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+        <h3 class="text-2xl font-bold text-white mb-2">🎰 ¡Girá la ruleta!</h3>
+        <p class="text-gray-400 text-sm mb-6">Podés ganar un descuento especial en tu proyecto</p>
+
+        <!-- Ruleta Canvas -->
+        <div class="relative mx-auto mb-6" style="width:220px; height:220px;">
+            <canvas id="ruletaCanvas" width="220" height="220"></canvas>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="w-6 h-6 rounded-full border-4 border-white" style="background:#020B14; box-shadow:0 0 20px rgba(0,255,136,0.5);"></div>
+            </div>
+            <!-- Flecha -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-2xl">▼</div>
+        </div>
+
+        <button id="spinBtn" onclick="spinRuleta()" class="btn-primary w-full py-4 rounded-xl font-bold text-lg mb-4">
+            🎯 ¡GIRAR!
+        </button>
+        <div id="ruletaResult" class="hidden glass rounded-xl p-4">
+            <p class="text-[#00FF88] font-bold text-lg" id="ruletaPrize">¡Ganaste!</p>
+            <a id="ruletaWaBtn" href="https://wa.me/50687359034" target="_blank" class="btn-primary block py-3 rounded-xl font-semibold mt-3 text-sm">
+                <i class="fa-brands fa-whatsapp mr-2"></i> Reclamar por WhatsApp
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Botón trigger ruleta -->
+<div class="fixed bottom-44 right-6 z-40">
+    <button onclick="openRuleta()" class="glass px-4 py-2 rounded-full text-xs font-semibold border border-[#00FF88]/40 hover:border-[#00FF88] transition text-[#00FF88] flex items-center gap-2">
+        🎰 Ruleta de descuentos
+    </button>
+</div>
+
+<script>
+const prizes = [
+    { text: '10% OFF', color: '#00A3FF', textColor: '#fff' },
+    { text: 'Consulta gratis', color: '#00FF88', textColor: '#020B14' },
+    { text: '15% OFF', color: '#a855f7', textColor: '#fff' },
+    { text: 'Soporte extra', color: '#ec4899', textColor: '#fff' },
+    { text: '20% OFF', color: '#00FF88', textColor: '#020B14' },
+    { text: 'Logo gratis', color: '#00A3FF', textColor: '#fff' },
+    { text: '5% OFF', color: '#7c3aed', textColor: '#fff' },
+    { text: 'SEO gratis', color: '#059669', textColor: '#fff' },
+];
+
+let ruletaAngle = 0;
+let isSpinning = false;
+
+function drawRuleta(angle) {
+    const canvas = document.getElementById('ruletaCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const cx = 110, cy = 110, r = 105;
+    const slice = (Math.PI * 2) / prizes.length;
+
+    ctx.clearRect(0, 0, 220, 220);
+
+    prizes.forEach((prize, i) => {
+        const start = angle + i * slice;
+        const end = start + slice;
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, start, end);
+        ctx.closePath();
+        ctx.fillStyle = prize.color;
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(start + slice / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = prize.textColor;
+        ctx.font = 'bold 11px Manrope';
+        ctx.fillText(prize.text, r - 10, 4);
+        ctx.restore();
+    });
+
+    // Centro
+    ctx.beginPath();
+    ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+    ctx.fillStyle = '#020B14';
+    ctx.fill();
+    ctx.strokeStyle = '#00FF88';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+}
+
+function spinRuleta() {
+    if (isSpinning) return;
+    isSpinning = true;
+    document.getElementById('spinBtn').disabled = true;
+    document.getElementById('ruletaResult').classList.add('hidden');
+
+    const totalRotation = (Math.PI * 2 * (5 + Math.random() * 5));
+    const duration = 4000;
+    const start = performance.now();
+    const startAngle = ruletaAngle;
+
+    function animate(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        ruletaAngle = startAngle + totalRotation * eased;
+        drawRuleta(ruletaAngle);
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            isSpinning = false;
+            showRuletaPrize();
+        }
+    }
+    requestAnimationFrame(animate);
+}
+
+function showRuletaPrize() {
+    const slice = (Math.PI * 2) / prizes.length;
+    const normalized = ((-(ruletaAngle - Math.PI / 2 - Math.PI)) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+    const prizeIndex = Math.floor(normalized / slice) % prizes.length;
+    const prize = prizes[prizeIndex];
+
+    document.getElementById('ruletaPrize').textContent = '🎉 ¡Ganaste: ' + prize.text + '!';
+    document.getElementById('ruletaResult').classList.remove('hidden');
+
+    const msg = encodeURIComponent(`Hola Keny! Giré la ruleta de KCN y gané: ${prize.text}. ¡Quiero reclamar mi premio! 🎉`);
+    document.getElementById('ruletaWaBtn').href = 'https://wa.me/50687359034?text=' + msg;
+
+    if (typeof gtag !== 'undefined') gtag('event', 'ruleta_spin', { prize: prize.text });
+}
+
+function openRuleta() {
+    document.getElementById('ruletaModal').style.display = 'flex';
+    drawRuleta(0);
+}
+
+function closeRuleta() {
+    document.getElementById('ruletaModal').style.display = 'none';
+}
 </script>
 
 </body>
