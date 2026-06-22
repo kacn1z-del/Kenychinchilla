@@ -840,8 +840,69 @@ h1 {
 }
 </style>
 
+
+<style>
+/* Hover 3D en cards de servicios */
+.glass-hover {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.card-3d-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+.card-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.08) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.glass-hover:hover .card-shine { opacity: 1; }
+
+/* Gradiente animado de fondo */
+@keyframes bgGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(-45deg, #020B14, #051A2A, #020B14, #071f30, #020B14);
+    background-size: 400% 400%;
+    animation: bgGradientShift 15s ease infinite;
+    z-index: -1;
+    opacity: 0.8;
+}
+</style>
+
 </head>
 <body class="antialiased">
+
+<!-- BANNER DOMINIO -->
+<div id="dominioBanner" class="fixed top-0 left-0 right-0 z-[10000] text-center py-2 text-xs font-semibold hidden md:block" style="background:linear-gradient(90deg,#00A3FF,#00FF88,#a855f7); color:#020B14;">
+    🌐 ¿Querés un dominio propio como <strong>tuempresa.com</strong>? KCN te ayuda a configurarlo · 
+    <a href="https://wa.me/50687359034?text=Hola%20Keny,%20quiero%20un%20dominio%20propio" target="_blank" class="underline font-bold">Consultá aquí</a>
+    <button onclick="document.getElementById('dominioBanner').style.display='none'" class="ml-4 opacity-70 hover:opacity-100">✕</button>
+</div>
+<script>
+// Mostrar banner dominio si no lo cerró
+if (!sessionStorage.getItem('kcn_banner_closed')) {
+    setTimeout(() => {
+        document.getElementById('dominioBanner')?.style.removeProperty('display');
+        document.body.style.paddingTop = '32px';
+    }, 5000);
+}
+document.getElementById('dominioBanner')?.querySelector('button')?.addEventListener('click', () => {
+    sessionStorage.setItem('kcn_banner_closed', '1');
+    document.body.style.paddingTop = '0';
+});
+</script>
+
 
 <!-- PROYECTOS EN CURSO -->
 <div class="fixed top-20 left-4 z-40 hidden lg:block">
@@ -1038,6 +1099,7 @@ window.addEventListener('scroll', () => {
                 <a href="#resenas" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Reseñas</a>
                 <a href="#calculadora" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Calculadora</a>
                 <a href="#cotizar" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Cotizar</a>
+                <a href="#citas" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Agendar</a>
                 <a href="#diccionario" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Diccionario</a>
                 <a href="#proceso" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Proceso</a>
                 <a href="#contacto" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">Hablemos</a>
@@ -1074,7 +1136,10 @@ window.addEventListener('scroll', () => {
                 <span class="text-gradient-brand">Keny Chinchilla</span> Navarro<br>
                 <span class="text-gradient-brand">KCN</span>
             </h1>
-            <p class="text-xl md:text-2xl text-[#00A3FF] font-semibold max-w-3xl mx-auto mb-3">DISEÑO WEB & APP</p>
+            <p class="text-xl md:text-2xl font-semibold max-w-3xl mx-auto mb-3">
+                <span class="text-white">Hacemos </span>
+                <span id="typingText" class="text-gradient-brand border-r-2 border-[#00FF88] pr-1" style="min-width:200px; display:inline-block;">páginas web</span>
+            </p>
             <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
                 Soluciones Digitales y Desarrollo Tecnológico. Transformamos ideas en plataformas web, apps móviles y software de alto impacto.
             </p>
@@ -1439,6 +1504,117 @@ window.addEventListener('scroll', () => {
 
 
 
+
+<!-- MOCKUPS DE DISPOSITIVOS -->
+<section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">MULTIPLATAFORMA</p>
+            <h2 class="text-4xl md:text-6xl font-bold text-gradient-brand mb-4">Tu proyecto en todos los dispositivos</h2>
+            <p class="text-gray-400">Diseñamos para que se vea perfecto en cualquier pantalla</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 reveal">
+
+            <!-- Laptop -->
+            <div class="relative group" style="filter:drop-shadow(0 20px 60px rgba(0,163,255,0.3));">
+                <div class="rounded-xl overflow-hidden border-2 border-[#00A3FF]/30" style="width:360px; background:#0d0d20;">
+                    <div class="flex items-center gap-2 px-4 py-2 border-b border-[#00A3FF]/20" style="background:#12122a;">
+                        <div class="w-3 h-3 rounded-full bg-red-400 opacity-70"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-400 opacity-70"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-400 opacity-70"></div>
+                        <div class="flex-1 mx-4 glass rounded-md px-3 py-1 text-xs text-gray-400">kacn1z-del.github.io/Kenychinchilla</div>
+                    </div>
+                    <div class="p-4" style="height:200px; background:linear-gradient(135deg,#020B14,#051A2A);">
+                        <div class="h-3 glass rounded mb-2" style="width:60%; background:linear-gradient(90deg,#00A3FF,#00FF88); opacity:0.6;"></div>
+                        <div class="h-2 glass rounded mb-2" style="width:90%; opacity:0.3;"></div>
+                        <div class="h-2 glass rounded mb-4" style="width:75%; opacity:0.3;"></div>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <div class="glass rounded-lg p-2 text-center"><div class="text-xs text-[#00A3FF] font-bold">100+</div><div class="text-xs text-gray-500">Proyectos</div></div>
+                            <div class="glass rounded-lg p-2 text-center"><div class="text-xs text-[#00FF88] font-bold">98%</div><div class="text-xs text-gray-500">Satisfechos</div></div>
+                            <div class="glass rounded-lg p-2 text-center"><div class="text-xs text-[#a855f7] font-bold">10+</div><div class="text-xs text-gray-500">Años</div></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <div class="glass rounded-lg flex-1 p-2" style="border-color:rgba(0,255,136,0.3);">
+                                <div class="h-2 rounded mb-1" style="background:linear-gradient(90deg,#00FF88,#00A3FF); width:80%;"></div>
+                                <div class="h-1.5 glass rounded" style="width:60%; opacity:0.4;"></div>
+                            </div>
+                            <div class="glass rounded-lg flex-1 p-2">
+                                <div class="h-2 glass rounded mb-1" style="width:70%; opacity:0.4;"></div>
+                                <div class="h-1.5 glass rounded" style="width:50%; opacity:0.3;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Base laptop -->
+                <div class="mx-auto rounded-b-xl" style="height:12px; width:380px; background:linear-gradient(135deg,#1a1a2e,#12122a); border:1px solid rgba(0,163,255,0.2);"></div>
+                <div class="mx-auto rounded-full" style="height:6px; width:80px; background:rgba(0,163,255,0.2); margin-top:2px;"></div>
+                <p class="text-center text-xs text-gray-500 mt-3">💻 Desktop</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="relative group" style="filter:drop-shadow(0 20px 60px rgba(0,255,136,0.3));">
+                <div class="rounded-3xl overflow-hidden border-2 border-[#00FF88]/30 mx-auto" style="width:160px; background:#0d0d20;">
+                    <div class="flex justify-center py-2" style="background:#12122a;">
+                        <div class="w-16 h-4 rounded-full" style="background:#0d0d20;"></div>
+                    </div>
+                    <div class="p-3" style="height:260px; background:linear-gradient(135deg,#020B14,#051A2A);">
+                        <div class="h-2 rounded mb-2" style="background:linear-gradient(90deg,#00A3FF,#00FF88); width:70%;"></div>
+                        <div class="h-1.5 glass rounded mb-1" style="width:90%; opacity:0.4;"></div>
+                        <div class="h-1.5 glass rounded mb-3" style="width:75%; opacity:0.3;"></div>
+                        <div class="space-y-2">
+                            <div class="glass rounded-xl p-2"><div class="h-1.5 rounded" style="background:linear-gradient(90deg,#00FF88,#00A3FF); width:80%;"></div></div>
+                            <div class="glass rounded-xl p-2"><div class="h-1.5 glass rounded" style="width:60%; opacity:0.4;"></div></div>
+                            <div class="glass rounded-xl p-2"><div class="h-1.5 glass rounded" style="width:70%; opacity:0.3;"></div></div>
+                        </div>
+                        <div class="mt-3 rounded-xl p-2 text-center" style="background:linear-gradient(135deg,#00FF88,#00A3FF);">
+                            <p class="text-xs font-bold text-[#020B14]">WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center py-2" style="background:#12122a;">
+                        <div class="w-8 h-8 rounded-full border border-[#00A3FF]/30"></div>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-3">📱 Mobile</p>
+            </div>
+
+            <!-- Tablet -->
+            <div class="relative group hidden md:block" style="filter:drop-shadow(0 20px 60px rgba(168,85,247,0.3));">
+                <div class="rounded-2xl overflow-hidden border-2 border-[#a855f7]/30" style="width:240px; background:#0d0d20;">
+                    <div class="flex justify-center py-2" style="background:#12122a;">
+                        <div class="w-8 h-2 rounded-full" style="background:#0d0d20;"></div>
+                    </div>
+                    <div class="p-4" style="height:300px; background:linear-gradient(135deg,#020B14,#051A2A);">
+                        <div class="h-2 rounded mb-2" style="background:linear-gradient(90deg,#a855f7,#ec4899); width:65%;"></div>
+                        <div class="h-1.5 glass rounded mb-1" style="width:90%; opacity:0.4;"></div>
+                        <div class="h-1.5 glass rounded mb-4" style="width:80%; opacity:0.3;"></div>
+                        <div class="grid grid-cols-2 gap-2 mb-3">
+                            <div class="glass rounded-xl p-3"><div class="h-2 rounded mb-1" style="background:linear-gradient(90deg,#a855f7,#ec4899); width:80%;"></div><div class="h-1.5 glass rounded" style="width:60%; opacity:0.4;"></div></div>
+                            <div class="glass rounded-xl p-3"><div class="h-2 glass rounded mb-1" style="width:70%; opacity:0.4;"></div><div class="h-1.5 glass rounded" style="width:50%; opacity:0.3;"></div></div>
+                        </div>
+                        <div class="glass rounded-xl p-3">
+                            <div class="h-2 glass rounded mb-2" style="width:100%; opacity:0.3;"></div>
+                            <div class="h-1.5 glass rounded mb-1" style="width:80%; opacity:0.3;"></div>
+                            <div class="h-1.5 glass rounded" style="width:60%; opacity:0.2;"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center py-2" style="background:#12122a;">
+                        <div class="w-6 h-6 rounded-full border border-[#a855f7]/30"></div>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-3">📟 Tablet</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-12 reveal">
+            <p class="text-gray-400 text-sm mb-6">Todos los proyectos KCN son 100% responsive y optimizados para cualquier dispositivo</p>
+            <a href="https://wa.me/50687359034?text=Hola%20Keny,%20quiero%20un%20proyecto%20multiplataforma" target="_blank" class="btn-primary px-8 py-4 rounded-full font-bold inline-block">
+                Quiero mi proyecto <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- ESTADÍSTICAS IMPACTO -->
 <section class="py-16 relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1458,6 +1634,50 @@ window.addEventListener('scroll', () => {
             <div class="glass rounded-2xl p-6 text-center hover:border-[#ec4899]/50 transition">
                 <div class="text-4xl font-black text-gradient-brand mb-2" data-counter="24" data-suffix="h">0h</div>
                 <p class="text-gray-400 text-sm">Tiempo de respuesta</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- NÚMEROS QUE HABLAN -->
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(135deg, rgba(0,163,255,0.05) 0%, rgba(0,255,136,0.03) 50%, rgba(168,85,247,0.05) 100%);"></div>
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 50%, rgba(0,163,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,255,136,0.08) 0%, transparent 50%);"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-6xl font-bold text-gradient-brand mb-4">Números que hablan</h2>
+            <p class="text-gray-400">Resultados reales de proyectos reales</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center reveal group">
+                <div class="glass rounded-3xl p-8 hover:border-[#00FF88]/40 transition-all duration-300 group-hover:scale-105">
+                    <div class="text-5xl md:text-7xl font-black text-gradient-brand mb-2" data-counter="100" data-suffix="+">0+</div>
+                    <div class="w-12 h-1 mx-auto rounded-full mb-3" style="background:linear-gradient(90deg,#00A3FF,#00FF88);"></div>
+                    <p class="text-gray-400 text-sm font-medium">Proyectos<br>entregados</p>
+                </div>
+            </div>
+            <div class="text-center reveal group">
+                <div class="glass rounded-3xl p-8 hover:border-[#a855f7]/40 transition-all duration-300 group-hover:scale-105">
+                    <div class="text-5xl md:text-7xl font-black mb-2" style="background:linear-gradient(135deg,#a855f7,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;" data-counter="98" data-suffix="%">0%</div>
+                    <div class="w-12 h-1 mx-auto rounded-full mb-3" style="background:linear-gradient(90deg,#a855f7,#ec4899);"></div>
+                    <p class="text-gray-400 text-sm font-medium">Clientes<br>satisfechos</p>
+                </div>
+            </div>
+            <div class="text-center reveal group">
+                <div class="glass rounded-3xl p-8 hover:border-[#00A3FF]/40 transition-all duration-300 group-hover:scale-105">
+                    <div class="text-5xl md:text-7xl font-black mb-2" style="background:linear-gradient(135deg,#00A3FF,#66D9FF); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;" data-counter="10" data-suffix="+">0+</div>
+                    <div class="w-12 h-1 mx-auto rounded-full mb-3" style="background:linear-gradient(90deg,#00A3FF,#66D9FF);"></div>
+                    <p class="text-gray-400 text-sm font-medium">Años de<br>experiencia</p>
+                </div>
+            </div>
+            <div class="text-center reveal group">
+                <div class="glass rounded-3xl p-8 hover:border-[#00FF88]/40 transition-all duration-300 group-hover:scale-105">
+                    <div class="text-5xl md:text-7xl font-black text-gradient-brand mb-2" data-counter="4" data-suffix="">0</div>
+                    <div class="w-12 h-1 mx-auto rounded-full mb-3" style="background:linear-gradient(90deg,#00FF88,#00A3FF);"></div>
+                    <p class="text-gray-400 text-sm font-medium">Países<br>atendidos</p>
+                </div>
             </div>
         </div>
     </div>
@@ -2445,6 +2665,112 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+
+<!-- HABILIDADES -->
+<section class="py-24 relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">HABILIDADES</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-gradient-brand mb-4">Stack tecnológico</h2>
+            <p class="text-gray-400">Dominio técnico en las tecnologías más demandadas</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 reveal" id="skillsGrid">
+
+            <div class="space-y-5">
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fa-brands fa-react text-[#61DAFB]"></i> React / Next.js</span>
+                        <span class="text-sm text-[#00FF88] font-bold">95%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="95" style="width:0%; background:linear-gradient(90deg,#61DAFB,#00A3FF); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fa-brands fa-python text-[#3776AB]"></i> Python</span>
+                        <span class="text-sm text-[#00FF88] font-bold">90%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="90" style="width:0%; background:linear-gradient(90deg,#3776AB,#00A3FF); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2">🦋 Flutter</span>
+                        <span class="text-sm text-[#00FF88] font-bold">88%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="88" style="width:0%; background:linear-gradient(90deg,#54C5F8,#a855f7); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fa-brands fa-node-js text-[#339933]"></i> Node.js</span>
+                        <span class="text-sm text-[#00FF88] font-bold">85%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="85" style="width:0%; background:linear-gradient(90deg,#339933,#00FF88); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2">🗄️ Bases de datos</span>
+                        <span class="text-sm text-[#00FF88] font-bold">92%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="92" style="width:0%; background:linear-gradient(90deg,#FF6B35,#ec4899); transition:width 1.5s ease;"></div></div>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fa-brands fa-android text-[#3DDC84]"></i> Android Nativo</span>
+                        <span class="text-sm text-[#00FF88] font-bold">87%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="87" style="width:0%; background:linear-gradient(90deg,#3DDC84,#00FF88); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2">🔍 SEO / Marketing</span>
+                        <span class="text-sm text-[#00FF88] font-bold">83%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="83" style="width:0%; background:linear-gradient(90deg,#F4B400,#EC4899); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fa-brands fa-linux text-white"></i> Linux / DevOps</span>
+                        <span class="text-sm text-[#00FF88] font-bold">80%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="80" style="width:0%; background:linear-gradient(90deg,#fff,#00A3FF); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2">🎨 UI/UX Design</span>
+                        <span class="text-sm text-[#00FF88] font-bold">88%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="88" style="width:0%; background:linear-gradient(90deg,#a855f7,#ec4899); transition:width 1.5s ease;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-white flex items-center gap-2">🔥 Firebase / Cloud</span>
+                        <span class="text-sm text-[#00FF88] font-bold">91%</span>
+                    </div>
+                    <div class="h-2 glass rounded-full overflow-hidden"><div class="skill-bar h-full rounded-full" data-width="91" style="width:0%; background:linear-gradient(90deg,#FF9900,#ec4899); transition:width 1.5s ease;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.skill-bar').forEach((bar, i) => {
+                setTimeout(() => {
+                    bar.style.width = bar.dataset.width + '%';
+                }, i * 150);
+            });
+            skillsObserver.disconnect();
+        }
+    });
+}, { threshold: 0.3 });
+const skillsGrid = document.getElementById('skillsGrid');
+if (skillsGrid) skillsObserver.observe(skillsGrid);
+</script>
+
 <!-- PROCESO -->
 <section id="proceso" class="py-24 md:py-32 relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -2533,6 +2859,98 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="text-8xl select-none" style="filter:drop-shadow(0 0 30px rgba(0,163,255,0.3));">🌎</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- GENERADOR DE CONTENIDO REDES -->
+<section class="py-16 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="glass rounded-3xl p-8 reveal" style="border:1px solid rgba(0,163,255,0.2);">
+            <div class="flex flex-col md:flex-row items-center gap-6 mb-8">
+                <div>
+                    <p class="text-[#00A3FF] font-semibold text-sm tracking-wide mb-1">REDES SOCIALES</p>
+                    <h3 class="text-2xl font-bold text-white">Seguinos en nuestras redes</h3>
+                    <p class="text-gray-400 text-sm mt-1">Contenido semanal sobre tecnología y negocios digitales</p>
+                </div>
+                <div class="flex gap-4 md:ml-auto">
+                    <a href="https://www.instagram.com/kenneth_chinchilla" target="_blank" rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-2xl flex items-center justify-center hover:scale-110 transition"
+                       style="background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737);">
+                        <i class="fa-brands fa-instagram text-white text-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/kenneth.chinchilla" target="_blank" rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-2xl flex items-center justify-center hover:scale-110 transition"
+                       style="background:#1877F2;">
+                        <i class="fa-brands fa-facebook-f text-white text-xl"></i>
+                    </a>
+                    <a href="https://github.com/kacn1z-del" target="_blank" rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-2xl flex items-center justify-center hover:scale-110 transition glass border border-[#00A3FF]/30">
+                        <i class="fa-brands fa-github text-white text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/50687359034" target="_blank" rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-2xl flex items-center justify-center hover:scale-110 transition"
+                       style="background:#25D366;">
+                        <i class="fa-brands fa-whatsapp text-white text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Preview de posts -->
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-3">
+                <div class="aspect-square rounded-xl overflow-hidden relative group cursor-pointer" style="background:linear-gradient(135deg,#00A3FF,#00FF88);">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-laptop-code text-white text-3xl opacity-70"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl overflow-hidden relative group cursor-pointer" style="background:linear-gradient(135deg,#a855f7,#ec4899);">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-mobile-screen text-white text-3xl opacity-70"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl overflow-hidden relative group cursor-pointer" style="background:linear-gradient(135deg,#00FF88,#00A3FF);">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line text-white text-3xl opacity-70"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl overflow-hidden relative group cursor-pointer" style="background:linear-gradient(135deg,#ec4899,#a855f7);">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-store text-white text-3xl opacity-70"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl overflow-hidden relative group cursor-pointer" style="background:linear-gradient(135deg,#00A3FF,#a855f7);">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-white text-3xl opacity-70"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl overflow-hidden relative group cursor-pointer" style="background:linear-gradient(135deg,#00FF88,#ec4899);">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-code text-white text-3xl opacity-70"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-between mt-4">
+                <p class="text-xs text-gray-500">@kenneth_chinchilla · Contenido tech para Costa Rica</p>
+                <a href="https://www.instagram.com/kenneth_chinchilla" target="_blank" rel="noopener noreferrer" class="text-xs text-[#00A3FF] hover:text-[#00FF88] transition font-semibold">Ver perfil →</a>
             </div>
         </div>
     </div>
@@ -3408,6 +3826,152 @@ ${desc}`);
     if (typeof gtag !== 'undefined') gtag('event', 'cotizacion_form_submit');
     if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Formulario Cotización'});
 }
+</script>
+
+
+<!-- SISTEMA DE CITAS -->
+<section id="citas" class="py-24 md:py-32 relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">AGENDAR</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-gradient-brand mb-4">Agendá una reunión</h2>
+            <p class="text-gray-400">Reservá 30 minutos para hablar sobre tu proyecto. Sin costo.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 reveal">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Info reunión -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">📅 Consulta gratuita con Keny</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <i class="fa-solid fa-clock text-[#00A3FF] w-5"></i>
+                            <span class="text-sm">30 minutos</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <i class="fa-brands fa-whatsapp text-[#00FF88] w-5"></i>
+                            <span class="text-sm">Por WhatsApp o videollamada</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <i class="fa-solid fa-list-check text-[#a855f7] w-5"></i>
+                            <span class="text-sm">Análisis de tu proyecto</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <i class="fa-solid fa-dollar-sign text-[#00FF88] w-5"></i>
+                            <span class="text-sm">Cotización personalizada gratis</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <i class="fa-solid fa-calendar text-[#00A3FF] w-5"></i>
+                            <span class="text-sm">Lunes a Sábado · 8am - 8pm</span>
+                        </div>
+                    </div>
+                    <div class="glass rounded-2xl p-4 border border-[#00FF88]/20">
+                        <p class="text-xs text-gray-400 mb-1">Respuesta promedio</p>
+                        <p class="text-[#00FF88] font-bold">⚡ Menos de 5 minutos</p>
+                    </div>
+                </div>
+
+                <!-- Formulario de cita -->
+                <div>
+                    <form id="citaForm" class="space-y-4">
+                        <div>
+                            <label class="text-xs text-gray-400 mb-1 block">Tu nombre</label>
+                            <input type="text" id="citaNombre" placeholder="Nombre completo" class="w-full glass rounded-xl px-4 py-3 text-white text-sm focus:outline-none border border-[#00A3FF]/20" required>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 mb-1 block">WhatsApp</label>
+                            <input type="tel" id="citaTel" placeholder="+506 8888-8888" class="w-full glass rounded-xl px-4 py-3 text-white text-sm focus:outline-none border border-[#00A3FF]/20" required>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 mb-1 block">Fecha preferida</label>
+                            <input type="date" id="citaFecha" class="w-full glass rounded-xl px-4 py-3 text-white text-sm focus:outline-none border border-[#00A3FF]/20" required>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 mb-1 block">Hora preferida</label>
+                            <select id="citaHora" class="w-full glass rounded-xl px-4 py-3 text-white text-sm focus:outline-none border border-[#00A3FF]/20">
+                                <option class="bg-gray-900">8:00 AM</option>
+                                <option class="bg-gray-900">9:00 AM</option>
+                                <option class="bg-gray-900">10:00 AM</option>
+                                <option class="bg-gray-900">11:00 AM</option>
+                                <option class="bg-gray-900">12:00 PM</option>
+                                <option class="bg-gray-900">2:00 PM</option>
+                                <option class="bg-gray-900">3:00 PM</option>
+                                <option class="bg-gray-900">4:00 PM</option>
+                                <option class="bg-gray-900">5:00 PM</option>
+                                <option class="bg-gray-900">6:00 PM</option>
+                                <option class="bg-gray-900">7:00 PM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 mb-1 block">¿Sobre qué proyecto?</label>
+                            <textarea id="citaProyecto" rows="2" placeholder="Describe brevemente tu proyecto..." class="w-full glass rounded-xl px-4 py-3 text-white text-sm focus:outline-none border border-[#00A3FF]/20 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold">
+                            <i class="fa-solid fa-calendar-check mr-2"></i> Confirmar reunión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Establecer fecha mínima (mañana)
+document.addEventListener('DOMContentLoaded', () => {
+    const citaFecha = document.getElementById('citaFecha');
+    if (citaFecha) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        citaFecha.min = tomorrow.toISOString().split('T')[0];
+        citaFecha.value = tomorrow.toISOString().split('T')[0];
+    }
+});
+
+document.getElementById('citaForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('citaNombre').value;
+    const tel = document.getElementById('citaTel').value;
+    const fecha = document.getElementById('citaFecha').value;
+    const hora = document.getElementById('citaHora').value;
+    const proyecto = document.getElementById('citaProyecto').value;
+
+    // Formatear fecha
+    const fechaFormatted = new Date(fecha + 'T12:00:00').toLocaleDateString('es-CR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    // Enviar por WhatsApp
+    const msg = encodeURIComponent(`📅 *Solicitud de reunión KCN*
+
+👤 *Nombre:* ${nombre}
+📱 *WhatsApp:* ${tel}
+📆 *Fecha:* ${fechaFormatted}
+🕐 *Hora:* ${hora}
+
+💼 *Proyecto:*
+${proyecto || 'No especificado'}
+
+✅ Por favor confirmame si esa fecha y hora está disponible.`);
+
+    window.open('https://wa.me/50687359034?text=' + msg, '_blank');
+
+    // También crear evento en Google Calendar
+    const fechaGCal = fecha.replace(/-/g, '');
+    const horaNum = hora.replace(':00 AM','').replace(':00 PM', '');
+    const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reunión+KCN+con+${encodeURIComponent(nombre)}&dates=${fechaGCal}/${fechaGCal}&details=Reunión+de+consulta+con+KCN+Keny+Chinchilla&location=WhatsApp+%2B50687359034`;
+    setTimeout(() => window.open(gcalUrl, '_blank'), 1000);
+
+    if (typeof gtag !== 'undefined') gtag('event', 'cita_agendada');
+    if (typeof fbq !== 'undefined') fbq('track', 'Schedule');
+
+    const btn = this.querySelector('button');
+    btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> ¡Reunión solicitada!';
+    btn.disabled = true;
+    setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-calendar-check mr-2"></i> Confirmar reunión';
+        btn.disabled = false;
+        this.reset();
+    }, 4000);
+});
 </script>
 
 <!-- CONTACTO -->
@@ -4632,6 +5196,149 @@ function closeRuleta() {
     document.getElementById('ruletaModal').style.display = 'none';
 }
 </script>
+
+
+<script>
+// Texto cambiante en hero
+const typingWords = ['páginas web', 'apps móviles', 'tiendas online', 'software', 'tu idea'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingEl = null;
+
+function typeEffect() {
+    typingEl = document.getElementById('typingText');
+    if (!typingEl) return;
+
+    const currentWord = typingWords[wordIndex];
+    if (isDeleting) {
+        typingEl.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingEl.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        setTimeout(() => { isDeleting = true; }, 1800);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % typingWords.length;
+    }
+
+    setTimeout(typeEffect, isDeleting ? 60 : 100);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeEffect, 1000);
+});
+</script>
+
+
+<script>
+// Efecto 3D tilt en cards
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.glass-hover').forEach(card => {
+        card.style.position = 'relative';
+        card.style.overflow = 'hidden';
+
+        const shine = document.createElement('div');
+        shine.className = 'card-shine';
+        card.appendChild(shine);
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const cx = rect.width / 2;
+            const cy = rect.height / 2;
+            const rotX = ((y - cy) / cy) * -8;
+            const rotY = ((x - cx) / cx) * 8;
+
+            card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+            shine.style.setProperty('--x', (x / rect.width * 100) + '%');
+            shine.style.setProperty('--y', (y / rect.height * 100) + '%');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+});
+</script>
+
+
+<!-- ===== TAWK.TO CHAT EN VIVO ===== -->
+<!-- Crear cuenta gratis en tawk.to y reemplazar el ID -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+// REEMPLAZA con tu Property ID de tawk.to
+// Crear cuenta gratis en: tawk.to
+// Settings → Widget → Copy code → tomar el ID
+// Por ahora usamos configuración básica
+Tawk_API.onLoad = function() {
+    Tawk_API.setAttributes({
+        'name': 'Visitante KCN',
+        'email': ''
+    }, function(error){});
+};
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+// REEMPLAZA ESTE ID: ve a tawk.to → tu cuenta → obtén el script
+s1.src='https://embed.tawk.to/REEMPLAZA_TU_TAWKTO_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!-- ===== FIN TAWK.TO ===== -->
+
+
+<!-- ===== PWA COMPLETA ===== -->
+<script>
+// Registrar Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+        try {
+            const reg = await navigator.serviceWorker.register('/Kenychinchilla/sw.js');
+            console.log('SW registrado:', reg.scope);
+        } catch(e) {
+            console.log('SW error:', e);
+        }
+    });
+}
+
+// Prompt de instalación PWA
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Mostrar botón de instalación
+    document.getElementById('pwaInstallBtn')?.classList.remove('hidden');
+});
+
+function installPWA() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((result) => {
+            if (result.outcome === 'accepted') {
+                if (typeof gtag !== 'undefined') gtag('event', 'pwa_installed');
+                document.getElementById('pwaInstallBtn')?.classList.add('hidden');
+            }
+            deferredPrompt = null;
+        });
+    }
+}
+</script>
+
+<!-- Botón instalar PWA -->
+<div id="pwaInstallBtn" class="hidden fixed bottom-44 left-6 z-40">
+    <button onclick="installPWA()" class="glass px-4 py-2 rounded-full text-xs font-semibold border border-[#00A3FF]/40 hover:border-[#00A3FF] transition text-[#00A3FF] flex items-center gap-2">
+        <i class="fa-solid fa-download"></i> Instalar app KCN
+    </button>
+</div>
+<!-- ===== FIN PWA ===== -->
 
 </body>
 </html>
