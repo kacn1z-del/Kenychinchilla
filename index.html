@@ -803,8 +803,70 @@ h1 {
 .project-card img { cursor: zoom-in !important; }
 </style>
 
+
+<!-- LOGO 3D CSS -->
+<style>
+.logo-3d-container {
+    perspective: 800px;
+    display: inline-block;
+}
+.logo-3d {
+    transform-style: preserve-3d;
+    animation: logo3dFloat 6s ease-in-out infinite;
+    display: inline-block;
+    position: relative;
+}
+@keyframes logo3dFloat {
+    0%, 100% { transform: rotateY(-8deg) rotateX(5deg); }
+    25% { transform: rotateY(8deg) rotateX(-3deg); }
+    50% { transform: rotateY(4deg) rotateX(6deg); }
+    75% { transform: rotateY(-6deg) rotateX(-2deg); }
+}
+.logo-3d::after {
+    content: 'KCN';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(-8px);
+    background: linear-gradient(135deg, #001a2e, #002a4a);
+    border-radius: inherit;
+    filter: blur(2px);
+    opacity: 0.5;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    color: transparent;
+}
+</style>
+
 </head>
 <body class="antialiased">
+
+<!-- PROYECTOS EN CURSO -->
+<div class="fixed top-20 left-4 z-40 hidden lg:block">
+    <div class="glass rounded-2xl px-4 py-3 border border-[#00A3FF]/20 text-xs">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 bg-[#00FF88] rounded-full animate-pulse"></span>
+            <span class="text-gray-400 font-medium">Proyectos activos</span>
+        </div>
+        <div class="space-y-1.5" id="activeProjects">
+            <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#00A3FF]"></div>
+                <span class="text-gray-300">App delivery · 67%</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#a855f7]"></div>
+                <span class="text-gray-300">E-commerce · 43%</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></div>
+                <span class="text-gray-300">Web PYME · 89%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- DARK/LIGHT MODE -->
 <button id="themeToggle" onclick="toggleTheme()"
@@ -963,7 +1025,7 @@ window.addEventListener('scroll', () => {
         <div class="flex justify-between items-center h-20">
             <a href="#" class="flex items-center gap-3">
                 <img src="data:image/png;base64,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" alt="KCN Logo" class="h-10 w-auto rounded-lg ring-2 ring-[#00A3FF]/30">
-                <span class="text-2xl font-bold font-['Space_Grotesk'] text-gradient-brand">KCN</span>
+                <span class="logo-3d-container"><span class="logo-3d text-2xl font-bold font-['Space_Grotesk'] text-gradient-brand">KCN</span></span>
             </a>
             <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
                 <a href="#sobre-mi" class="nav-link text-sm font-medium text-gray-300 hover:text-white">Sobre mí</a>
@@ -2268,6 +2330,121 @@ document.getElementById('resenaForm').addEventListener('submit', function(e) {
     </div>
 </section>
 
+
+<!-- ANTES/DESPUÉS SLIDER -->
+<section id="transformaciones" class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">TRANSFORMACIONES</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gradient-brand">Antes y después</h2>
+            <p class="text-gray-400 text-lg">El impacto visual de trabajar con KCN</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- Slider 1 -->
+            <div class="reveal">
+                <p class="text-sm font-semibold text-gray-400 mb-3">Sitio web de restaurante</p>
+                <div class="relative rounded-2xl overflow-hidden" style="height:300px; cursor:ew-resize;" id="slider1">
+                    <!-- Antes -->
+                    <div class="absolute inset-0 flex items-center justify-center" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">😞</div>
+                            <p class="text-gray-400 text-sm font-mono">Sin página web</p>
+                            <p class="text-gray-600 text-xs mt-2">Solo Facebook, sin ventas online</p>
+                        </div>
+                    </div>
+                    <!-- Después -->
+                    <div class="absolute inset-0 flex items-center justify-center" id="after1" style="clip-path:inset(0 50% 0 0); background:linear-gradient(135deg,#020B14,#051A2A); transition:clip-path 0.1s;">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">🚀</div>
+                            <p class="text-[#00FF88] text-sm font-semibold">Con KCN</p>
+                            <p class="text-gray-300 text-xs mt-2">+300% más visitas · Ventas online</p>
+                            <div class="flex gap-2 justify-center mt-3">
+                                <span class="glass px-2 py-1 rounded-full text-xs text-[#00A3FF]">SEO ✓</span>
+                                <span class="glass px-2 py-1 rounded-full text-xs text-[#00FF88]">Rápida ✓</span>
+                                <span class="glass px-2 py-1 rounded-full text-xs text-[#a855f7]">Moderna ✓</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Divider -->
+                    <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10 flex items-center justify-center" id="divider1" style="left:50%;">
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-arrows-left-right text-[#020B14] text-xs"></i>
+                        </div>
+                    </div>
+                    <!-- Labels -->
+                    <div class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-semibold text-red-400 z-20">ANTES</div>
+                    <div class="absolute top-4 right-4 glass px-3 py-1 rounded-full text-xs font-semibold text-[#00FF88] z-20">DESPUÉS</div>
+                </div>
+            </div>
+
+            <!-- Slider 2 -->
+            <div class="reveal">
+                <p class="text-sm font-semibold text-gray-400 mb-3">Tienda de ropa local</p>
+                <div class="relative rounded-2xl overflow-hidden" style="height:300px; cursor:ew-resize;" id="slider2">
+                    <div class="absolute inset-0 flex items-center justify-center" style="background:linear-gradient(135deg,#2d1b00,#3d2500);">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">📵</div>
+                            <p class="text-gray-400 text-sm font-mono">Solo tienda física</p>
+                            <p class="text-gray-600 text-xs mt-2">Limitada a clientes locales</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center" id="after2" style="clip-path:inset(0 50% 0 0); background:linear-gradient(135deg,#020B14,#051A2A); transition:clip-path 0.1s;">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">💰</div>
+                            <p class="text-[#00FF88] text-sm font-semibold">E-commerce KCN</p>
+                            <p class="text-gray-300 text-xs mt-2">Vende 24/7 en todo Costa Rica</p>
+                            <div class="flex gap-2 justify-center mt-3">
+                                <span class="glass px-2 py-1 rounded-full text-xs text-[#00A3FF]">Pagos ✓</span>
+                                <span class="glass px-2 py-1 rounded-full text-xs text-[#00FF88]">Envíos ✓</span>
+                                <span class="glass px-2 py-1 rounded-full text-xs text-[#a855f7]">App ✓</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10 flex items-center justify-center" id="divider2" style="left:50%;">
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-arrows-left-right text-[#020B14] text-xs"></i>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-semibold text-red-400 z-20">ANTES</div>
+                    <div class="absolute top-4 right-4 glass px-3 py-1 rounded-full text-xs font-semibold text-[#00FF88] z-20">DESPUÉS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function initSlider(sliderId, afterId, dividerId) {
+    const slider = document.getElementById(sliderId);
+    const after = document.getElementById(afterId);
+    const divider = document.getElementById(dividerId);
+    if (!slider) return;
+
+    let isDragging = false;
+
+    function updateSlider(x) {
+        const rect = slider.getBoundingClientRect();
+        const pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+        after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        divider.style.left = pct + '%';
+    }
+
+    slider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+    slider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); });
+    document.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
+    document.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); });
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('touchend', () => isDragging = false);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initSlider('slider1', 'after1', 'divider1');
+    initSlider('slider2', 'after2', 'divider2');
+});
+</script>
+
 <!-- PROCESO -->
 <section id="proceso" class="py-24 md:py-32 relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -2302,6 +2479,64 @@ document.getElementById('resenaForm').addEventListener('submit', function(e) {
 </section>
 
 
+
+
+<!-- MAPA VISITANTES -->
+<section class="py-16 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="glass rounded-3xl p-8 reveal" style="border:1px solid rgba(0,163,255,0.2);">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <p class="text-[#00A3FF] font-semibold text-sm tracking-wide mb-2">ALCANCE GLOBAL</p>
+                    <h3 class="text-3xl font-bold text-white mb-4">Clientes en toda<br><span class="text-gradient-brand">Latinoamérica</span></h3>
+                    <div class="space-y-3" id="visitMapStats">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🇨🇷</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-300">Costa Rica</span>
+                                    <span class="text-[#00FF88]">68%</span>
+                                </div>
+                                <div class="h-1.5 glass rounded-full"><div class="h-full rounded-full" style="width:68%;background:linear-gradient(90deg,#00A3FF,#00FF88);"></div></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🇵🇦</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-300">Panamá</span>
+                                    <span class="text-[#00A3FF]">12%</span>
+                                </div>
+                                <div class="h-1.5 glass rounded-full"><div class="h-full rounded-full" style="width:12%;background:linear-gradient(90deg,#00A3FF,#a855f7);"></div></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🇨🇴</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-300">Colombia</span>
+                                    <span class="text-[#a855f7]">8%</span>
+                                </div>
+                                <div class="h-1.5 glass rounded-full"><div class="h-full rounded-full" style="width:8%;background:linear-gradient(90deg,#a855f7,#ec4899);"></div></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🌎</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-300">Otros países</span>
+                                    <span class="text-gray-400">12%</span>
+                                </div>
+                                <div class="h-1.5 glass rounded-full"><div class="h-full rounded-full" style="width:12%;background:rgba(255,255,255,0.2);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-8xl select-none" style="filter:drop-shadow(0 0 30px rgba(0,163,255,0.3));">🌎</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- NEWSLETTER -->
 <section id="newsletter" class="py-16 relative">
@@ -2717,6 +2952,155 @@ function resetQuiz() {
     document.getElementById('qresult').classList.add('hidden');
     document.getElementById('q1').classList.remove('hidden');
     document.getElementById('qp1').style.background = 'linear-gradient(90deg,#00A3FF,#00FF88)';
+}
+</script>
+
+
+<!-- PORTAL CLIENTES -->
+<section id="portal" class="py-24 md:py-32 relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+            <p class="text-[#00A3FF] font-semibold mb-4 tracking-wide">PORTAL</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-brand">Portal de clientes</h2>
+            <p class="text-gray-400">Seguí el avance de tu proyecto en tiempo real</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 reveal">
+            <!-- Login -->
+            <div id="portalLogin">
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-[#00A3FF]"></i> Acceso clientes
+                </h3>
+                <div class="space-y-4 max-w-sm mx-auto">
+                    <input type="text" id="portalCode" placeholder="Código de proyecto (ej: KCN-001)"
+                           class="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none border border-[#00A3FF]/20 text-center tracking-widest font-mono">
+                    <button onclick="portalLogin()" class="btn-primary w-full py-4 rounded-xl font-bold">
+                        <i class="fa-solid fa-right-to-bracket mr-2"></i> Ingresar
+                    </button>
+                    <p class="text-xs text-gray-500 text-center">¿No tenés código? Solicitalo por WhatsApp al 8735-9034</p>
+                </div>
+            </div>
+
+            <!-- Dashboard proyecto -->
+            <div id="portalDashboard" class="hidden">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-white" id="portalProjectName">Proyecto KCN</h3>
+                        <p class="text-sm text-gray-400" id="portalProjectType">Diseño Web</p>
+                    </div>
+                    <button onclick="portalLogout()" class="glass px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white transition border border-[#00A3FF]/20">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> Salir
+                    </button>
+                </div>
+
+                <!-- Progreso general -->
+                <div class="glass rounded-2xl p-6 mb-6" style="border:1px solid rgba(0,255,136,0.2);">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-semibold text-white">Progreso general</span>
+                        <span class="text-[#00FF88] font-bold text-xl" id="portalProgress">0%</span>
+                    </div>
+                    <div class="h-3 glass rounded-full overflow-hidden">
+                        <div id="portalProgressBar" class="h-full rounded-full transition-all duration-1000" style="width:0%; background:linear-gradient(90deg,#00A3FF,#00FF88);"></div>
+                    </div>
+                </div>
+
+                <!-- Etapas -->
+                <div class="space-y-3 mb-6" id="portalStages"></div>
+
+                <!-- Contacto directo -->
+                <a href="https://wa.me/50687359034?text=Hola%20Keny,%20consulta%20sobre%20mi%20proyecto" target="_blank"
+                   class="btn-primary w-full py-3 rounded-xl font-semibold text-center block">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> Consultar a Keny
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const demoProjects = {
+    'KCN-001': {
+        name: 'Tienda Online MQ',
+        type: 'E-commerce · San José',
+        progress: 75,
+        stages: [
+            { name: 'Análisis y planificación', status: 'done', date: '1 Jun 2026' },
+            { name: 'Diseño UI/UX', status: 'done', date: '8 Jun 2026' },
+            { name: 'Desarrollo frontend', status: 'done', date: '15 Jun 2026' },
+            { name: 'Integración pagos', status: 'active', date: 'En progreso...' },
+            { name: 'Testing y QA', status: 'pending', date: 'Pendiente' },
+            { name: 'Lanzamiento', status: 'pending', date: 'Pendiente' },
+        ]
+    },
+    'KCN-002': {
+        name: 'App Delivery CR',
+        type: 'App Móvil · Heredia',
+        progress: 45,
+        stages: [
+            { name: 'Análisis y planificación', status: 'done', date: '5 Jun 2026' },
+            { name: 'Diseño UI/UX', status: 'done', date: '12 Jun 2026' },
+            { name: 'Backend y APIs', status: 'active', date: 'En progreso...' },
+            { name: 'App Android', status: 'pending', date: 'Pendiente' },
+            { name: 'App iOS', status: 'pending', date: 'Pendiente' },
+            { name: 'Publicación stores', status: 'pending', date: 'Pendiente' },
+        ]
+    },
+    'KCN-003': {
+        name: 'Web Corporativa RS',
+        type: 'Diseño Web · Alajuela',
+        progress: 90,
+        stages: [
+            { name: 'Análisis y planificación', status: 'done', date: '10 May 2026' },
+            { name: 'Diseño UI/UX', status: 'done', date: '18 May 2026' },
+            { name: 'Desarrollo', status: 'done', date: '1 Jun 2026' },
+            { name: 'SEO y optimización', status: 'done', date: '10 Jun 2026' },
+            { name: 'Revisión final', status: 'active', date: 'En revisión...' },
+            { name: 'Entrega', status: 'pending', date: 'Esta semana' },
+        ]
+    }
+};
+
+function portalLogin() {
+    const code = document.getElementById('portalCode').value.trim().toUpperCase();
+    const project = demoProjects[code];
+
+    if (project) {
+        document.getElementById('portalLogin').classList.add('hidden');
+        document.getElementById('portalDashboard').classList.remove('hidden');
+        document.getElementById('portalProjectName').textContent = project.name;
+        document.getElementById('portalProjectType').textContent = project.type;
+
+        setTimeout(() => {
+            document.getElementById('portalProgress').textContent = project.progress + '%';
+            document.getElementById('portalProgressBar').style.width = project.progress + '%';
+        }, 300);
+
+        const stagesEl = document.getElementById('portalStages');
+        stagesEl.innerHTML = project.stages.map(s => {
+            const colors = { done: '#00FF88', active: '#00A3FF', pending: '#4b5563' };
+            const icons = { done: 'fa-check', active: 'fa-spinner fa-spin', pending: 'fa-clock' };
+            return `
+                <div class="flex items-center gap-4 glass rounded-xl p-4" style="border-color:${colors[s.status]}30;">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:${colors[s.status]}20; border:1px solid ${colors[s.status]}40;">
+                        <i class="fa-solid ${icons[s.status]} text-xs" style="color:${colors[s.status]};"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-white">${s.name}</p>
+                        <p class="text-xs" style="color:${colors[s.status]};">${s.date}</p>
+                    </div>
+                </div>`;
+        }).join('');
+
+        if (typeof gtag !== 'undefined') gtag('event', 'portal_login', { code });
+    } else {
+        alert('Código no encontrado. Probá con KCN-001, KCN-002 o KCN-003');
+    }
+}
+
+function portalLogout() {
+    document.getElementById('portalLogin').classList.remove('hidden');
+    document.getElementById('portalDashboard').classList.add('hidden');
+    document.getElementById('portalCode').value = '';
 }
 </script>
 
