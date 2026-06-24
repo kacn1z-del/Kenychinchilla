@@ -4,10 +4,39 @@
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="0; url=https://kenychinchilla.vercel.app/">
 <link rel="canonical" href="https://kenychinchilla.vercel.app/">
-<title>KCN - Redirigiendo...</title>
-<script>window.location.replace("https://kenychinchilla.vercel.app/");</script>
+<title>KCN - Keny Chinchilla Navarro</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#020B14; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:sans-serif; }
+.loader { text-align:center; color:white; }
+.logo { font-size:48px; font-weight:900; background:linear-gradient(135deg,#00A3FF,#00FF88); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:16px; }
+.spinner { width:40px; height:40px; border:3px solid rgba(0,163,255,0.2); border-top-color:#00A3FF; border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 16px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+p { color:#9CA3AF; font-size:14px; }
+a { color:#00FF88; text-decoration:none; display:block; margin-top:12px; font-size:14px; }
+</style>
+<script>
+// Redirigir inmediatamente
+(function() {
+  var url = "https://kenychinchilla.vercel.app/";
+  window.location.href = url;
+  // Backup para iOS
+  setTimeout(function() {
+    window.location.replace(url);
+  }, 100);
+  // Segundo backup
+  setTimeout(function() {
+    document.getElementById('manualLink').click();
+  }, 500);
+})();
+</script>
 </head>
 <body>
-<p>Redirigiendo a <a href="https://kenychinchilla.vercel.app/">kenychinchilla.vercel.app</a>...</p>
+<div class="loader">
+  <div class="logo">KCN</div>
+  <div class="spinner"></div>
+  <p>Cargando...</p>
+  <a id="manualLink" href="https://kenychinchilla.vercel.app/">Tocá aquí si no redirige →</a>
+</div>
 </body>
 </html>
