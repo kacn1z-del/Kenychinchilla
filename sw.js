@@ -1,8 +1,8 @@
-const CACHE_NAME = 'kcn-v1';
+const CACHE_NAME = 'kcn-v2';
 const urlsToCache = [
-    '/Kenychinchilla/',
-    '/Kenychinchilla/index.html',
-    '/Kenychinchilla/manifest.json',
+    '/',
+    '/index.html',
+    '/manifest.json',
 ];
 
 self.addEventListener('install', event => {
@@ -15,7 +15,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request).then(response => {
             if (response) return response;
-            return fetch(event.request).catch(() => caches.match('/Kenychinchilla/'));
+            return fetch(event.request).catch(() => caches.match('/'));
         })
     );
 });
