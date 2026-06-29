@@ -62,7 +62,7 @@ const VOTOS_VALIDADA = 5
 
 export default function PalabrasIndigenas() {
   const [palabras, setPalabras] = useState<Palabra[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [filtroLengua, setFiltroLengua] = useState('Todas')
   const [showForm, setShowForm] = useState(false)
   const [enviando, setEnviando] = useState(false)
@@ -84,8 +84,9 @@ export default function PalabrasIndigenas() {
       const data = snap.docs.map(d => ({ id: d.id, ...d.data() } as Palabra))
       setPalabras(data)
       setLoading(false)
-    })
-    return () => unsub()
+    }, () => setLoading(false))
+    const timeout = setTimeout(() => setLoading(false), 5000)
+    return () => { unsub(); clearTimeout(timeout) }
   }, [])
 
   // ── Enviar nueva palabra ──
