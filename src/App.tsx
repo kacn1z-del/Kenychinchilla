@@ -824,7 +824,7 @@ function QRSection({ lang }: { lang: LangKey }) {
             <div className="text-3xl">💬</div>
             <div className="bg-white rounded-2xl p-3">
               <img
-                src={}
+                src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwa.me%2F50687359034&bgcolor=ffffff&color=000000&margin=0"
                 alt="QR WhatsApp"
                 width={160}
                 height={160}
@@ -846,7 +846,7 @@ function QRSection({ lang }: { lang: LangKey }) {
             <div className="text-3xl">📘</div>
             <div className="bg-white rounded-2xl p-3">
               <img
-                src={}
+                src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17o8S43BTG%2F&bgcolor=ffffff&color=000000&margin=0"
                 alt="QR Facebook"
                 width={160}
                 height={160}
