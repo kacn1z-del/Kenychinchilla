@@ -365,7 +365,7 @@ function Nav({ menuOpen, setMenuOpen, lang, setLang }: { menuOpen: boolean; setM
       <nav className={`fixed top-0 left-0 right-0 z-50 h-12 px-6 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-xl border-b border-white/8' : 'bg-black/80 backdrop-blur-xl'}`}>
         <a href="#" className="flex items-center gap-3">
           <img src={KCN_LOGO} alt="KCN" className="h-8 w-auto" />
-          <div className="hidden sm:block">
+          <div className="block">
             <p className="text-white font-bold text-[15px] tracking-tight leading-none">Keny Chinchilla</p>
             <p className="text-white/40 text-[11px] tracking-wide">Navarro</p>
           </div>
@@ -996,5 +996,3 @@ export default function App() {
     </div>
   )
 }
-
-
