@@ -64,7 +64,7 @@ export default function PalabrasIndigenas() {
   const [palabras, setPalabras] = useState<Palabra[]>([])
   const [loading, setLoading] = useState(false)
   const [filtroLengua, setFiltroLengua] = useState('Todas')
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(true)
   const [enviando, setEnviando] = useState(false)
   const [exito, setExito] = useState(false)
   const voterId = getVoterId()
@@ -129,7 +129,7 @@ export default function PalabrasIndigenas() {
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
-        <div className="reveal mb-16">
+        <div className="mb-16">
           <p className="text-[12px] font-semibold text-green-400 uppercase tracking-[0.1em] mb-4">
             🌿 Lenguas Vivas
           </p>
@@ -143,7 +143,7 @@ export default function PalabrasIndigenas() {
         </div>
 
         {/* Stats */}
-        <div className="reveal grid grid-cols-3 gap-px bg-white/5 mb-12">
+        <div className="grid grid-cols-3 gap-px bg-white/5 mb-12">
           {[
             { val: palabras.length, label: 'Palabras aportadas', color: 'text-green-400' },
             { val: validadas.length, label: 'Validadas por la comunidad', color: 'text-blue-400' },
@@ -157,7 +157,7 @@ export default function PalabrasIndigenas() {
         </div>
 
         {/* Filtros + Botón aportar */}
-        <div className="reveal flex flex-wrap gap-2 mb-8 items-center justify-between">
+        <div className="flex flex-wrap gap-2 mb-8 items-center justify-between">
           <div className="flex flex-wrap gap-2">
             {['Todas', ...LENGUAS.map(l => l.key)].map(l => (
               <button
@@ -184,7 +184,7 @@ export default function PalabrasIndigenas() {
 
         {/* Formulario */}
         {showForm && (
-          <div className="reveal bg-[#0a140a] border border-green-500/20 rounded-2xl p-8 mb-10">
+          <div className="bg-[#0a140a] border border-green-500/20 rounded-2xl p-8 mb-10">
             <h3 className="text-[18px] font-semibold text-white mb-6 flex items-center gap-2">
               🌿 Aportar una palabra
             </h3>
