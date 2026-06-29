@@ -797,6 +797,71 @@ function FAQ({ lang }: { lang: LangKey }) {
   )
 }
 
+
+// ─── QR SECTION ─────────────────────────────────────────
+function QRSection({ lang }: { lang: LangKey }) {
+  return (
+    <section className="py-20 bg-[#050505] border-t border-white/6">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <p className="reveal text-[12px] font-semibold text-blue-400 uppercase tracking-[0.1em] mb-4">
+          {lang === 'en' ? 'Find us' : 'Encontranos'}
+        </p>
+        <h2 className="reveal text-[clamp(24px,4vw,40px)] font-bold tracking-tight text-white mb-4">
+          {lang === 'en' ? 'Scan & connect' : 'Escaneá y conectate'}
+        </h2>
+        <p className="reveal text-[15px] text-white/40 mb-14">
+          {lang === 'en' ? 'WhatsApp or Facebook — we respond fast.' : 'WhatsApp o Facebook — respondemos rápido.'}
+        </p>
+        <div className="reveal flex gap-8 justify-center flex-wrap">
+          {/* WhatsApp QR */}
+          <div className="bg-[#0a0a0a] border border-white/8 rounded-2xl p-8 flex flex-col items-center gap-5 hover:border-green-500/30 transition-colors">
+            <div className="text-3xl">💬</div>
+            <div className="bg-white rounded-2xl p-3">
+              <img
+                src={}
+                alt="QR WhatsApp"
+                width={160}
+                height={160}
+                className="rounded-xl"
+              />
+            </div>
+            <div>
+              <p className="text-[16px] font-semibold text-white mb-1">WhatsApp</p>
+              <p className="text-[13px] text-white/30">+506 8735-9034</p>
+            </div>
+            <a href="https://wa.me/50687359034" target="_blank" rel="noreferrer"
+               className="bg-green-600 hover:bg-green-500 text-white px-5 py-2.5 rounded-full text-[13px] font-medium transition-all">
+              {lang === 'en' ? 'Open WhatsApp' : 'Abrir WhatsApp'}
+            </a>
+          </div>
+
+          {/* Facebook QR */}
+          <div className="bg-[#0a0a0a] border border-white/8 rounded-2xl p-8 flex flex-col items-center gap-5 hover:border-blue-500/30 transition-colors">
+            <div className="text-3xl">📘</div>
+            <div className="bg-white rounded-2xl p-3">
+              <img
+                src={}
+                alt="QR Facebook"
+                width={160}
+                height={160}
+                className="rounded-xl"
+              />
+            </div>
+            <div>
+              <p className="text-[16px] font-semibold text-white mb-1">Facebook</p>
+              <p className="text-[13px] text-white/30">KCN · Keny Chinchilla</p>
+            </div>
+            <a href="https://www.facebook.com/share/17o8S43BTG/?mibextid=wwXIfr" target="_blank" rel="noreferrer"
+               className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-[13px] font-medium transition-all">
+              {lang === 'en' ? 'Open Facebook' : 'Abrir Facebook'}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── FINAL CTA ──────────────────────────────────────────
 function FinalCTA({ lang }: { lang: LangKey }) {
   return (
@@ -918,6 +983,7 @@ export default function App() {
       <Pricing lang={lang} />
       <FAQ lang={lang} />
       <PalabrasIndigenas />
+      <QRSection lang={lang} />
       <FinalCTA lang={lang} />
       <Footer lang={lang} />
       <WaButton />
