@@ -804,6 +804,105 @@ function FAQ({ lang }: { lang: LangKey }) {
 }
 
 
+
+// ─── BLOG ────────────────────────────────────────────────
+function Blog({ lang }: { lang: LangKey }) {
+  const posts = [
+    {
+      category: lang === 'en' ? 'Web Design' : 'Diseño Web',
+      title: lang === 'en' ? 'Why does your business need a website?' : '¿Por qué su empresa necesita una página web?',
+      excerpt: lang === 'en'
+        ? 'In 2026, not having a website means losing clients every day. 87% of consumers search online before buying. Your competition is already there.'
+        : 'En 2026, no tener página web significa perder clientes todos los días. El 87% de los consumidores busca en internet antes de comprar. Tu competencia ya está ahí.',
+      read: lang === 'en' ? '5 min read' : '5 min de lectura',
+      emoji: '🌐', color: 'blue', wa: 'por+qu%C3%A9+necesita+p%C3%A1gina+web'
+    },
+    {
+      category: lang === 'en' ? 'Mobile Apps' : 'Apps Móviles',
+      title: lang === 'en' ? '5 reasons to have a mobile app in 2026' : '5 razones para tener una app móvil en 2026',
+      excerpt: lang === 'en'
+        ? 'Mobile apps increase customer loyalty by 60%, boost sales and let you send push notifications directly to your clients at any time.'
+        : 'Las apps móviles aumentan la fidelidad del cliente en un 60%, incrementan ventas y permiten enviar notificaciones directas a tus clientes en cualquier momento.',
+      read: lang === 'en' ? '4 min read' : '4 min de lectura',
+      emoji: '📱', color: 'green', wa: 'app+m%C3%B3vil'
+    },
+    {
+      category: lang === 'en' ? 'E-commerce' : 'Tiendas Online',
+      title: lang === 'en' ? 'How to increase sales with an online store' : '¿Cómo aumentar ventas con una tienda online?',
+      excerpt: lang === 'en'
+        ? 'An online store lets you sell 24/7. Costa Rican businesses that go online increase their revenue by an average of 40%.'
+        : 'Una tienda online te permite vender las 24 horas. Los negocios costarricenses que se digitalizan aumentan sus ingresos en promedio un 40%.',
+      read: lang === 'en' ? '6 min read' : '6 min de lectura',
+      emoji: '🛒', color: 'purple', wa: 'tienda+online'
+    },
+    {
+      category: 'Costa Rica',
+      title: lang === 'en' ? 'Electronic invoicing in Costa Rica: complete guide' : 'Facturación electrónica en Costa Rica: guía completa',
+      excerpt: lang === 'en'
+        ? 'Since 2018, electronic invoicing is mandatory in Costa Rica. Learn how to integrate it into your business system.'
+        : 'Desde 2018 la facturación electrónica es obligatoria en Costa Rica. Aprende cómo integrarla en tu sistema y evitar multas de Hacienda.',
+      read: lang === 'en' ? '7 min read' : '7 min de lectura',
+      emoji: '🧾', color: 'yellow', wa: 'facturaci%C3%B3n+electr%C3%B3nica'
+    },
+  ]
+
+  const colorMap: Record<string, { text: string; bg: string; border: string }> = {
+    blue:   { text: 'text-blue-400',   bg: 'bg-blue-400/10',   border: 'border-blue-400/20' },
+    green:  { text: 'text-green-400',  bg: 'bg-green-400/10',  border: 'border-green-400/20' },
+    purple: { text: 'text-purple-400', bg: 'bg-purple-400/10', border: 'border-purple-400/20' },
+    yellow: { text: 'text-yellow-400', bg: 'bg-yellow-400/10', border: 'border-yellow-400/20' },
+  }
+
+  return (
+    <section id="blog" className="py-24 bg-black border-t border-white/6">
+      <div className="max-w-6xl mx-auto px-6">
+        <p className="reveal text-[12px] font-semibold text-blue-400 uppercase tracking-[0.1em] mb-4">Blog</p>
+        <h2 className="reveal text-[clamp(28px,5vw,52px)] font-bold tracking-tight leading-[1.1] mb-4 text-white">
+          {lang === 'en' ? 'Resources & tips for your business.' : 'Recursos y consejos para tu negocio.'}
+        </h2>
+        <p className="reveal text-[17px] text-white/40 font-light mb-16 max-w-lg">
+          {lang === 'en' ? 'Practical guides to help you grow digitally.' : 'Guías prácticas para ayudarte a crecer digitalmente.'}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/6">
+          {posts.map((post, i) => {
+            const c = colorMap[post.color]
+            return (
+              <a key={i}
+                 href={`https://wa.me/50687359034?text=Hola+Keny,+lei+sobre+${post.wa}`}
+                 target="_blank" rel="noreferrer"
+                 className="reveal group bg-[#0a0a0a] hover:bg-[#111] transition-colors p-9 flex flex-col gap-5">
+                <div className="flex items-center justify-between">
+                  <span className={`text-[11px] font-semibold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full border ${c.bg} ${c.border} ${c.text}`}>
+                    {post.category}
+                  </span>
+                  <span className="text-[12px] text-white/25">{post.read}</span>
+                </div>
+                <div className="text-4xl">{post.emoji}</div>
+                <h3 className="text-[20px] font-bold text-white leading-snug tracking-tight group-hover:text-blue-400 transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-[14px] text-white/40 leading-relaxed flex-1">{post.excerpt}</p>
+                <div className="flex items-center gap-2 text-[13px] text-blue-400 group-hover:gap-3 transition-all">
+                  {lang === 'en' ? 'Read more' : 'Leer más'} →
+                </div>
+              </a>
+            )
+          })}
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <a href="https://wa.me/50687359034?text=Quiero+saber+m%C3%A1s+sobre+digitalizar+mi+negocio"
+             target="_blank" rel="noreferrer"
+             className="border border-blue-400/30 hover:border-blue-400/70 text-blue-400 hover:text-white px-7 py-3 rounded-full text-[15px] font-medium transition-all">
+            {lang === 'en' ? 'Talk to an expert →' : 'Hablar con un experto →'}
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── QR SECTION ─────────────────────────────────────────
 function QRSection({ lang }: { lang: LangKey }) {
   return (
@@ -989,6 +1088,7 @@ export default function App() {
       <Pricing lang={lang} />
       <FAQ lang={lang} />
       <PalabrasIndigenas />
+      <Blog lang={lang} />
       <QRSection lang={lang} />
       <FinalCTA lang={lang} />
       <Footer lang={lang} />
