@@ -1,10 +1,14 @@
+# Robots.txt - KCN Keny Chinchilla Navarro
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://kenychinchilla.com/sitemap.xml
 
 # Bloquear archivos innecesarios
-Disallow: /src/
+Disallow: /private/
 Disallow: /*.json$
-Disallow: /*.tsx$
-Disallow: /*.ts$
+Disallow: /node_modules/
+
+# Crawl delay para no sobrecargar
+Crawl-delay: 1
