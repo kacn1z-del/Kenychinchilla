@@ -2,7 +2,7 @@
   "name": "KCN - Keny Chinchilla Navarro",
   "short_name": "KCN",
   "description": "Diseño Web & App Costa Rica - Keny Chinchilla Navarro",
-  "start_url": "/Kenychinchilla/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#020B14",
   "theme_color": "#00A3FF",
@@ -10,7 +10,7 @@
   "lang": "es-CR",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "/favicon.ico",
       "sizes": "64x64",
       "type": "image/x-icon"
     }
@@ -24,7 +24,7 @@
     },
     {
       "name": "Portafolio",
-      "url": "/Kenychinchilla/#portafolio",
+      "url": "/#portafolio",
       "description": "Ver proyectos"
     }
   ]
