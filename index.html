@@ -902,7 +902,8 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
       <input type="number" id="kcn-monto-pago" min="1" step="0.01" placeholder="Ej: 150.00"
         style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#000;color:#fff;font-size:16px;box-sizing:border-box;" />
     </div>
-    <div id="paypal-button-container"></div>
+    <div id="paypal-button-container" style="opacity:.35;pointer-events:none;transition:opacity .2s;"></div>
+    <p id="kcn-pago-hint" style="margin-top:10px;font-size:12px;color:#86868b;">Escribe un monto para habilitar el pago.</p>
     <p id="kcn-pago-mensaje" style="margin-top:16px;font-size:13px;"></p>
   </div>
 </div>
@@ -910,6 +911,27 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <script>
 (function() {
   var mensaje = document.getElementById('kcn-pago-mensaje');
+  var hint = document.getElementById('kcn-pago-hint');
+  var container = document.getElementById('paypal-button-container');
+  var montoInput = document.getElementById('kcn-monto-pago');
+
+  function montoValido() {
+    var v = parseFloat(montoInput.value);
+    return v && v > 0;
+  }
+
+  function actualizarEstadoBoton() {
+    if (montoValido()) {
+      container.style.opacity = '1';
+      container.style.pointerEvents = 'auto';
+      hint.style.display = 'none';
+    } else {
+      container.style.opacity = '.35';
+      container.style.pointerEvents = 'none';
+      hint.style.display = 'block';
+    }
+  }
+  montoInput.addEventListener('input', actualizarEstadoBoton);
 
   function renderPayPalButton() {
     if (!window.paypal) {
@@ -920,12 +942,7 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
     paypal.Buttons({
       style: { color: 'blue', shape: 'rect', label: 'pay' },
       createOrder: function(data, actions) {
-        var monto = document.getElementById('kcn-monto-pago').value;
-        if (!monto || parseFloat(monto) <= 0) {
-          mensaje.style.color = '#ff375f';
-          mensaje.innerText = 'Por favor escribe un monto válido antes de pagar.';
-          return Promise.reject(new Error('Monto inválido'));
-        }
+        var monto = montoInput.value;
         mensaje.innerText = '';
         return actions.order.create({
           purchase_units: [{
@@ -939,6 +956,10 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
           mensaje.style.color = '#30d158';
           mensaje.innerText = '¡Pago recibido! Gracias, ' + details.payer.name.given_name + '.';
         });
+      },
+      onCancel: function() {
+        mensaje.style.color = '#86868b';
+        mensaje.innerText = 'Pago cancelado.';
       },
       onError: function(err) {
         mensaje.style.color = '#ff375f';
@@ -1277,4 +1298,3 @@ body.light .section-title,body.light .hero-title .line1,body.light .hero-title .
 
 </body>
 </html>
-
