@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import PalabrasIndigenas from './PalabrasIndigenas'
+import PaymentSection from './PaymentSection'
 
 const KCN_LOGO = "data:image/png;base64,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"
 import {
@@ -362,7 +363,7 @@ function Nav({ menuOpen, setMenuOpen, lang, setLang }: { menuOpen: boolean; setM
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 h-12 px-6 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-xl border-b border-white/8' : 'bg-black/80 backdrop-blur-xl'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 h-12 px-6 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-apple-dark/90 backdrop-blur-xl border-b border-white/8' : 'bg-apple-dark/80 backdrop-blur-xl'}`}>
         <a href="#" className="flex items-center gap-3">
           <img src={KCN_LOGO} alt="KCN" className="h-8 w-auto" />
           <div className="block">
@@ -389,7 +390,7 @@ function Nav({ menuOpen, setMenuOpen, lang, setLang }: { menuOpen: boolean; setM
       </nav>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-12 z-40 bg-black/97 backdrop-blur-2xl flex flex-col gap-1 px-6 pt-10">
+        <div className="fixed inset-0 top-12 z-40 bg-apple-dark/97 backdrop-blur-2xl flex flex-col gap-1 px-6 pt-10">
           {links.map(l => (
             <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
                className="text-[22px] font-semibold text-white py-4 border-b border-white/7 block">
@@ -412,7 +413,7 @@ function Nav({ menuOpen, setMenuOpen, lang, setLang }: { menuOpen: boolean; setM
 // ─── HERO ───────────────────────────────────────────────
 function Hero({ lang }: { lang: LangKey }) {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-20 relative overflow-hidden bg-black">
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-20 relative overflow-hidden bg-apple-dark">
       <div className="absolute inset-0 pointer-events-none"
            style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
       <div className="absolute w-[700px] h-[700px] rounded-full pointer-events-none"
@@ -546,7 +547,7 @@ function Portfolio({ lang }: { lang: LangKey }) {
   ]
 
   return (
-    <section id="portafolio" className="py-24 bg-black">
+    <section id="portafolio" className="py-24 bg-apple-dark">
       <div className="max-w-6xl mx-auto px-6">
         <p className="reveal text-[12px] font-semibold text-blue-400 uppercase tracking-[0.1em] mb-4">{tr('sectionPortfolio', lang)}</p>
         <h2 className="reveal text-[clamp(28px,5vw,52px)] font-bold tracking-tight leading-[1.1] mb-16 text-white whitespace-pre-line">{tr('portfolioTitle', lang)}</h2>
@@ -635,7 +636,7 @@ function WhyKCN({ lang }: { lang: LangKey }) {
   const kcn    = ['Diseño 100% personalizado', 'Soporte en minutos', 'Web + Apps + Software', 'Pago único', 'Optimización máxima']
 
   return (
-    <section className="py-24 bg-black border-t border-white/6">
+    <section className="py-24 bg-apple-dark border-t border-white/6">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="reveal text-[clamp(28px,5vw,52px)] font-bold tracking-tight leading-[1.1] mb-16 text-white">{tr('whyTitle', lang)}</h2>
         <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-px bg-white/6">
@@ -721,7 +722,7 @@ function Process({ lang }: { lang: LangKey }) {
       ]
 
   return (
-    <section id="proceso" className="py-24 bg-black border-t border-white/6">
+    <section id="proceso" className="py-24 bg-apple-dark border-t border-white/6">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="reveal text-[clamp(28px,5vw,52px)] font-bold tracking-tight leading-[1.1] mb-16 text-white whitespace-pre-line">{tr('processTitle', lang)}</h2>
         <div className="border-t border-white/8">
@@ -780,7 +781,7 @@ function FAQ({ lang }: { lang: LangKey }) {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-24 bg-black border-t border-white/6">
+    <section id="faq" className="py-24 bg-apple-dark border-t border-white/6">
       <div className="max-w-6xl mx-auto px-6">
         <p className="reveal text-[12px] font-semibold text-blue-400 uppercase tracking-[0.1em] mb-4">{tr('sectionFaq', lang)}</p>
         <h2 className="reveal text-[clamp(28px,5vw,52px)] font-bold tracking-tight leading-[1.1] mb-16 text-white">{tr('faqTitle', lang)}</h2>
@@ -854,7 +855,7 @@ function Blog({ lang }: { lang: LangKey }) {
   }
 
   return (
-    <section id="blog" className="py-24 bg-black border-t border-white/6">
+    <section id="blog" className="py-24 bg-apple-dark border-t border-white/6">
       <div className="max-w-6xl mx-auto px-6">
         <p className="reveal text-[12px] font-semibold text-blue-400 uppercase tracking-[0.1em] mb-4">Blog</p>
         <h2 className="reveal text-[clamp(28px,5vw,52px)] font-bold tracking-tight leading-[1.1] mb-4 text-white">
@@ -970,7 +971,7 @@ function QRSection({ lang }: { lang: LangKey }) {
 // ─── FINAL CTA ──────────────────────────────────────────
 function FinalCTA({ lang }: { lang: LangKey }) {
   return (
-    <section className="py-40 text-center bg-black border-t border-white/6 relative overflow-hidden">
+    <section className="py-40 text-center bg-apple-dark border-t border-white/6 relative overflow-hidden">
       <div className="absolute w-[800px] h-[800px] rounded-full pointer-events-none"
            style={{ background: 'radial-gradient(circle,rgba(0,113,227,0.12) 0%,transparent 70%)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }} />
       <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -1072,7 +1073,7 @@ export default function App() {
   }, [lang])
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-apple-dark text-white min-h-screen">
       <div className="fixed top-12 left-0 h-[2px] bg-blue-400 z-[9998] transition-all duration-100"
            style={{ width: prog + '%' }} />
       <Nav menuOpen={menuOpen} setMenuOpen={setMenuOpen} lang={lang} setLang={setLang} />
@@ -1086,6 +1087,7 @@ export default function App() {
       <Testimonials lang={lang} />
       <Process lang={lang} />
       <Pricing lang={lang} />
+      <PaymentSection />
       <FAQ lang={lang} />
       <PalabrasIndigenas />
       <Blog lang={lang} />
