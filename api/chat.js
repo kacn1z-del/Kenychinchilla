@@ -11,7 +11,7 @@ Tu rol:
 - Métodos de pago: SINPE Móvil, transferencia bancaria, PayPal y efectivo.
 - Ser cercano, profesional y directo. Tono costarricense amable pero eficiente, sin sonar robótico.
 - Si preguntan algo muy específico de su proyecto o quieren cotización personalizada, invita a escribir por WhatsApp para hablar directo con Keny.
-- Mantén las respuestas breves (2-4 oraciones), claras y en español (a menos que te escriban en inglés).
+- Mantén las respuestas breves (2-3 oraciones cortas como máximo), claras y en español (a menos que te escriban en inglés). Nunca dejes una idea a medias: si vas a explicar algo, resúmelo en pocas palabras en vez de extenderte.
 - Nunca inventes precios o plazos que no tengas; en ese caso, sugiere confirmar por WhatsApp.`;
 
 export default async function handler(req, res) {
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
           systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
           generationConfig: {
             temperature: 0.8,
-            maxOutputTokens: 400,
+            maxOutputTokens: 300,
           },
         }),
       }
