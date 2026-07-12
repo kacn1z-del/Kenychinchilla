@@ -907,11 +907,16 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
   </div>
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=ED5Y3udVvuaIHNUxmRXLiNxEYQdQOLkqMvpSH9F3MU20HkFI7Oc4ZDqnuCJZKyO6b6z3EtVGZZorU0ES&currency=USD"></script>
 <script>
 (function() {
   var mensaje = document.getElementById('kcn-pago-mensaje');
-  if (window.paypal) {
+
+  function renderPayPalButton() {
+    if (!window.paypal) {
+      mensaje.style.color = '#ff375f';
+      mensaje.innerText = 'No se pudo cargar PayPal. Revisa tu conexión y recarga la página.';
+      return;
+    }
     paypal.Buttons({
       style: { color: 'blue', shape: 'rect', label: 'pay' },
       createOrder: function(data, actions) {
@@ -942,6 +947,15 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
       }
     }).render('#paypal-button-container');
   }
+
+  var paypalScript = document.createElement('script');
+  paypalScript.src = 'https://www.paypal.com/sdk/js?client-id=ED5Y3udVvuaIHNUxmRXLiNxEYQdQOLkqMvpSH9F3MU20HkFI7Oc4ZDqnuCJZKyO6b6z3EtVGZZorU0ES&currency=USD';
+  paypalScript.onload = renderPayPalButton;
+  paypalScript.onerror = function() {
+    mensaje.style.color = '#ff375f';
+    mensaje.innerText = 'No se pudo cargar PayPal. Revisa tu conexión y recarga la página.';
+  };
+  document.body.appendChild(paypalScript);
 })();
 </script>
 
