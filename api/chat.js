@@ -46,4 +46,26 @@ export default async function handler(req, res) {
           systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
           generationConfig: {
             temperature: 0.8,
-            maxOutputTokens:
+            maxOutputTokens: 400,
+          },
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error('Gemini API error:', errText);
+      return res.status(502).json({ error: 'Error al conectar con el asistente de IA' });
+    }
+
+    const data = await response.json();
+    const reply =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      'Disculpa, no pude generar una respuesta en este momento. ¿Podrías reformular tu pregunta?';
+
+    return res.status(200).json({ reply });
+  } catch (error) {
+    console.error('Chat handler error:', error);
+    return res.status(500).json({ error: 'Error interno del servidor' });
+  }
+}
