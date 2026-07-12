@@ -21,7 +21,7 @@ export default {
           text: '#1D1D1F',
           muted: '#86868B',
           border: '#D2D2D7',
-          dark: '#000000',
+          dark: '#1A1A1A',
         }
       },
       animation: {
