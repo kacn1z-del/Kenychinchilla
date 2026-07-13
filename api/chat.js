@@ -46,7 +46,7 @@ export default async function handler(req, res) {
           systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
           generationConfig: {
             temperature: 0.8,
-            maxOutputTokens: 300,
+            maxOutputTokens: 500,
           },
         }),
       }
@@ -69,4 +69,3 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Error interno del servidor' });
   }
 }
-
