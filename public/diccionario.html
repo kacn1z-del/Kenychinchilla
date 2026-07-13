@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diccionario Vivo — Lenguas indígenas de Costa Rica</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  :root{
+    --bg:#F3ECDD;
+    --bg-soft:#EDE4D0;
+    --ink:#28201A;
+    --ink-soft:#5C5245;
+    --clay:#B5472F;
+    --jungle:#3F6B4A;
+    --river:#2E6B78;
+    --gold:#B8862E;
+    --indigo:#514770;
+    --line:#D9CBAE;
+    --card:#FBF8F1;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+
+  .thread{
+    height:6px;
+    width:100%;
+    background:repeating-linear-gradient(
+      -45deg,
+      var(--clay) 0px, var(--clay) 8px,
+      var(--gold) 8px, var(--gold) 16px,
+      var(--jungle) 16px, var(--jungle) 24px,
+      var(--river) 24px, var(--river) 32px
+    );
+  }
+
+  .backlink{
+    display:block;
+    max-width:760px;
+    margin:0 auto;
+    padding:16px 20px 0;
+    font-size:13px;
+  }
+  .backlink a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .backlink a:hover{color:var(--ink);}
+
+  header{
+    padding:16px 20px 18px;
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  h1{
+    font-family:'Fraunces',serif;
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:clamp(28px, 6vw, 40px);
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+
+  .subtitle{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0 0 18px;
+    max-width:52ch;
+  }
+
+  .langs-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:4px;
+  }
+
+  .lang-chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    padding:5px 10px;
+    border-radius:999px;
+    border:1.5px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    cursor:pointer;
+    user-select:none;
+    transition:all .15s ease;
+    white-space:nowrap;
+  }
+  .lang-chip[data-on="true"]{
+    color:#fff;
+    border-color:transparent;
+  }
+  .lang-chip[data-lang="bribri"][data-on="true"]{background:var(--clay);}
+  .lang-chip[data-lang="cabecar"][data-on="true"]{background:var(--gold);}
+  .lang-chip[data-lang="maleku"][data-on="true"]{background:var(--jungle);}
+  .lang-chip[data-lang="boruca"][data-on="true"]{background:var(--river);}
+  .lang-chip[data-lang="ngabe"][data-on="true"]{background:var(--indigo);}
+  .lang-chip[data-lang="terraba"][data-on="true"]{background:#7A5230;}
+
+  .search-wrap{
+    position:sticky;
+    top:0;
+    background:var(--bg);
+    padding:14px 20px 16px;
+    max-width:760px;
+    margin:0 auto;
+    z-index:10;
+  }
+
+  .search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--card);
+    border:2px solid var(--ink);
+    border-radius:14px;
+    padding:12px 16px;
+  }
+
+  .search-box svg{flex:0 0 auto;opacity:.7;}
+
+  #q{
+    border:none;
+    outline:none;
+    background:transparent;
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    width:100%;
+    color:var(--ink);
+  }
+  #q::placeholder{color:#A79A85;}
+
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 20px 40px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;
+    margin-bottom:12px;
+  }
+
+  .card .es{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    margin:0 0 10px;
+  }
+
+  .translations{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 14px;
+  }
+  @media (max-width:420px){
+    .translations{grid-template-columns:1fr;}
+  }
+
+  .t-item{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-size:14.5px;
+    padding:2px 0;
+  }
+  .t-item.empty{opacity:.35;}
+
+  .t-lang{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    width:62px;
+    flex:0 0 auto;
+    color:var(--ink-soft);
+  }
+
+  .t-word{font-weight:500;}
+  mark{
+    background:var(--gold);
+    color:#28201A;
+    padding:0 2px;
+    border-radius:3px;
+  }
+
+  .empty-state{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--ink-soft);
+  }
+  .empty-state .big{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+
+  .loadmore-wrap{text-align:center;margin:8px 0 8px;}
+  .loadmore-btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    background:var(--card);
+    border:1.5px solid var(--line);
+    color:var(--ink-soft);
+    padding:10px 22px;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .loadmore-btn:hover{border-color:var(--ink-soft);}
+
+  /* ─── Sección Aportar Palabra ─── */
+  .aportar-section{
+    max-width:760px;
+    margin:0 auto;
+    padding:20px 20px 70px;
+    border-top:1px solid var(--line);
+  }
+  .aportar-head{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin:28px 0 20px;
+  }
+  .aportar-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0;
+  }
+  .btn-aportar{
+    font-family:'Inter',sans-serif;
+    background:var(--jungle);
+    color:#fff;
+    border:none;
+    padding:11px 20px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .form-box{
+    display:none;
+    background:var(--card);
+    border:1.5px solid var(--jungle);
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:28px;
+  }
+  .form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  @media (max-width:480px){ .form-grid{grid-template-columns:1fr;} }
+  .form-field label{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .form-field input, .form-field select{
+    width:100%;
+    background:#fff;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:11px 13px;
+    font-size:14px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    outline:none;
+    box-sizing:border-box;
+  }
+  .form-field input:focus, .form-field select:focus{border-color:var(--jungle);}
+  .form-actions{display:flex;gap:10px;}
+  .btn-submit{
+    background:var(--jungle);color:#fff;border:none;padding:11px 22px;
+    border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;
+  }
+  .btn-cancel{
+    background:transparent;color:var(--ink-soft);border:1.5px solid var(--line);
+    padding:11px 22px;border-radius:999px;font-size:14px;cursor:pointer;
+  }
+  .form-msg{margin-top:12px;font-size:13px;}
+
+  .pal-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:12px;
+  }
+  .pal-card.validada{border-left:3px solid var(--jungle);}
+  .pal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .pal-badge{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;
+    padding:4px 10px;border-radius:999px;
+    background:rgba(63,107,74,.12);color:var(--jungle);border:1px solid rgba(63,107,74,.25);
+  }
+  .pal-validada-tag{font-size:11px;color:var(--jungle);font-weight:700;}
+  .pal-word{font-family:'Fraunces',serif;font-weight:700;font-size:22px;margin:0 0 2px;}
+  .pal-es{font-size:14px;color:var(--ink-soft);margin:0;}
+  .pal-ctx{font-size:12.5px;color:var(--ink-soft);font-style:italic;margin:8px 0 0;}
+  .pal-autor{font-size:11.5px;color:#A79A85;margin:6px 0 0;}
+  .pal-vote-wrap{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);}
+  .btn-vote{
+    display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+    padding:8px 14px;border-radius:999px;border:1.5px solid rgba(63,107,74,.35);
+    color:var(--jungle);background:transparent;cursor:pointer;
+  }
+  .btn-vote:disabled{border-color:var(--line);color:#A79A85;cursor:default;}
+
+  footer{
+    text-align:center;
+    padding:20px;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<div class="thread"></div>
+
+<div class="backlink"><a href="/">← Volver a kenychinchilla.com</a></div>
+
+<header>
+  <h1>Diccionario Vivo</h1>
+  <p class="subtitle">Buscá en español o en cualquiera de las seis lenguas — bribri, cabécar, maleku, boruca, ngäbe y térraba — y encontrá la palabra en todas las demás.</p>
+</header>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="q" type="text" placeholder="Escribí una palabra, en cualquier idioma…" autocomplete="off" autocapitalize="off" spellcheck="false">
+  </div>
+  <div class="langs-row" id="langsRow"></div>
+  <div class="meta-row">
+    <span id="count">Cargando diccionario…</span>
+    <span id="totalEntries"></span>
+  </div>
+</div>
+
+<main id="results"></main>
+<div class="loadmore-wrap" id="loadmoreWrap" style="display:none;">
+  <button class="loadmore-btn" id="loadmoreBtn">Ver más resultados</button>
+</div>
+
+<!-- ─── APORTAR PALABRA ─── -->
+<div class="aportar-section">
+  <div class="aportar-head">
+    <h2>Aportá una palabra de tu lengua</h2>
+    <button class="btn-aportar" id="palToggle">🌿 Aportar palabra</button>
+  </div>
+
+  <div class="form-box" id="palForm">
+    <div class="form-grid">
+      <div class="form-field">
+        <label>Palabra en Español *</label>
+        <input id="palEs" type="text" placeholder="ej: Agua">
+      </div>
+      <div class="form-field">
+        <label>Palabra en tu lengua *</label>
+        <input id="palInd" type="text" placeholder="ej: Aba">
+      </div>
+      <div class="form-field">
+        <label>Tu lengua *</label>
+        <select id="palLengua">
+          <option>Bribri</option><option>Cabécar</option><option>Ngöbe</option><option>Maléku</option>
+          <option>Térraba</option><option>Brunca</option><option>Mekatelyu</option><option>Chorotega</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Tu nombre o comunidad *</label>
+        <input id="palAutor" type="text" placeholder="ej: María, Comunidad Amubri">
+      </div>
+    </div>
+    <div class="form-field" style="margin-bottom:16px;">
+      <label>Contexto o uso (opcional)</label>
+      <input id="palContexto" type="text" placeholder="ej: Se usa para saludar en la mañana">
+    </div>
+    <div class="form-actions">
+      <button class="btn-submit" id="palSubmit">Publicar palabra</button>
+      <button class="btn-cancel" id="palCancel">Cancelar</button>
+    </div>
+    <p class="form-msg" id="palMsg"></p>
+  </div>
+
+  <div id="palLista">
+    <p style="text-align:center;padding:30px;color:var(--ink-soft);font-size:14px;">Cargando aportes de la comunidad…</p>
+  </div>
+</div>
+
+<footer>Diccionario Vivo · kenychinchilla.com · datos comunitarios recopilados</footer>
+
+<script>
+  const LANG_LABELS = {
+    bribri:"Bribri", cabecar:"Cabécar", maleku:"Maleku",
+    boruca:"Boruca", ngabe:"Ngäbe", terraba:"Térraba"
+  };
+  let COLS = [], ROWS = [], LANG_KEYS = [];
+  let shownCount = 60;
+  const langsRow = document.getElementById('langsRow');
+  const activeLangs = new Set();
+
+  fetch('/diccionario-indigena.json')
+    .then(r => r.json())
+    .then(json => {
+      COLS = json.cols;
+      ROWS = json.data;
+      LANG_KEYS = COLS.slice(1);
+      LANG_KEYS.forEach(k => activeLangs.add(k));
+      buildChips();
+      document.getElementById('totalEntries').textContent = `v${json.version} · ${ROWS.length} entradas`;
+      render('');
+    })
+    .catch(() => {
+      document.getElementById('count').textContent = 'No se pudo cargar el diccionario.';
+    });
+
+  function buildChips(){
+    LANG_KEYS.forEach(key=>{
+      const chip = document.createElement('div');
+      chip.className = 'lang-chip';
+      chip.dataset.lang = key;
+      chip.dataset.on = 'true';
+      chip.textContent = LANG_LABELS[key] || key;
+      chip.addEventListener('click', ()=>{
+        if(activeLangs.has(key)){ activeLangs.delete(key); chip.dataset.on='false'; }
+        else { activeLangs.add(key); chip.dataset.on='true'; }
+        render(document.getElementById('q').value);
+      });
+      langsRow.appendChild(chip);
+    });
+  }
+
+  function norm(s){
+    return (s||'').toString()
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .trim();
+  }
+
+  function highlight(text, q){
+    if(!q) return text;
+    const nText = norm(text);
+    const nQ = norm(q);
+    const idx = nText.indexOf(nQ);
+    if(idx === -1) return text;
+    return text.slice(0, idx) + '<mark>' + text.slice(idx, idx+q.length) + '</mark>' + text.slice(idx+q.length);
+  }
+
+  function render(query){
+    const q = query.trim();
+    const nq = norm(q);
+    const resultsEl = document.getElementById('results');
+    const countEl = document.getElementById('count');
+    resultsEl.innerHTML = '';
+
+    let matches = ROWS;
+    if(nq.length > 0){
+      matches = ROWS.filter(row => row.some(cell => norm(cell).includes(nq)));
+    }
+
+    countEl.textContent = nq.length===0
+      ? `${ROWS.length} palabras en total`
+      : `${matches.length} resultado${matches.length===1?'':'s'}`;
+
+    if(matches.length === 0){
+      resultsEl.innerHTML = `<div class="empty-state">
+        <div class="big">Sin coincidencias</div>
+        <div>Probá con otra palabra u otra ortografía.</div>
+      </div>`;
+      document.getElementById('loadmoreWrap').style.display = 'none';
+      return;
+    }
+
+    if (nq.length === 0) shownCount = Math.min(shownCount, 60) || 60;
+    const toShow = matches.slice(0, shownCount);
+
+    toShow.forEach(row=>{
+      const [es, ...langVals] = row;
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const esEl = document.createElement('p');
+      esEl.className = 'es';
+      esEl.innerHTML = highlight(es, q);
+      card.appendChild(esEl);
+
+      const grid = document.createElement('div');
+      grid.className = 'translations';
+
+      LANG_KEYS.forEach((key, i)=>{
+        if(!activeLangs.has(key)) return;
+        const val = langVals[i];
+        const item = document.createElement('div');
+        const isEmpty = !val || val === '—' || val.trim()==='';
+        item.className = 't-item' + (isEmpty ? ' empty' : '');
+        item.innerHTML = `<span class="t-lang">${LANG_LABELS[key]}</span><span class="t-word">${isEmpty ? '—' : highlight(val, q)}</span>`;
+        grid.appendChild(item);
+      });
+
+      card.appendChild(grid);
+      resultsEl.appendChild(card);
+    });
+
+    document.getElementById('loadmoreWrap').style.display = matches.length > shownCount ? 'block' : 'none';
+  }
+
+  document.getElementById('q').addEventListener('input', e=> { shownCount = 60; render(e.target.value); });
+  document.getElementById('loadmoreBtn').addEventListener('click', () => { shownCount += 60; render(document.getElementById('q').value); });
+</script>
+
+<!-- ─── APORTAR PALABRA: Firebase ─── -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+  import {
+    getFirestore, collection, addDoc, onSnapshot,
+    updateDoc, doc, serverTimestamp, query, orderBy
+  } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCtSnVv5N92ongrIAKpUA5lPDOur6Cqd0o",
+    authDomain: "keny-chinchilla.firebaseapp.com",
+    projectId: "keny-chinchilla",
+    storageBucket: "keny-chinchilla.firebasestorage.app",
+    messagingSenderId: "1092421427289",
+    appId: "1:1092421427289:web:b15f6e6d72ab80d348d148"
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  function getVoterId() {
+    let id = sessionStorage.getItem('kcn_voter_id');
+    if (!id) {
+      id = Math.random().toString(36).slice(2) + Date.now().toString(36);
+      sessionStorage.setItem('kcn_voter_id', id);
+    }
+    return id;
+  }
+  const VOTOS_VALIDADA = 5;
+  const voterId = getVoterId();
+  let palabras = [];
+
+  const q = query(collection(db, 'palabras_indigenas'), orderBy('timestamp', 'desc'));
+  onSnapshot(q, snap => {
+    palabras = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderPalabras();
+  }, () => {
+    document.getElementById('palLista').innerHTML = '<p style="text-align:center;padding:30px;color:var(--ink-soft);">No se pudieron cargar los aportes.</p>';
+  });
+
+  function renderPalabras() {
+    const box = document.getElementById('palLista');
+    if (palabras.length === 0) {
+      box.innerHTML = '<div style="text-align:center;padding:50px 20px;border:1.5px dashed #D9CBAE;border-radius:16px;"><p style="font-size:36px;margin-bottom:10px;">🌿</p><p style="font-family:Fraunces,serif;font-size:18px;font-weight:600;margin-bottom:6px;">Sé el primero en aportar</p><p style="font-size:13px;color:#5C5245;">Compartí una palabra en tu lengua indígena</p></div>';
+      return;
+    }
+    box.innerHTML = '';
+    palabras.forEach(p => {
+      const validada = (p.votos||0) >= VOTOS_VALIDADA;
+      const yaVoto = (p.votantes||[]).includes(voterId);
+      const div = document.createElement('div');
+      div.className = 'pal-card' + (validada ? ' validada' : '');
+      div.innerHTML = `
+        <div class="pal-top">
+          <span class="pal-badge">${p.lengua||''}</span>
+          ${validada ? '<span class="pal-validada-tag">✓ Validada</span>' : ''}
+        </div>
+        <p class="pal-word">${p.palabraIndigena||''}</p>
+        <p class="pal-es">${p.palabraEspanol||''}</p>
+        ${p.contexto ? '<p class="pal-ctx">"' + p.contexto + '"</p>' : ''}
+        <p class="pal-autor">— ${p.autor||''}</p>
+        <div class="pal-vote-wrap">
+          <button class="btn-vote wc-vote-btn" data-id="${p.id}" ${(yaVoto||validada) ? 'disabled' : ''}>
+            ${yaVoto ? 'Ya validaste' : validada ? '✓ Validada' : 'Validar (' + (p.votos||0) + '/' + VOTOS_VALIDADA + ')'}
+          </button>
+        </div>
+      `;
+      box.appendChild(div);
+    });
+    document.querySelectorAll('.wc-vote-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-id');
+        const p = palabras.find(x => x.id === id);
+        if (!p || (p.votantes||[]).includes(voterId)) return;
+        await updateDoc(doc(db, 'palabras_indigenas', id), {
+          votos: (p.votos||0) + 1,
+          votantes: [...(p.votantes||[]), voterId]
+        });
+      });
+    });
+  }
+
+  document.getElementById('palToggle').addEventListener('click', () => {
+    const form = document.getElementById('palForm');
+    form.style.display = form.style.display === 'none' || !form.style.display ? 'block' : 'none';
+  });
+  document.getElementById('palCancel').addEventListener('click', () => {
+    document.getElementById('palForm').style.display = 'none';
+  });
+  document.getElementById('palSubmit').addEventListener('click', async () => {
+    const es = document.getElementById('palEs').value.trim();
+    const ind = document.getElementById('palInd').value.trim();
+    const lengua = document.getElementById('palLengua').value;
+    const autor = document.getElementById('palAutor').value.trim();
+    const contexto = document.getElementById('palContexto').value.trim();
+    const msg = document.getElementById('palMsg');
+    if (!es || !ind || !autor) {
+      msg.style.color = '#B5472F';
+      msg.textContent = 'Completá los campos obligatorios (*).';
+      return;
+    }
+    msg.style.color = '#5C5245';
+    msg.textContent = 'Enviando...';
+    try {
+      await addDoc(collection(db, 'palabras_indigenas'), {
+        palabraEspanol: es, palabraIndigena: ind, lengua, autor, contexto,
+        votos: 0, votantes: [], timestamp: serverTimestamp()
+      });
+      document.getElementById('palEs').value = '';
+      document.getElementById('palInd').value = '';
+      document.getElementById('palAutor').value = '';
+      document.getElementById('palContexto').value = '';
+      msg.style.color = '#3F6B4A';
+      msg.textContent = '¡Palabra publicada! La comunidad puede validarla ahora.';
+      setTimeout(() => { document.getElementById('palForm').style.display = 'none'; msg.textContent=''; }, 2500);
+    } catch (e) {
+      msg.style.color = '#B5472F';
+      msg.textContent = 'Ocurrió un error al publicar. Intenta de nuevo.';
+      console.error(e);
+    }
+  });
+</script>
+
+</body>
+</html>
