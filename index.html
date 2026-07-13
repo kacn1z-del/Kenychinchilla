@@ -437,27 +437,28 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <nav>
   <a href="#" class="nav-logo" style="display:flex;align-items:center;"><img src="/logo-kcn-icon.png" alt="KCN" style="height:34px;width:auto;"/></a>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#portafolio">Portafolio</a></li>
-    <li><a href="#precios">Precios</a></li>
-    <li><a href="#testimonios">Clientes</a></li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
+    <li><a href="#portafolio" data-i18n="nav.portafolio">Portafolio</a></li>
+    <li><a href="#precios" data-i18n="nav.precios">Precios</a></li>
+    <li><a href="#testimonios" data-i18n="nav.clientes">Clientes</a></li>
+    <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
+    <button class="theme-btn" id="langBtn" onclick="toggleLang()" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;">ES</button>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
-    <a href="https://wa.me/50687359034" target="_blank" class="nav-cta">Contactar →</a>
+    <a href="https://wa.me/50687359034" target="_blank" class="nav-cta" data-i18n="nav.contactar">Contactar →</a>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#servicios" onclick="closeMM()">Servicios</a>
-  <a href="#portafolio" onclick="closeMM()">Portafolio</a>
-  <a href="#precios" onclick="closeMM()">Precios</a>
-  <a href="#testimonios" onclick="closeMM()">Clientes</a>
-  <a href="#faq" onclick="closeMM()">FAQ</a>
-  <a href="https://wa.me/50687359034" target="_blank" style="color:var(--green);margin-top:20px;">Hablar con Keny →</a>
+  <a href="#servicios" onclick="closeMM()" data-i18n="nav.servicios">Servicios</a>
+  <a href="#portafolio" onclick="closeMM()" data-i18n="nav.portafolio">Portafolio</a>
+  <a href="#precios" onclick="closeMM()" data-i18n="nav.precios">Precios</a>
+  <a href="#testimonios" onclick="closeMM()" data-i18n="nav.clientes">Clientes</a>
+  <a href="#faq" onclick="closeMM()" data-i18n="nav.faq">FAQ</a>
+  <a href="https://wa.me/50687359034" target="_blank" style="color:var(--green);margin-top:20px;" data-i18n="nav.hablar">Hablar con Keny →</a>
 </div>
 
 <!-- HERO -->
@@ -468,27 +469,27 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
     <div class="hero-lines"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="hero-badge-dot"></span> Disponible para nuevos proyectos</div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span> <span data-i18n="hero.badge">Disponible para nuevos proyectos</span></div>
     <h1 class="hero-title">
-      <span class="line1">Desarrollamos software,</span>
-      <span class="line2">apps y páginas web</span>
-      <span class="line3">que hacen crecer empresas.</span>
+      <span class="line1" data-i18n="hero.line1">Desarrollamos software,</span>
+      <span class="line2" data-i18n="hero.line2">apps y páginas web</span>
+      <span class="line3" data-i18n="hero.line3">que hacen crecer empresas.</span>
     </h1>
-    <p class="hero-sub">Soluciones digitales de alto impacto para negocios que quieren resultados reales.</p>
-    <p class="hero-location">🇨🇷 Diseñado en Costa Rica · Trabajamos con clientes en toda Latinoamérica</p>
+    <p class="hero-sub" data-i18n="hero.sub">Soluciones digitales de alto impacto para negocios que quieren resultados reales.</p>
+    <p class="hero-location" data-i18n="hero.location">🇨🇷 Diseñado en Costa Rica · Trabajamos con clientes en toda Latinoamérica</p>
     <div class="hero-actions">
-      <a href="https://wa.me/50687359034?text=Hola%20Keny,%20quiero%20hablar%20sobre%20mi%20proyecto" target="_blank" class="btn-primary">Iniciar mi proyecto</a>
-      <a href="#portafolio" class="btn-ghost">Ver proyectos →</a>
+      <a href="https://wa.me/50687359034?text=Hola%20Keny,%20quiero%20hablar%20sobre%20mi%20proyecto" target="_blank" class="btn-primary" data-i18n="hero.cta1">Iniciar mi proyecto</a>
+      <a href="#portafolio" class="btn-ghost" data-i18n="hero.cta2">Ver proyectos →</a>
     </div>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats-strip">
-  <div class="stat-item"><div class="stat-num" data-target="100" data-suffix="+">0+</div><div class="stat-label">Proyectos entregados</div></div>
-  <div class="stat-item"><div class="stat-num" data-target="98" data-suffix="%">0%</div><div class="stat-label">Clientes satisfechos</div></div>
-  <div class="stat-item"><div class="stat-num" data-target="10" data-suffix="+">0+</div><div class="stat-label">Años de experiencia</div></div>
-  <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label">Respuesta garantizada</div></div>
+  <div class="stat-item"><div class="stat-num" data-target="100" data-suffix="+">0+</div><div class="stat-label" data-i18n="stats.proyectos">Proyectos entregados</div></div>
+  <div class="stat-item"><div class="stat-num" data-target="98" data-suffix="%">0%</div><div class="stat-label" data-i18n="stats.clientes">Clientes satisfechos</div></div>
+  <div class="stat-item"><div class="stat-num" data-target="10" data-suffix="+">0+</div><div class="stat-label" data-i18n="stats.anos">Años de experiencia</div></div>
+  <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label" data-i18n="stats.respuesta">Respuesta garantizada</div></div>
 </div>
 
 <!-- TECH STRIP -->
@@ -501,7 +502,7 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 
 <!-- LOGOS CLIENTES -->
 <div class="logos-section">
-  <p class="logos-title">Empresas que confían en KCN</p>
+  <p class="logos-title" data-i18n="logos.title">Empresas que confían en KCN</p>
   <div class="logos-grid">
     <div class="logo-item"><span>Restaurantes MQ</span></div>
     <div class="logo-item"><span>DeliveryCR</span></div>
@@ -515,9 +516,9 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <!-- PORTAFOLIO -->
 <div class="mockups-section" id="portafolio">
   <div style="max-width:1200px;margin:0 auto;padding:0 0 60px;">
-    <p class="section-eyebrow reveal">Portafolio</p>
-    <h2 class="section-title reveal">Proyectos reales.<br>Resultados reales.</h2>
-    <p class="section-sub reveal">Más de 100 proyectos completados en Costa Rica y Latinoamérica.</p>
+    <p class="section-eyebrow reveal" data-i18n="port.eyebrow">Portafolio</p>
+    <h2 class="section-title reveal" data-i18n="port.title">Proyectos reales.<br>Resultados reales.</h2>
+    <p class="section-sub reveal" data-i18n="port.sub">Más de 100 proyectos completados en Costa Rica y Latinoamérica.</p>
   </div>
   <div class="mockups-grid" style="max-width:1200px;margin:0 auto;">
     <div class="mockup-card reveal">
@@ -537,10 +538,10 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
         </div>
       </div>
       <div class="mockup-card-inner">
-        <p class="mockup-tag">Sistema POS · Windows</p>
+        <p class="mockup-tag" data-i18n="port.m1tag">Sistema POS · Windows</p>
         <h3 class="mockup-title">Restaurantes MQ</h3>
-        <p class="mockup-desc">Sistema punto de venta con facturación electrónica, inventario y reportes.</p>
-        <a href="https://wa.me/50687359034?text=Quiero%20un%20sistema%20POS" target="_blank" class="mockup-link">Ver detalles →</a>
+        <p class="mockup-desc" data-i18n="port.m1desc">Sistema punto de venta con facturación electrónica, inventario y reportes.</p>
+        <a href="https://wa.me/50687359034?text=Quiero%20un%20sistema%20POS" target="_blank" class="mockup-link" data-i18n="port.verDetalles">Ver detalles →</a>
       </div>
     </div>
     <div class="mockup-card reveal">
@@ -556,10 +557,10 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
         </div>
       </div>
       <div class="mockup-card-inner">
-        <p class="mockup-tag">App Móvil · Android & iOS</p>
+        <p class="mockup-tag" data-i18n="port.m2tag">App Móvil · Android & iOS</p>
         <h3 class="mockup-title">DeliveryCR App</h3>
-        <p class="mockup-desc">Plataforma de delivery con tracking en tiempo real. +40% ventas en el primer mes.</p>
-        <a href="https://wa.me/50687359034?text=Quiero%20una%20app%20de%20delivery" target="_blank" class="mockup-link">Ver detalles →</a>
+        <p class="mockup-desc" data-i18n="port.m2desc">Plataforma de delivery con tracking en tiempo real. +40% ventas en el primer mes.</p>
+        <a href="https://wa.me/50687359034?text=Quiero%20una%20app%20de%20delivery" target="_blank" class="mockup-link" data-i18n="port.verDetalles">Ver detalles →</a>
       </div>
     </div>
     <div class="mockup-card reveal">
@@ -578,10 +579,10 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
         </div>
       </div>
       <div class="mockup-card-inner">
-        <p class="mockup-tag">E-commerce · Web</p>
+        <p class="mockup-tag" data-i18n="port.m3tag">E-commerce · Web</p>
         <h3 class="mockup-title">TiendaTec Online</h3>
-        <p class="mockup-desc">Tienda online con pasarela BAC y Banco Nacional. Ventas 24/7.</p>
-        <a href="https://wa.me/50687359034?text=Quiero%20una%20tienda%20online" target="_blank" class="mockup-link">Ver detalles →</a>
+        <p class="mockup-desc" data-i18n="port.m3desc">Tienda online con pasarela BAC y Banco Nacional. Ventas 24/7.</p>
+        <a href="https://wa.me/50687359034?text=Quiero%20una%20tienda%20online" target="_blank" class="mockup-link" data-i18n="port.verDetalles">Ver detalles →</a>
       </div>
     </div>
     <div class="mockup-card reveal">
@@ -601,126 +602,126 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
         </div>
       </div>
       <div class="mockup-card-inner">
-        <p class="mockup-tag">ERP · Linux</p>
+        <p class="mockup-tag" data-i18n="port.m4tag">ERP · Linux</p>
         <h3 class="mockup-title">GestorInventario Pro</h3>
-        <p class="mockup-desc">Sistema ERP con módulos de inventario, ventas, facturación y reportes automáticos.</p>
-        <a href="https://wa.me/50687359034?text=Quiero%20un%20sistema%20ERP" target="_blank" class="mockup-link">Ver detalles →</a>
+        <p class="mockup-desc" data-i18n="port.m4desc">Sistema ERP con módulos de inventario, ventas, facturación y reportes automáticos.</p>
+        <a href="https://wa.me/50687359034?text=Quiero%20un%20sistema%20ERP" target="_blank" class="mockup-link" data-i18n="port.verDetalles">Ver detalles →</a>
       </div>
     </div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Quiero%20ver%20más%20proyectos" target="_blank" class="btn-ghost">Ver más proyectos →</a>
+    <a href="https://wa.me/50687359034?text=Quiero%20ver%20más%20proyectos" target="_blank" class="btn-ghost" data-i18n="port.cta">Ver más proyectos →</a>
   </div>
 </div>
 
 <!-- SERVICIOS -->
 <div style="background:#050505;border-top:1px solid rgba(255,255,255,.06)">
 <div class="section" id="servicios">
-  <p class="section-eyebrow reveal">Servicios</p>
-  <h2 class="section-title reveal">Todo lo que necesitás<br>para crecer digitalmente.</h2>
-  <p class="section-sub reveal">Desarrollamos soluciones completas desde cero — sin plantillas, sin atajos.</p>
+  <p class="section-eyebrow reveal" data-i18n="serv.eyebrow">Servicios</p>
+  <h2 class="section-title reveal" data-i18n="serv.title">Todo lo que necesitás<br>para crecer digitalmente.</h2>
+  <p class="section-sub reveal" data-i18n="serv.sub">Desarrollamos soluciones completas desde cero — sin plantillas, sin atajos.</p>
 
   <div class="services-grid">
     <div class="service-card reveal">
       <div class="service-icon" style="background:rgba(41,151,255,.1);border-color:rgba(41,151,255,.2);">🌐</div>
-      <h3 class="service-title">Diseño Web</h3>
-      <p class="service-desc">Sitios web únicos, rápidos y optimizados para convertir visitantes en clientes.</p>
-      <p class="service-price">Desde $120 USD</p>
+      <h3 class="service-title" data-i18n="serv.web.title">Diseño Web</h3>
+      <p class="service-desc" data-i18n="serv.web.desc">Sitios web únicos, rápidos y optimizados para convertir visitantes en clientes.</p>
+      <p class="service-price" data-i18n="serv.web.price">Desde $120 USD</p>
       <ul class="service-features">
-        <li>Diseño 100% personalizado</li>
-        <li>Hosting incluido</li>
-        <li>Dominio .com incluido</li>
-        <li>Certificado SSL</li>
-        <li>Optimización Google</li>
-        <li>Botón WhatsApp</li>
-        <li>Soporte incluido</li>
+        <li data-i18n="serv.web.f1">Diseño 100% personalizado</li>
+        <li data-i18n="serv.web.f2">Hosting incluido</li>
+        <li data-i18n="serv.web.f3">Dominio .com incluido</li>
+        <li data-i18n="serv.web.f4">Certificado SSL</li>
+        <li data-i18n="serv.web.f5">Optimización Google</li>
+        <li data-i18n="serv.web.f6">Botón WhatsApp</li>
+        <li data-i18n="serv.web.f7">Soporte incluido</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Quiero%20una%20página%20web" target="_blank" class="service-link">Solicitar cotización →</a>
+      <a href="https://wa.me/50687359034?text=Quiero%20una%20página%20web" target="_blank" class="service-link" data-i18n="serv.cotizar">Solicitar cotización →</a>
     </div>
     <div class="service-card reveal">
       <div class="service-icon" style="background:rgba(48,209,88,.1);border-color:rgba(48,209,88,.2);">📱</div>
-      <h3 class="service-title">Apps Móviles</h3>
-      <p class="service-desc">Aplicaciones nativas para Android e iOS que se publican en las tiendas oficiales.</p>
-      <p class="service-price">Desde $699 USD</p>
+      <h3 class="service-title" data-i18n="serv.app.title">Apps Móviles</h3>
+      <p class="service-desc" data-i18n="serv.app.desc">Aplicaciones nativas para Android e iOS que se publican en las tiendas oficiales.</p>
+      <p class="service-price" data-i18n="serv.app.price">Desde $699 USD</p>
       <ul class="service-features">
-        <li>Android y iOS</li>
-        <li>Flutter / React Native</li>
-        <li>Backend y APIs</li>
-        <li>Publicación en stores</li>
-        <li>Panel de administración</li>
-        <li>Notificaciones push</li>
-        <li>Soporte post-lanzamiento</li>
+        <li data-i18n="serv.app.f1">Android y iOS</li>
+        <li data-i18n="serv.app.f2">Flutter / React Native</li>
+        <li data-i18n="serv.app.f3">Backend y APIs</li>
+        <li data-i18n="serv.app.f4">Publicación en stores</li>
+        <li data-i18n="serv.app.f5">Panel de administración</li>
+        <li data-i18n="serv.app.f6">Notificaciones push</li>
+        <li data-i18n="serv.app.f7">Soporte post-lanzamiento</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Quiero%20una%20app%20móvil" target="_blank" class="service-link">Solicitar cotización →</a>
+      <a href="https://wa.me/50687359034?text=Quiero%20una%20app%20móvil" target="_blank" class="service-link" data-i18n="serv.cotizar">Solicitar cotización →</a>
     </div>
     <div class="service-card reveal">
       <div class="service-icon" style="background:rgba(255,214,10,.1);border-color:rgba(255,214,10,.2);">💻</div>
-      <h3 class="service-title">Software Empresarial</h3>
-      <p class="service-desc">CRM, ERP y sistemas POS a medida para automatizar tu empresa.</p>
-      <p class="service-price">Desde $999 USD</p>
+      <h3 class="service-title" data-i18n="serv.soft.title">Software Empresarial</h3>
+      <p class="service-desc" data-i18n="serv.soft.desc">CRM, ERP y sistemas POS a medida para automatizar tu empresa.</p>
+      <p class="service-price" data-i18n="serv.soft.price">Desde $999 USD</p>
       <ul class="service-features">
-        <li>Windows y Linux</li>
-        <li>Gestión de inventario</li>
-        <li>Facturación electrónica</li>
-        <li>Reportes automáticos</li>
-        <li>Multi-usuario</li>
-        <li>Base de datos segura</li>
-        <li>Capacitación incluida</li>
+        <li data-i18n="serv.soft.f1">Windows y Linux</li>
+        <li data-i18n="serv.soft.f2">Gestión de inventario</li>
+        <li data-i18n="serv.soft.f3">Facturación electrónica</li>
+        <li data-i18n="serv.soft.f4">Reportes automáticos</li>
+        <li data-i18n="serv.soft.f5">Multi-usuario</li>
+        <li data-i18n="serv.soft.f6">Base de datos segura</li>
+        <li data-i18n="serv.soft.f7">Capacitación incluida</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Quiero%20software%20empresarial" target="_blank" class="service-link">Solicitar cotización →</a>
+      <a href="https://wa.me/50687359034?text=Quiero%20software%20empresarial" target="_blank" class="service-link" data-i18n="serv.cotizar">Solicitar cotización →</a>
     </div>
     <div class="service-card reveal">
       <div class="service-icon" style="background:rgba(255,55,95,.1);border-color:rgba(255,55,95,.2);">🛒</div>
-      <h3 class="service-title">Tiendas Online</h3>
-      <p class="service-desc">E-commerce completo con pasarela de pagos para vender 24/7.</p>
-      <p class="service-price">Desde $499 USD</p>
+      <h3 class="service-title" data-i18n="serv.tienda.title">Tiendas Online</h3>
+      <p class="service-desc" data-i18n="serv.tienda.desc">E-commerce completo con pasarela de pagos para vender 24/7.</p>
+      <p class="service-price" data-i18n="serv.tienda.price">Desde $499 USD</p>
       <ul class="service-features">
-        <li>Catálogo de productos</li>
-        <li>Carrito de compras</li>
-        <li>Pagos BAC y BN</li>
-        <li>PayPal incluido</li>
-        <li>Panel admin</li>
-        <li>Gestión de pedidos</li>
-        <li>SEO integrado</li>
+        <li data-i18n="serv.tienda.f1">Catálogo de productos</li>
+        <li data-i18n="serv.tienda.f2">Carrito de compras</li>
+        <li data-i18n="serv.tienda.f3">Pagos BAC y BN</li>
+        <li data-i18n="serv.tienda.f4">PayPal incluido</li>
+        <li data-i18n="serv.tienda.f5">Panel admin</li>
+        <li data-i18n="serv.tienda.f6">Gestión de pedidos</li>
+        <li data-i18n="serv.tienda.f7">SEO integrado</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Quiero%20una%20tienda%20online" target="_blank" class="service-link">Solicitar cotización →</a>
+      <a href="https://wa.me/50687359034?text=Quiero%20una%20tienda%20online" target="_blank" class="service-link" data-i18n="serv.cotizar">Solicitar cotización →</a>
     </div>
     <div class="service-card reveal">
       <div class="service-icon" style="background:rgba(191,90,242,.1);border-color:rgba(191,90,242,.2);">🎨</div>
-      <h3 class="service-title">Diseño de Marca</h3>
-      <p class="service-desc">Identidad visual profesional que diferencia tu negocio de la competencia.</p>
-      <p class="service-price">Consultame</p>
+      <h3 class="service-title" data-i18n="serv.marca.title">Diseño de Marca</h3>
+      <p class="service-desc" data-i18n="serv.marca.desc">Identidad visual profesional que diferencia tu negocio de la competencia.</p>
+      <p class="service-price" data-i18n="serv.consultame">Consultame</p>
       <ul class="service-features">
-        <li>Logo profesional</li>
-        <li>Manual de marca</li>
-        <li>Paleta de colores</li>
-        <li>Tipografías</li>
-        <li>Material gráfico</li>
-        <li>Social media kit</li>
-        <li>Archivos editables</li>
+        <li data-i18n="serv.marca.f1">Logo profesional</li>
+        <li data-i18n="serv.marca.f2">Manual de marca</li>
+        <li data-i18n="serv.marca.f3">Paleta de colores</li>
+        <li data-i18n="serv.marca.f4">Tipografías</li>
+        <li data-i18n="serv.marca.f5">Material gráfico</li>
+        <li data-i18n="serv.marca.f6">Social media kit</li>
+        <li data-i18n="serv.marca.f7">Archivos editables</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Quiero%20diseño%20de%20marca" target="_blank" class="service-link">Solicitar cotización →</a>
+      <a href="https://wa.me/50687359034?text=Quiero%20diseño%20de%20marca" target="_blank" class="service-link" data-i18n="serv.cotizar">Solicitar cotización →</a>
     </div>
     <div class="service-card reveal">
       <div class="service-icon" style="background:rgba(0,113,227,.1);border-color:rgba(0,113,227,.2);">📈</div>
-      <h3 class="service-title">Marketing Digital</h3>
-      <p class="service-desc">SEO, Google Ads y Meta Ads para atraer clientes todos los días.</p>
-      <p class="service-price">Consultame</p>
+      <h3 class="service-title" data-i18n="serv.mkt.title">Marketing Digital</h3>
+      <p class="service-desc" data-i18n="serv.mkt.desc">SEO, Google Ads y Meta Ads para atraer clientes todos los días.</p>
+      <p class="service-price" data-i18n="serv.consultame">Consultame</p>
       <ul class="service-features">
-        <li>SEO avanzado</li>
-        <li>Google Ads</li>
-        <li>Facebook e Instagram Ads</li>
-        <li>Google Analytics</li>
-        <li>Reportes mensuales</li>
-        <li>Estrategia de contenido</li>
-        <li>Optimización continua</li>
+        <li data-i18n="serv.mkt.f1">SEO avanzado</li>
+        <li data-i18n="serv.mkt.f2">Google Ads</li>
+        <li data-i18n="serv.mkt.f3">Facebook e Instagram Ads</li>
+        <li data-i18n="serv.mkt.f4">Google Analytics</li>
+        <li data-i18n="serv.mkt.f5">Reportes mensuales</li>
+        <li data-i18n="serv.mkt.f6">Estrategia de contenido</li>
+        <li data-i18n="serv.mkt.f7">Optimización continua</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Quiero%20marketing%20digital" target="_blank" class="service-link">Solicitar cotización →</a>
+      <a href="https://wa.me/50687359034?text=Quiero%20marketing%20digital" target="_blank" class="service-link" data-i18n="serv.cotizar">Solicitar cotización →</a>
     </div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Quiero%20agendar%20una%20videollamada" target="_blank" class="btn-primary">Agendar videollamada gratis</a>
-    <a href="#precios" class="btn-ghost">Ver precios →</a>
+    <a href="https://wa.me/50687359034?text=Quiero%20agendar%20una%20videollamada" target="_blank" class="btn-primary" data-i18n="serv.ctaVideo">Agendar videollamada gratis</a>
+    <a href="#precios" class="btn-ghost" data-i18n="serv.ctaPrecios">Ver precios →</a>
   </div>
 </div>
 </div>
@@ -728,30 +729,30 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <!-- POR QUÉ KCN -->
 <div style="background:#000;border-top:1px solid rgba(255,255,255,.06)">
 <div class="section">
-  <p class="section-eyebrow reveal">Diferencia</p>
-  <h2 class="section-title reveal">¿Por qué elegir KCN?</h2>
-  <p class="section-sub reveal">No usamos plantillas. No tercerizamos. Todo lo hacemos nosotros.</p>
+  <p class="section-eyebrow reveal" data-i18n="why.eyebrow">Diferencia</p>
+  <h2 class="section-title reveal" data-i18n="why.title">¿Por qué elegir KCN?</h2>
+  <p class="section-sub reveal" data-i18n="why.sub">No usamos plantillas. No tercerizamos. Todo lo hacemos nosotros.</p>
 
   <div class="why-grid reveal">
     <div class="why-col">
-      <p class="why-header bad">✕ Otros proveedores</p>
-      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text">Plantillas genéricas</p><p class="why-sub">Tu página se parece a miles de otras</p></div></div>
-      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text">Soporte limitado</p><p class="why-sub">Responden en días o no responden</p></div></div>
-      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text">Solo hacen páginas web</p><p class="why-sub">Sin apps ni software</p></div></div>
-      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text">Cargos mensuales</p><p class="why-sub">Pagás siempre aunque no quieras</p></div></div>
-      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text">Velocidad mediocre</p><p class="why-sub">Sitios lentos que pierden clientes</p></div></div>
+      <p class="why-header bad" data-i18n="why.otros">✕ Otros proveedores</p>
+      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text" data-i18n="why.o1t">Plantillas genéricas</p><p class="why-sub" data-i18n="why.o1s">Tu página se parece a miles de otras</p></div></div>
+      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text" data-i18n="why.o2t">Soporte limitado</p><p class="why-sub" data-i18n="why.o2s">Responden en días o no responden</p></div></div>
+      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text" data-i18n="why.o3t">Solo hacen páginas web</p><p class="why-sub" data-i18n="why.o3s">Sin apps ni software</p></div></div>
+      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text" data-i18n="why.o4t">Cargos mensuales</p><p class="why-sub" data-i18n="why.o4s">Pagás siempre aunque no quieras</p></div></div>
+      <div class="why-row"><span class="why-icon">😐</span><div><p class="why-text" data-i18n="why.o5t">Velocidad mediocre</p><p class="why-sub" data-i18n="why.o5s">Sitios lentos que pierden clientes</p></div></div>
     </div>
     <div class="why-col kcn">
-      <p class="why-header good">✓ KCN · Keny Chinchilla</p>
-      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text">Diseño 100% personalizado</p><p class="why-sub">Único para tu negocio, nadie más lo tiene</p></div></div>
-      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text">Soporte en minutos</p><p class="why-sub">Respondemos por WhatsApp en menos de 5 min</p></div></div>
-      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text">Web + Apps + Software</p><p class="why-sub">Todo en un solo lugar, sin intermediarios</p></div></div>
-      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text">Pago único</p><p class="why-sub">Sin mensualidades sorpresa</p></div></div>
-      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text">Optimización máxima</p><p class="why-sub">Velocidad A+ y SEO desde el día 1</p></div></div>
+      <p class="why-header good" data-i18n="why.kcn">✓ KCN · Keny Chinchilla</p>
+      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text" data-i18n="why.k1t">Diseño 100% personalizado</p><p class="why-sub" data-i18n="why.k1s">Único para tu negocio, nadie más lo tiene</p></div></div>
+      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text" data-i18n="why.k2t">Soporte en minutos</p><p class="why-sub" data-i18n="why.k2s">Respondemos por WhatsApp en menos de 5 min</p></div></div>
+      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text" data-i18n="why.k3t">Web + Apps + Software</p><p class="why-sub" data-i18n="why.k3s">Todo en un solo lugar, sin intermediarios</p></div></div>
+      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text" data-i18n="why.k4t">Pago único</p><p class="why-sub" data-i18n="why.k4s">Sin mensualidades sorpresa</p></div></div>
+      <div class="why-row"><span class="why-icon">✅</span><div><p class="why-text" data-i18n="why.k5t">Optimización máxima</p><p class="why-sub" data-i18n="why.k5s">Velocidad A+ y SEO desde el día 1</p></div></div>
     </div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Quiero%20una%20cotización%20personalizada" target="_blank" class="btn-primary">Solicitar cotización →</a>
+    <a href="https://wa.me/50687359034?text=Quiero%20una%20cotización%20personalizada" target="_blank" class="btn-primary" data-i18n="serv.cotizar">Solicitar cotización →</a>
   </div>
 </div>
 </div>
@@ -759,41 +760,41 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <!-- TESTIMONIOS -->
 <div style="background:#050505;border-top:1px solid rgba(255,255,255,.06)">
 <div class="section" id="testimonios">
-  <p class="section-eyebrow reveal">Clientes</p>
-  <h2 class="section-title reveal">Lo que dicen<br>nuestros clientes.</h2>
-  <p class="section-sub reveal">Más de 100 proyectos completados. 98% de satisfacción.</p>
+  <p class="section-eyebrow reveal" data-i18n="testi.eyebrow">Clientes</p>
+  <h2 class="section-title reveal" data-i18n="testi.title">Lo que dicen<br>nuestros clientes.</h2>
+  <p class="section-sub reveal" data-i18n="testi.sub">Más de 100 proyectos completados. 98% de satisfacción.</p>
 
   <div class="testi-grid">
     <div class="testi-card reveal">
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testi-text">"KCN nos desarrolló el sistema POS para nuestra cadena de restaurantes. El trabajo superó nuestras expectativas. Muy profesional y siempre disponible."</p>
+      <p class="testi-text" data-i18n="testi.t1">"KCN nos desarrolló el sistema POS para nuestra cadena de restaurantes. El trabajo superó nuestras expectativas. Muy profesional y siempre disponible."</p>
       <div class="testi-author">
         <div class="testi-avatar" style="background:linear-gradient(135deg,#2997ff,#30d158);">M</div>
-        <div><p class="testi-name">Mario Quesada</p><p class="testi-role">CEO · Restaurantes MQ</p></div>
+        <div><p class="testi-name">Mario Quesada</p><p class="testi-role" data-i18n="testi.r1">CEO · Restaurantes MQ</p></div>
       </div>
-      <div class="testi-project"><p class="testi-project-label">Proyecto</p><p class="testi-project-name">Sistema POS + Inventario · San José, CR</p></div>
+      <div class="testi-project"><p class="testi-project-label" data-i18n="testi.proyecto">Proyecto</p><p class="testi-project-name" data-i18n="testi.p1">Sistema POS + Inventario · San José, CR</p></div>
     </div>
     <div class="testi-card reveal">
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testi-text">"La app de delivery transformó nuestro negocio. Las ventas aumentaron un 40% en el primer mes. Keny entiende lo que el cliente necesita."</p>
+      <p class="testi-text" data-i18n="testi.t2">"La app de delivery transformó nuestro negocio. Las ventas aumentaron un 40% en el primer mes. Keny entiende lo que el cliente necesita."</p>
       <div class="testi-author">
         <div class="testi-avatar" style="background:linear-gradient(135deg,#bf5af2,#ff375f);">A</div>
-        <div><p class="testi-name">Andrea Mora</p><p class="testi-role">Fundadora · DeliveryCR</p></div>
+        <div><p class="testi-name">Andrea Mora</p><p class="testi-role" data-i18n="testi.r2">Fundadora · DeliveryCR</p></div>
       </div>
-      <div class="testi-project"><p class="testi-project-label">Proyecto</p><p class="testi-project-name">App Delivery Android & iOS · Heredia, CR</p></div>
+      <div class="testi-project"><p class="testi-project-label" data-i18n="testi.proyecto">Proyecto</p><p class="testi-project-name" data-i18n="testi.p2">App Delivery Android & iOS · Heredia, CR</p></div>
     </div>
     <div class="testi-card reveal">
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testi-text">"Nuestra tienda online quedó increíble. Profesional, rápido y con precios justos. El mejor desarrollador web de Costa Rica sin dudas."</p>
+      <p class="testi-text" data-i18n="testi.t3">"Nuestra tienda online quedó increíble. Profesional, rápido y con precios justos. El mejor desarrollador web de Costa Rica sin dudas."</p>
       <div class="testi-author">
         <div class="testi-avatar" style="background:linear-gradient(135deg,#30d158,#2997ff);">C</div>
-        <div><p class="testi-name">Carlos Jiménez</p><p class="testi-role">Dueño · TiendaTec</p></div>
+        <div><p class="testi-name">Carlos Jiménez</p><p class="testi-role" data-i18n="testi.r3">Dueño · TiendaTec</p></div>
       </div>
-      <div class="testi-project"><p class="testi-project-label">Proyecto</p><p class="testi-project-name">E-commerce con pasarela de pagos · Alajuela, CR</p></div>
+      <div class="testi-project"><p class="testi-project-label" data-i18n="testi.proyecto">Proyecto</p><p class="testi-project-name" data-i18n="testi.p3">E-commerce con pasarela de pagos · Alajuela, CR</p></div>
     </div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Quiero%20ver%20más%20testimonios%20y%20proyectos" target="_blank" class="btn-ghost">Ver más proyectos →</a>
+    <a href="https://wa.me/50687359034?text=Quiero%20ver%20más%20testimonios%20y%20proyectos" target="_blank" class="btn-ghost" data-i18n="testi.cta">Ver más proyectos →</a>
   </div>
 </div>
 </div>
@@ -801,16 +802,16 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <!-- PROCESO -->
 <div style="background:#000;border-top:1px solid rgba(255,255,255,.06)">
 <div class="section" id="proceso">
-  <p class="section-eyebrow reveal">Proceso</p>
-  <h2 class="section-title reveal">Simple, claro<br>y sin sorpresas.</h2>
+  <p class="section-eyebrow reveal" data-i18n="proc.eyebrow">Proceso</p>
+  <h2 class="section-title reveal" data-i18n="proc.title">Simple, claro<br>y sin sorpresas.</h2>
   <div class="process-list">
-    <div class="process-item reveal"><div class="process-num">01</div><div class="process-title">Consulta gratuita</div><div class="process-desc">Hablamos por WhatsApp o videollamada. Entendemos tu idea, definimos el alcance y entregamos cotización en 24 horas.</div></div>
-    <div class="process-item reveal"><div class="process-num">02</div><div class="process-title">Diseño y aprobación</div><div class="process-desc">Creamos el diseño visual completo. Vos aprobás antes de que empecemos a programar. Sin sorpresas.</div></div>
-    <div class="process-item reveal"><div class="process-num">03</div><div class="process-title">Desarrollo ágil</div><div class="process-desc">Programamos con las mejores tecnologías. Entregas parciales para que siempre sepas cómo va tu proyecto.</div></div>
-    <div class="process-item reveal"><div class="process-num">04</div><div class="process-title">Lanzamiento y soporte</div><div class="process-desc">Publicamos, te capacitamos y te acompañamos con soporte post-lanzamiento incluido en todos los planes.</div></div>
+    <div class="process-item reveal"><div class="process-num">01</div><div class="process-title" data-i18n="proc.t1">Consulta gratuita</div><div class="process-desc" data-i18n="proc.d1">Hablamos por WhatsApp o videollamada. Entendemos tu idea, definimos el alcance y entregamos cotización en 24 horas.</div></div>
+    <div class="process-item reveal"><div class="process-num">02</div><div class="process-title" data-i18n="proc.t2">Diseño y aprobación</div><div class="process-desc" data-i18n="proc.d2">Creamos el diseño visual completo. Vos aprobás antes de que empecemos a programar. Sin sorpresas.</div></div>
+    <div class="process-item reveal"><div class="process-num">03</div><div class="process-title" data-i18n="proc.t3">Desarrollo ágil</div><div class="process-desc" data-i18n="proc.d3">Programamos con las mejores tecnologías. Entregas parciales para que siempre sepas cómo va tu proyecto.</div></div>
+    <div class="process-item reveal"><div class="process-num">04</div><div class="process-title" data-i18n="proc.t4">Lanzamiento y soporte</div><div class="process-desc" data-i18n="proc.d4">Publicamos, te capacitamos y te acompañamos con soporte post-lanzamiento incluido en todos los planes.</div></div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Quiero%20agendar%20una%20videollamada%20gratis" target="_blank" class="btn-primary">Agendar videollamada →</a>
+    <a href="https://wa.me/50687359034?text=Quiero%20agendar%20una%20videollamada%20gratis" target="_blank" class="btn-primary" data-i18n="proc.cta">Agendar videollamada →</a>
   </div>
 </div>
 </div>
@@ -818,80 +819,80 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <!-- PRECIOS -->
 <div style="background:#050505;border-top:1px solid rgba(255,255,255,.06)">
 <div class="section" id="precios">
-  <p class="section-eyebrow reveal">Precios</p>
-  <h2 class="section-title reveal">Transparentes.<br>Sin letra chica.</h2>
-  <p class="section-sub reveal">Pago único. Sin mensualidades. SINPE · PayPal · Transferencia · Efectivo.</p>
+  <p class="section-eyebrow reveal" data-i18n="prec.eyebrow">Precios</p>
+  <h2 class="section-title reveal" data-i18n="prec.title">Transparentes.<br>Sin letra chica.</h2>
+  <p class="section-sub reveal" data-i18n="prec.sub">Pago único. Sin mensualidades. SINPE · PayPal · Transferencia · Efectivo.</p>
 
   <div class="pricing-grid">
     <div class="pricing-card reveal">
-      <p class="pricing-plan">PYME</p>
+      <p class="pricing-plan" data-i18n="prec.pyme">PYME</p>
       <p class="pricing-price">$120</p>
-      <p class="pricing-note">USD · Pago único</p>
+      <p class="pricing-note" data-i18n="prec.pagoUnico">USD · Pago único</p>
       <ul class="pricing-includes">
-        <li>Página web 1 página</li>
-        <li>Diseño 100% personalizado</li>
-        <li>Hosting incluido</li>
-        <li>Dominio .com incluido</li>
-        <li>Certificado SSL gratis</li>
-        <li>Optimización Google</li>
-        <li>Botón WhatsApp</li>
-        <li>Soporte 1 mes</li>
+        <li data-i18n="prec.pyme1">Página web 1 página</li>
+        <li data-i18n="prec.pyme2">Diseño 100% personalizado</li>
+        <li data-i18n="prec.pyme3">Hosting incluido</li>
+        <li data-i18n="prec.pyme4">Dominio .com incluido</li>
+        <li data-i18n="prec.pyme5">Certificado SSL gratis</li>
+        <li data-i18n="prec.pyme6">Optimización Google</li>
+        <li data-i18n="prec.pyme7">Botón WhatsApp</li>
+        <li data-i18n="prec.pyme8">Soporte 1 mes</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20PYME%20$120" target="_blank" class="pricing-btn">Empezar →</a>
+      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20PYME%20$120" target="_blank" class="pricing-btn" data-i18n="prec.empezar">Empezar →</a>
     </div>
     <div class="pricing-card reveal">
-      <p class="pricing-plan">BÁSICO</p>
+      <p class="pricing-plan" data-i18n="prec.basico">BÁSICO</p>
       <p class="pricing-price">$299</p>
-      <p class="pricing-note">USD · Pago único</p>
+      <p class="pricing-note" data-i18n="prec.pagoUnico">USD · Pago único</p>
       <ul class="pricing-includes">
-        <li>Hasta 5 páginas</li>
-        <li>Todo del plan PYME</li>
-        <li>Formulario de contacto</li>
-        <li>SEO básico</li>
-        <li>Google Analytics</li>
-        <li>Google Business Profile</li>
-        <li>Mapa de ubicación</li>
-        <li>Soporte 1 mes</li>
+        <li data-i18n="prec.bas1">Hasta 5 páginas</li>
+        <li data-i18n="prec.bas2">Todo del plan PYME</li>
+        <li data-i18n="prec.bas3">Formulario de contacto</li>
+        <li data-i18n="prec.bas4">SEO básico</li>
+        <li data-i18n="prec.bas5">Google Analytics</li>
+        <li data-i18n="prec.bas6">Google Business Profile</li>
+        <li data-i18n="prec.bas7">Mapa de ubicación</li>
+        <li data-i18n="prec.bas8">Soporte 1 mes</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20Básico%20$299" target="_blank" class="pricing-btn">Empezar →</a>
+      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20Básico%20$299" target="_blank" class="pricing-btn" data-i18n="prec.empezar">Empezar →</a>
     </div>
     <div class="pricing-card featured reveal">
-      <div class="pricing-badge">Más popular</div>
-      <p class="pricing-plan">PROFESIONAL</p>
+      <div class="pricing-badge" data-i18n="prec.popular">Más popular</div>
+      <p class="pricing-plan" data-i18n="prec.profesional">PROFESIONAL</p>
       <p class="pricing-price">$699</p>
-      <p class="pricing-note">USD · Pago único</p>
+      <p class="pricing-note" data-i18n="prec.pagoUnico">USD · Pago único</p>
       <ul class="pricing-includes">
-        <li>Hasta 15 páginas</li>
-        <li>Todo del plan Básico</li>
-        <li>Panel de administración</li>
-        <li>SEO avanzado</li>
-        <li>Blog integrado</li>
-        <li>Chat en vivo</li>
-        <li>Integración redes sociales</li>
-        <li>Soporte 3 meses</li>
+        <li data-i18n="prec.pro1">Hasta 15 páginas</li>
+        <li data-i18n="prec.pro2">Todo del plan Básico</li>
+        <li data-i18n="prec.pro3">Panel de administración</li>
+        <li data-i18n="prec.pro4">SEO avanzado</li>
+        <li data-i18n="prec.pro5">Blog integrado</li>
+        <li data-i18n="prec.pro6">Chat en vivo</li>
+        <li data-i18n="prec.pro7">Integración redes sociales</li>
+        <li data-i18n="prec.pro8">Soporte 3 meses</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20Profesional%20$699" target="_blank" class="pricing-btn primary">Empezar →</a>
+      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20Profesional%20$699" target="_blank" class="pricing-btn primary" data-i18n="prec.empezar">Empezar →</a>
     </div>
     <div class="pricing-card reveal">
-      <p class="pricing-plan">ENTERPRISE</p>
+      <p class="pricing-plan" data-i18n="prec.enterprise">ENTERPRISE</p>
       <p class="pricing-price">$1,499</p>
-      <p class="pricing-note">USD · Pago único</p>
+      <p class="pricing-note" data-i18n="prec.pagoUnico">USD · Pago único</p>
       <ul class="pricing-includes">
-        <li>Todo del plan Profesional</li>
-        <li>E-commerce completo</li>
-        <li>Pasarela de pagos BAC/BN</li>
-        <li>App móvil Android & iOS</li>
-        <li>Sistema POS integrado</li>
-        <li>Marketing digital 1 mes</li>
-        <li>Capacitación del equipo</li>
-        <li>Soporte 6 meses</li>
+        <li data-i18n="prec.ent1">Todo del plan Profesional</li>
+        <li data-i18n="prec.ent2">E-commerce completo</li>
+        <li data-i18n="prec.ent3">Pasarela de pagos BAC/BN</li>
+        <li data-i18n="prec.ent4">App móvil Android & iOS</li>
+        <li data-i18n="prec.ent5">Sistema POS integrado</li>
+        <li data-i18n="prec.ent6">Marketing digital 1 mes</li>
+        <li data-i18n="prec.ent7">Capacitación del equipo</li>
+        <li data-i18n="prec.ent8">Soporte 6 meses</li>
       </ul>
-      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20Enterprise%20$1499" target="_blank" class="pricing-btn">Empezar →</a>
+      <a href="https://wa.me/50687359034?text=Me%20interesa%20el%20Plan%20Enterprise%20$1499" target="_blank" class="pricing-btn" data-i18n="prec.empezar">Empezar →</a>
     </div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Quiero%20una%20cotización%20personalizada" target="_blank" class="btn-primary">Cotización personalizada →</a>
-    <a href="https://wa.me/50687359034?text=Tengo%20dudas%20sobre%20los%20precios" target="_blank" class="btn-ghost">Tengo dudas →</a>
+    <a href="https://wa.me/50687359034?text=Quiero%20una%20cotización%20personalizada" target="_blank" class="btn-primary" data-i18n="prec.ctaPerso">Cotización personalizada →</a>
+    <a href="https://wa.me/50687359034?text=Tengo%20dudas%20sobre%20los%20precios" target="_blank" class="btn-ghost" data-i18n="prec.ctaDudas">Tengo dudas →</a>
   </div>
 </div>
 </div>
@@ -900,8 +901,8 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <div style="background:#000;border-top:1px solid rgba(255,255,255,.06)">
 <div class="section" id="pago" style="padding:60px 24px;">
   <div style="max-width:420px;margin:0 auto;padding:32px;border-radius:20px;background:#0a0a0a;border:1px solid rgba(255,255,255,.08);text-align:center;">
-    <h3 style="font-size:20px;font-weight:600;margin-bottom:8px;">Realizar pago</h3>
-    <p style="color:#86868b;font-size:14px;margin-bottom:24px;">Escribe el monto acordado y paga de forma segura con PayPal.</p>
+    <h3 style="font-size:20px;font-weight:600;margin-bottom:8px;" data-i18n="pago.titulo">Realizar pago</h3>
+    <p style="color:#86868b;font-size:14px;margin-bottom:24px;" data-i18n="pago.sub">Escribe el monto acordado y paga de forma segura con PayPal.</p>
     <div style="margin-bottom:20px;text-align:left;">
       <label for="kcn-monto-pago" style="display:block;margin-bottom:6px;font-size:13px;color:#ccc;">Monto a pagar (USD)</label>
       <input type="number" id="kcn-monto-pago" min="1" step="0.01" placeholder="Ej: 150.00"
@@ -1005,18 +1006,18 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 </script>
 
 <div class="section" id="faq">
-  <p class="section-eyebrow reveal">FAQ</p>
-  <h2 class="section-title reveal">Preguntas frecuentes.</h2>
+  <p class="section-eyebrow reveal" data-i18n="faq.eyebrow">FAQ</p>
+  <h2 class="section-title reveal" data-i18n="faq.title">Preguntas frecuentes.</h2>
   <div class="faq-list">
-    <div class="faq-item"><button class="faq-btn">¿Cuánto tiempo tarda en estar listo mi proyecto?<span class="faq-icon">+</span></button><div class="faq-answer">Una página básica: 3 a 7 días. Un sitio profesional: 1 a 2 semanas. E-commerce: 2 a 3 semanas. App móvil: 3 a 6 semanas. Siempre damos un cronograma exacto antes de empezar.</div></div>
-    <div class="faq-item"><button class="faq-btn">¿Necesito saber de tecnología?<span class="faq-icon">+</span></button><div class="faq-answer">No. Nos encargamos de todo el proceso técnico. Solo necesitás tener clara tu idea de negocio. Te explicamos todo en lenguaje sencillo y te capacitamos para usar tu plataforma.</div></div>
-    <div class="faq-item"><button class="faq-btn">¿Cómo puedo pagar?<span class="faq-icon">+</span></button><div class="faq-answer">Aceptamos SINPE Móvil, transferencia bancaria, PayPal y efectivo. Para proyectos grandes podemos hacer 50% al inicio y 50% al entregar.</div></div>
-    <div class="faq-item"><button class="faq-btn">¿Puedo pedir cambios después de entregado?<span class="faq-icon">+</span></button><div class="faq-answer">Sí. Durante el período de soporte incluido en cada plan podés solicitar ajustes sin costo adicional. Después del soporte los cambios se cotizan según la magnitud.</div></div>
-    <div class="faq-item"><button class="faq-btn">¿Trabajan con clientes fuera de Costa Rica?<span class="faq-icon">+</span></button><div class="faq-answer">Sí. Trabajamos con clientes en toda Latinoamérica y el mundo. Todo se maneja remotamente por WhatsApp y videollamada.</div></div>
-    <div class="faq-item"><button class="faq-btn">¿Mi página va a aparecer en Google?<span class="faq-icon">+</span></button><div class="faq-answer">Sí. Todas las páginas incluyen SEO básico desde el día 1. Para aparecer en los primeros resultados recomendamos el Plan Profesional con SEO avanzado.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span data-i18n="faq.q1">¿Cuánto tiempo tarda en estar listo mi proyecto?</span><span class="faq-icon">+</span></button><div class="faq-answer" data-i18n="faq.a1">Una página básica: 3 a 7 días. Un sitio profesional: 1 a 2 semanas. E-commerce: 2 a 3 semanas. App móvil: 3 a 6 semanas. Siempre damos un cronograma exacto antes de empezar.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span data-i18n="faq.q2">¿Necesito saber de tecnología?</span><span class="faq-icon">+</span></button><div class="faq-answer" data-i18n="faq.a2">No. Nos encargamos de todo el proceso técnico. Solo necesitás tener clara tu idea de negocio. Te explicamos todo en lenguaje sencillo y te capacitamos para usar tu plataforma.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span data-i18n="faq.q3">¿Cómo puedo pagar?</span><span class="faq-icon">+</span></button><div class="faq-answer" data-i18n="faq.a3">Aceptamos SINPE Móvil, transferencia bancaria, PayPal y efectivo. Para proyectos grandes podemos hacer 50% al inicio y 50% al entregar.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span data-i18n="faq.q4">¿Puedo pedir cambios después de entregado?</span><span class="faq-icon">+</span></button><div class="faq-answer" data-i18n="faq.a4">Sí. Durante el período de soporte incluido en cada plan podés solicitar ajustes sin costo adicional. Después del soporte los cambios se cotizan según la magnitud.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span data-i18n="faq.q5">¿Trabajan con clientes fuera de Costa Rica?</span><span class="faq-icon">+</span></button><div class="faq-answer" data-i18n="faq.a5">Sí. Trabajamos con clientes en toda Latinoamérica y el mundo. Todo se maneja remotamente por WhatsApp y videollamada.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span data-i18n="faq.q6">¿Mi página va a aparecer en Google?</span><span class="faq-icon">+</span></button><div class="faq-answer" data-i18n="faq.a6">Sí. Todas las páginas incluyen SEO básico desde el día 1. Para aparecer en los primeros resultados recomendamos el Plan Profesional con SEO avanzado.</div></div>
   </div>
   <div class="cta-inline reveal">
-    <a href="https://wa.me/50687359034?text=Tengo%20una%20pregunta%20antes%20de%20contratar" target="_blank" class="btn-ghost">Tengo más preguntas →</a>
+    <a href="https://wa.me/50687359034?text=Tengo%20una%20pregunta%20antes%20de%20contratar" target="_blank" class="btn-ghost" data-i18n="faq.cta">Tengo más preguntas →</a>
   </div>
 </div>
 </div>
@@ -1025,11 +1026,11 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <div class="final-cta">
   <div class="final-cta-glow"></div>
   <div class="final-cta-content">
-    <h2 class="final-cta-title reveal">¿Listo para llevar tu<br>empresa al siguiente nivel?</h2>
-    <p class="final-cta-sub reveal">Agendá una consulta gratuita de 30 minutos.</p>
-    <p class="final-cta-detail reveal">Sin compromiso. Keny responde en menos de 5 minutos.</p>
+    <h2 class="final-cta-title reveal" data-i18n="finalcta.title">¿Listo para llevar tu<br>empresa al siguiente nivel?</h2>
+    <p class="final-cta-sub reveal" data-i18n="finalcta.sub">Agendá una consulta gratuita de 30 minutos.</p>
+    <p class="final-cta-detail reveal" data-i18n="finalcta.detail">Sin compromiso. Keny responde en menos de 5 minutos.</p>
     <div class="final-cta-actions reveal">
-      <a href="https://wa.me/50687359034?text=Hola%20Keny,%20quiero%20agendar%20una%20consulta%20gratuita%20de%2030%20minutos" target="_blank" class="btn-primary" style="font-size:17px;padding:16px 36px;">Agendar consulta gratuita →</a>
+      <a href="https://wa.me/50687359034?text=Hola%20Keny,%20quiero%20agendar%20una%20consulta%20gratuita%20de%2030%20minutos" target="_blank" class="btn-primary" style="font-size:17px;padding:16px 36px;" data-i18n="finalcta.cta1">Agendar consulta gratuita →</a>
       <a href="tel:+50687359034" class="btn-ghost" style="font-size:17px;padding:16px 36px;">📞 8735-9034</a>
     </div>
   </div>
@@ -1038,14 +1039,14 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
 <!-- LENGUAS VIVAS: teaser al Diccionario Vivo -->
 <div class="section" id="lenguas" style="padding:80px 24px;background:#030803;border-top:1px solid rgba(74,222,128,.1);text-align:center;">
   <div style="max-width:640px;margin:0 auto;">
-    <p style="font-size:12px;font-weight:600;color:#4ade80;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;">🌿 Lenguas Vivas</p>
-    <h2 style="font-size:clamp(26px,5vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px;">
-      Diccionario vivo de Costa Rica.<br/><span style="color:#4ade80;">Aportado por la comunidad.</span>
+    <p style="font-size:12px;font-weight:600;color:#4ade80;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;" data-i18n="lenguas.eyebrow">🌿 Lenguas Vivas</p>
+    <h2 style="font-size:clamp(26px,5vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px;" data-i18n="lenguas.title">
+      Diccionario vivo de Costa Rica.<br/><span style="color:#4ade80;" data-i18n="lenguas.titleSpan">Aportado por la comunidad.</span>
     </h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.4);font-weight:300;margin-bottom:32px;">
+    <p style="font-size:15px;color:rgba(255,255,255,.4);font-weight:300;margin-bottom:32px;" data-i18n="lenguas.sub">
       Más de 2,400 palabras en bribri, cabécar, maléku, boruca, ngäbe y térraba. Buscá una palabra, o aportá una nueva de tu lengua.
     </p>
-    <a href="/diccionario.html" style="display:inline-block;background:#16a34a;color:#fff;padding:14px 32px;border-radius:980px;font-size:14px;font-weight:600;text-decoration:none;">Explorar el diccionario →</a>
+    <a href="/diccionario.html" style="display:inline-block;background:#16a34a;color:#fff;padding:14px 32px;border-radius:980px;font-size:14px;font-weight:600;text-decoration:none;" data-i18n="lenguas.cta">Explorar el diccionario →</a>
   </div>
 </div>
 
@@ -1054,34 +1055,34 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
   <div class="footer-grid">
     <div>
       <img src="/logo-kcn-icon.png" alt="KCN" style="height:38px;width:auto;margin-bottom:12px;"/>
-      <p class="footer-tagline">Desarrollamos software, apps y páginas web que hacen crecer empresas. Diseñado en Costa Rica para el mundo.</p>
-      <p style="font-size:13px;color:var(--gray-600);">kchinchilla.pos@gmail.com<br>+506 8735-9034<br>San José, Costa Rica</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Desarrollamos software, apps y páginas web que hacen crecer empresas. Diseñado en Costa Rica para el mundo.</p>
+      <p style="font-size:13px;color:var(--gray-600);">kchinchilla.pos@gmail.com<br>+506 8735-9034<br><span data-i18n="footer.sanjose">San José, Costa Rica</span></p>
     </div>
     <div>
-      <p class="footer-col-title">Servicios</p>
+      <p class="footer-col-title" data-i18n="nav.servicios">Servicios</p>
       <ul class="footer-links">
-        <li><a href="#servicios">Diseño Web</a></li>
-        <li><a href="#servicios">Apps Móviles</a></li>
-        <li><a href="#servicios">Software</a></li>
-        <li><a href="#servicios">Tiendas Online</a></li>
-        <li><a href="#servicios">Marketing Digital</a></li>
+        <li><a href="#servicios" data-i18n="serv.web.title">Diseño Web</a></li>
+        <li><a href="#servicios" data-i18n="serv.app.title">Apps Móviles</a></li>
+        <li><a href="#servicios" data-i18n="footer.software">Software</a></li>
+        <li><a href="#servicios" data-i18n="serv.tienda.title">Tiendas Online</a></li>
+        <li><a href="#servicios" data-i18n="serv.mkt.title">Marketing Digital</a></li>
       </ul>
     </div>
     <div>
-      <p class="footer-col-title">Empresa</p>
+      <p class="footer-col-title" data-i18n="footer.empresa">Empresa</p>
       <ul class="footer-links">
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#precios">Precios</a></li>
-        <li><a href="#testimonios">Clientes</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#portafolio" data-i18n="nav.portafolio">Portafolio</a></li>
+        <li><a href="#precios" data-i18n="nav.precios">Precios</a></li>
+        <li><a href="#testimonios" data-i18n="nav.clientes">Clientes</a></li>
+        <li><a href="#proceso" data-i18n="footer.proceso">Proceso</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
       </ul>
     </div>
     <div>
-      <p class="footer-col-title">Contacto</p>
+      <p class="footer-col-title" data-i18n="footer.contacto">Contacto</p>
       <ul class="footer-links">
         <li><a href="https://wa.me/50687359034" target="_blank">WhatsApp</a></li>
-        <li><a href="mailto:kchinchilla.pos@gmail.com">Email</a></li>
+        <li><a href="mailto:kchinchilla.pos@gmail.com" data-i18n="footer.email">Email</a></li>
         <li><a href="https://www.instagram.com/kenneth_chinchilla" target="_blank">Instagram</a></li>
         <li><a href="https://github.com/kacn1z-del" target="_blank">GitHub</a></li>
         <li><a href="https://www.facebook.com/kenneth.chinchilla" target="_blank">Facebook</a></li>
@@ -1089,11 +1090,11 @@ footer{background:#080808;border-top:1px solid rgba(255,255,255,.08);padding:60p
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 KCN · Keny Chinchilla Navarro · Costa Rica · kenychinchilla.com</p>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 KCN · Keny Chinchilla Navarro · Costa Rica · kenychinchilla.com</p>
     <div class="footer-social">
       <a href="https://wa.me/50687359034" target="_blank">WhatsApp</a>
       <a href="https://www.instagram.com/kenneth_chinchilla" target="_blank">Instagram</a>
-      <a href="mailto:kchinchilla.pos@gmail.com">Email</a>
+      <a href="mailto:kchinchilla.pos@gmail.com" data-i18n="footer.email">Email</a>
     </div>
   </div>
 </footer>
@@ -1332,6 +1333,117 @@ body.light .section-title,body.light .hero-title .line1,body.light .hero-title .
       });
   });
 })();
+</script>
+
+<script>
+const KCN_EN = {
+  "nav.servicios":"Services","nav.portafolio":"Portfolio","nav.precios":"Pricing","nav.clientes":"Clients","nav.faq":"FAQ",
+  "nav.contactar":"Contact →","nav.hablar":"Talk to Keny →",
+  "hero.badge":"Available for new projects",
+  "hero.line1":"We build software,","hero.line2":"apps and websites","hero.line3":"that grow businesses.",
+  "hero.sub":"High-impact digital solutions for businesses that want real results.",
+  "hero.location":"🇨🇷 Designed in Costa Rica · We work with clients across Latin America",
+  "hero.cta1":"Start my project","hero.cta2":"View projects →",
+  "stats.proyectos":"Projects delivered","stats.clientes":"Satisfied clients","stats.anos":"Years of experience","stats.respuesta":"Guaranteed response",
+  "logos.title":"Companies that trust KCN",
+  "port.eyebrow":"Portfolio","port.title":"Real projects.<br>Real results.","port.sub":"Over 100 projects completed in Costa Rica and Latin America.",
+  "port.m1tag":"POS System · Windows","port.m1desc":"Point of sale system with electronic invoicing, inventory and reports.",
+  "port.m2tag":"Mobile App · Android & iOS","port.m2desc":"Delivery platform with real-time tracking. +40% sales in the first month.",
+  "port.m3tag":"E-commerce · Web","port.m3desc":"Online store with BAC and Banco Nacional payment gateway. Sales 24/7.",
+  "port.m4tag":"ERP · Linux","port.m4desc":"ERP system with inventory, sales, invoicing and automated reports modules.",
+  "port.verDetalles":"View details →","port.cta":"View more projects →",
+  "serv.eyebrow":"Services","serv.title":"Everything you need<br>to grow digitally.","serv.sub":"We build complete solutions from scratch — no templates, no shortcuts.",
+  "serv.web.title":"Web Design","serv.web.desc":"Unique, fast websites optimized to convert visitors into customers.","serv.web.price":"From $120 USD",
+  "serv.web.f1":"100% custom design","serv.web.f2":"Hosting included","serv.web.f3":".com domain included","serv.web.f4":"SSL certificate","serv.web.f5":"Google optimization","serv.web.f6":"WhatsApp button","serv.web.f7":"Support included",
+  "serv.app.title":"Mobile Apps","serv.app.desc":"Native Android and iOS apps published on the official stores.","serv.app.price":"From $699 USD",
+  "serv.app.f1":"Android and iOS","serv.app.f2":"Flutter / React Native","serv.app.f3":"Backend and APIs","serv.app.f4":"Store publishing","serv.app.f5":"Admin panel","serv.app.f6":"Push notifications","serv.app.f7":"Post-launch support",
+  "serv.soft.title":"Business Software","serv.soft.desc":"Custom CRM, ERP and POS systems to automate your company.","serv.soft.price":"From $999 USD",
+  "serv.soft.f1":"Windows and Linux","serv.soft.f2":"Inventory management","serv.soft.f3":"Electronic invoicing","serv.soft.f4":"Automatic reports","serv.soft.f5":"Multi-user","serv.soft.f6":"Secure database","serv.soft.f7":"Training included",
+  "serv.tienda.title":"Online Stores","serv.tienda.desc":"Complete e-commerce with payment gateway to sell 24/7.","serv.tienda.price":"From $499 USD",
+  "serv.tienda.f1":"Product catalog","serv.tienda.f2":"Shopping cart","serv.tienda.f3":"BAC and BN payments","serv.tienda.f4":"PayPal included","serv.tienda.f5":"Admin panel","serv.tienda.f6":"Order management","serv.tienda.f7":"Built-in SEO",
+  "serv.marca.title":"Brand Design","serv.marca.desc":"Professional visual identity that sets your business apart from the competition.",
+  "serv.marca.f1":"Professional logo","serv.marca.f2":"Brand manual","serv.marca.f3":"Color palette","serv.marca.f4":"Typography","serv.marca.f5":"Graphic material","serv.marca.f6":"Social media kit","serv.marca.f7":"Editable files",
+  "serv.mkt.title":"Digital Marketing","serv.mkt.desc":"SEO, Google Ads and Meta Ads to attract customers every day.",
+  "serv.mkt.f1":"Advanced SEO","serv.mkt.f2":"Google Ads","serv.mkt.f3":"Facebook and Instagram Ads","serv.mkt.f4":"Google Analytics","serv.mkt.f5":"Monthly reports","serv.mkt.f6":"Content strategy","serv.mkt.f7":"Continuous optimization",
+  "serv.consultame":"Ask me","serv.cotizar":"Request a quote →","serv.ctaVideo":"Schedule a free video call","serv.ctaPrecios":"View pricing →",
+  "why.eyebrow":"Difference","why.title":"Why choose KCN?","why.sub":"We don't use templates. We don't outsource. We do everything ourselves.",
+  "why.otros":"✕ Other providers",
+  "why.o1t":"Generic templates","why.o1s":"Your site looks like thousands of others",
+  "why.o2t":"Limited support","why.o2s":"They respond in days, or not at all",
+  "why.o3t":"Only build websites","why.o3s":"No apps or software",
+  "why.o4t":"Monthly charges","why.o4s":"You keep paying whether you want to or not",
+  "why.o5t":"Mediocre speed","why.o5s":"Slow sites that lose customers",
+  "why.kcn":"✓ KCN · Keny Chinchilla",
+  "why.k1t":"100% custom design","why.k1s":"Unique to your business, no one else has it",
+  "why.k2t":"Support in minutes","why.k2s":"We reply on WhatsApp in under 5 min",
+  "why.k3t":"Web + Apps + Software","why.k3s":"Everything in one place, no middlemen",
+  "why.k4t":"One-time payment","why.k4s":"No surprise monthly fees",
+  "why.k5t":"Maximum optimization","why.k5s":"A+ speed and SEO from day 1",
+  "testi.eyebrow":"Clients","testi.title":"What our<br>clients say.","testi.sub":"Over 100 projects completed. 98% satisfaction.",
+  "testi.t1":"\"KCN developed the POS system for our restaurant chain. The work exceeded our expectations. Very professional and always available.\"",
+  "testi.t2":"\"The delivery app transformed our business. Sales increased 40% in the first month. Keny understands what the customer needs.\"",
+  "testi.t3":"\"Our online store turned out amazing. Professional, fast, and fairly priced. The best web developer in Costa Rica, without a doubt.\"",
+  "testi.r1":"CEO · Restaurantes MQ","testi.r2":"Founder · DeliveryCR","testi.r3":"Owner · TiendaTec",
+  "testi.p1":"POS System + Inventory · San José, CR","testi.p2":"Delivery App Android & iOS · Heredia, CR","testi.p3":"E-commerce with payment gateway · Alajuela, CR",
+  "testi.proyecto":"Project","testi.cta":"View more projects →",
+  "proc.eyebrow":"Process","proc.title":"Simple, clear<br>and no surprises.",
+  "proc.t1":"Free consultation","proc.d1":"We talk over WhatsApp or video call. We understand your idea, define the scope, and deliver a quote within 24 hours.",
+  "proc.t2":"Design and approval","proc.d2":"We create the complete visual design. You approve it before we start coding. No surprises.",
+  "proc.t3":"Agile development","proc.d3":"We build with the best technologies. Partial deliveries so you always know how your project is going.",
+  "proc.t4":"Launch and support","proc.d4":"We publish, train you, and support you post-launch — included in every plan.",
+  "proc.cta":"Schedule a video call →",
+  "prec.eyebrow":"Pricing","prec.title":"Transparent.<br>No fine print.","prec.sub":"One-time payment. No monthly fees. SINPE · PayPal · Bank transfer · Cash.",
+  "prec.pyme":"SMB","prec.basico":"BASIC","prec.profesional":"PROFESSIONAL","prec.enterprise":"ENTERPRISE",
+  "prec.pagoUnico":"USD · One-time payment","prec.popular":"Most popular","prec.empezar":"Get started →",
+  "prec.pyme1":"1-page website","prec.pyme2":"100% custom design","prec.pyme3":"Hosting included","prec.pyme4":".com domain included","prec.pyme5":"Free SSL certificate","prec.pyme6":"Google optimization","prec.pyme7":"WhatsApp button","prec.pyme8":"1 month support",
+  "prec.bas1":"Up to 5 pages","prec.bas2":"Everything in SMB plan","prec.bas3":"Contact form","prec.bas4":"Basic SEO","prec.bas5":"Google Analytics","prec.bas6":"Google Business Profile","prec.bas7":"Location map","prec.bas8":"1 month support",
+  "prec.pro1":"Up to 15 pages","prec.pro2":"Everything in Basic plan","prec.pro3":"Admin panel","prec.pro4":"Advanced SEO","prec.pro5":"Built-in blog","prec.pro6":"Live chat","prec.pro7":"Social media integration","prec.pro8":"3 months support",
+  "prec.ent1":"Everything in Professional plan","prec.ent2":"Complete e-commerce","prec.ent3":"BAC/BN payment gateway","prec.ent4":"Android & iOS mobile app","prec.ent5":"Integrated POS system","prec.ent6":"1 month digital marketing","prec.ent7":"Team training","prec.ent8":"6 months support",
+  "prec.ctaPerso":"Custom quote →","prec.ctaDudas":"I have questions →",
+  "pago.titulo":"Make a payment","pago.sub":"Enter the agreed amount and pay securely with PayPal.",
+  "faq.eyebrow":"FAQ","faq.title":"Frequently asked questions.",
+  "faq.q1":"How long until my project is ready?","faq.a1":"A basic page: 3 to 7 days. A professional site: 1 to 2 weeks. E-commerce: 2 to 3 weeks. Mobile app: 3 to 6 weeks. We always give you an exact timeline before starting.",
+  "faq.q2":"Do I need to know about technology?","faq.a2":"No. We handle the entire technical process. You just need a clear business idea. We explain everything in plain language and train you to use your platform.",
+  "faq.q3":"How can I pay?","faq.a3":"We accept SINPE Móvil, bank transfer, PayPal and cash. For large projects we can do 50% upfront and 50% on delivery.",
+  "faq.q4":"Can I request changes after delivery?","faq.a4":"Yes. During the support period included in each plan you can request adjustments at no extra cost. After support ends, changes are quoted based on scope.",
+  "faq.q5":"Do you work with clients outside Costa Rica?","faq.a5":"Yes. We work with clients across Latin America and the world. Everything is handled remotely via WhatsApp and video call.",
+  "faq.q6":"Will my site show up on Google?","faq.a6":"Yes. All websites include basic SEO from day 1. To rank in top results we recommend the Professional Plan with advanced SEO.",
+  "faq.cta":"I have more questions →",
+  "finalcta.title":"Ready to take your<br>business to the next level?","finalcta.sub":"Schedule a free 30-minute consultation.","finalcta.detail":"No commitment. Keny replies in under 5 minutes.","finalcta.cta1":"Schedule free consultation →",
+  "lenguas.eyebrow":"🌿 Living Languages","lenguas.title":"Living dictionary of Costa Rica.","lenguas.titleSpan":"Contributed by the community.",
+  "lenguas.sub":"Over 2,400 words in bribri, cabécar, maléku, boruca, ngäbe and térraba. Search for a word, or contribute one from your language.",
+  "lenguas.cta":"Explore the dictionary →",
+  "footer.tagline":"We build software, apps and websites that grow businesses. Designed in Costa Rica for the world.",
+  "footer.sanjose":"San José, Costa Rica","footer.software":"Software","footer.empresa":"Company","footer.proceso":"Process","footer.contacto":"Contact","footer.email":"Email",
+  "footer.copy":"© 2026 KCN · Keny Chinchilla Navarro · Costa Rica · kenychinchilla.com"
+};
+
+const KCN_ES = {};
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  const key = el.getAttribute('data-i18n');
+  if (!(key in KCN_ES)) KCN_ES[key] = el.innerHTML;
+});
+
+let kcnCurrentLang = localStorage.getItem('kcn_lang') || 'es';
+
+function applyLang(lang) {
+  const dict = lang === 'en' ? KCN_EN : KCN_ES;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.setAttribute('lang', lang);
+  const btn = document.getElementById('langBtn');
+  if (btn) btn.textContent = lang === 'en' ? 'EN' : 'ES';
+  localStorage.setItem('kcn_lang', lang);
+  kcnCurrentLang = lang;
+}
+
+function toggleLang() {
+  applyLang(kcnCurrentLang === 'es' ? 'en' : 'es');
+}
+
+applyLang(kcnCurrentLang);
 </script>
 
 </body>
