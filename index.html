@@ -1262,10 +1262,11 @@ body.light .section-title,body.light .hero-title .line1,body.light .hero-title .
 <div class="kcn-chat-panel" id="kcnChatPanel">
   <div class="kcn-chat-header">
     <div class="kcn-chat-avatar">KCN</div>
-    <div>
+    <div style="flex:1;">
       <div style="font-size:13.5px;font-weight:600;">Asistente KCN</div>
       <div style="font-size:11px;color:#86868b;">Impulsado por IA · Respuesta al instante</div>
     </div>
+    <button id="kcnChatClose" aria-label="Cerrar chat" style="background:transparent;border:none;color:#86868b;font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;">✕</button>
   </div>
   <div class="kcn-chat-body" id="kcnChatBody"></div>
   <form class="kcn-chat-form" id="kcnChatForm">
@@ -1279,10 +1280,17 @@ body.light .section-title,body.light .hero-title .line1,body.light .hero-title .
   var messages = [{ role: 'assistant', content: '¡Hola! 👋 Soy el asistente virtual de KCN. Puedo ayudarte a resolver dudas sobre nuestros servicios, precios y tiempos de entrega. ¿En qué te puedo ayudar?' }];
   var toggle = document.getElementById('kcnChatToggle');
   var panel = document.getElementById('kcnChatPanel');
+  var closeBtn = document.getElementById('kcnChatClose');
   var body = document.getElementById('kcnChatBody');
   var form = document.getElementById('kcnChatForm');
   var input = document.getElementById('kcnChatInput');
   var loading = false;
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      panel.classList.remove('open');
+    });
+  }
 
   function render() {
     body.innerHTML = '';
