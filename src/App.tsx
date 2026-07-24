@@ -539,11 +539,12 @@ function IndigenousBanner({ lang }: { lang: LangKey }) {
 
 // ─── PORTFOLIO ──────────────────────────────────────────
 function Portfolio({ lang }: { lang: LangKey }) {
-  const projects = [
+  const projects: { tag: string; title: string; desc: string; emoji: string; link?: string }[] = [
     { tag: 'Sistema POS · Windows', title: 'Restaurantes MQ', desc: 'Punto de venta con facturación electrónica.', emoji: '🏪' },
     { tag: 'App Móvil · Android & iOS', title: 'DeliveryCR App', desc: 'Plataforma de delivery con tracking en tiempo real.', emoji: '🚀' },
     { tag: 'E-commerce · Web', title: 'TiendaTec Online', desc: 'Tienda online con pasarela BAC y Banco Nacional.', emoji: '🛒' },
     { tag: 'ERP · Linux', title: 'GestorInventario Pro', desc: 'Sistema ERP con módulos de inventario y reportes.', emoji: '⚙️' },
+    { tag: 'Sitio Web · Vercel', title: 'TEC-STAR Depuraciones', desc: 'Sitio corporativo con panel admin, SEO técnico y dominio propio para empresa de mantenimiento de plantas de tratamiento de aguas residuales.', emoji: '💧', link: 'https://tecstardepuraciones.com' },
   ]
 
   return (
@@ -562,7 +563,7 @@ function Portfolio({ lang }: { lang: LangKey }) {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-blue-400 mb-2">{p.tag}</p>
                 <h3 className="text-[20px] font-semibold text-white mb-1">{p.title}</h3>
                 <p className="text-[13px] text-white/60 mb-3">{p.desc}</p>
-                <a href="https://wa.me/50687359034" target="_blank" rel="noreferrer"
+                <a href={p.link ?? 'https://wa.me/50687359034'} target="_blank" rel="noreferrer"
                    className="inline-flex items-center gap-1.5 text-[13px] text-blue-400">
                   {lang === 'en' ? 'See details' : 'Ver detalles'} <ArrowRight size={14} />
                 </a>
